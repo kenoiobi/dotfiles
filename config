@@ -216,3 +216,4 @@ exec picom
 client.focused #dddddd #dddddd #000000 #000000 
 exec xinput set-prop "deviceid" "libinput Accel Profile Enabled" 0 1 0
 workspace_layout tabbed
+exec feh --bg-scale wallpaperflare.com_wallpaper.jpg
