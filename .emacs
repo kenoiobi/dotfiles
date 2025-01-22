@@ -28,5 +28,8 @@
 (evil-mode t)
 (evil-global-set-key 'normal (kbd "SPC RET") (quote consult-bookmark))
 (evil-global-set-key 'normal (kbd "SPC e") (quote eshell))
+(evil-define-key 'normal dired-mode-map (kbd "SPC e") 'eshell)
+(evil-define-key 'normal dired-mode-map (kbd "SPC RET") 'consult-bookmark)
+
 (global-set-key [f4] 'compile)
 (global-set-key (kbd "C-;") 'comment-line)
