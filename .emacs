@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(compile-command "./build.sh")
  '(custom-enabled-themes '(wheatgrass))
+ '(dired-dwim-target t)
  '(display-line-numbers 'relative)
  '(display-time-mode t)
  '(menu-bar-mode nil)
