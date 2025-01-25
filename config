@@ -205,6 +205,10 @@ exec firefox -P aaaa --name whatsapp --no-remote --class whatsapp https://web.wh
 for_window [class="whatsapp"] move to scratchpad, resize set 1500 900
 bindsym $mod+w [class="whatsapp"] scratchpad show, move position center
 
+exec firefox -P legitimuz --name legitimuz --no-remote --class legitimuz https://web.whatsapp.com
+for_window [class="legitimuz"] move to scratchpad, resize set 1500 900
+bindsym $mod+e [class="legitimuz"] scratchpad show, move position center
+
 exec urxvt -name todo -e vim ~/todo/todo.txt
 for_window [instance="todo"] move to scratchpad, resize set 1500 900
 bindsym $mod+q [instance="todo"] scratchpad show, move position center
@@ -226,3 +230,6 @@ exec xinput set-prop "deviceid" "libinput Accel Profile Enabled" 0 1 0
 workspace_layout tabbed
 exec feh --bg-scale ~/wallpaper/wallpaperflare.com_wallpaper.jpg
 exec /home/kayon/audiorelay/mic.sh
+bindsym Shift+Print exec flameshot gui -c
+bindsym Print exec flameshot full -c
+bindsym $mod+m bar mode toggle
