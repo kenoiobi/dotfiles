@@ -1,6 +1,7 @@
 ;; my config
 
 (global-set-key (kbd "C-;") (quote comment-line))
+(global-set-key (kbd "<f4>") (quote compile))
 (map! :leader "e" (quote eshell))
 
 (map! :leader "'"
