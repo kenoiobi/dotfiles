@@ -9,6 +9,7 @@
  '(display-line-numbers 'relative)
  '(display-time-mode t)
  '(evil-want-keybinding nil)
+ '(inhibit-startup-screen t)
  '(max-lisp-eval-depth 3200)
  '(menu-bar-mode nil)
  '(package-archives
@@ -17,7 +18,7 @@
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
    '(rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
- '(projectile-mode t nil (projectile))
+ '(projectile-mode t)
  '(scroll-bar-mode nil)
  '(timeclock-mode-line-display nil)
  '(tool-bar-mode nil)
@@ -62,3 +63,5 @@
 ;; keybindings
 (global-set-key [f4] 'compile)
 (global-set-key (kbd "C-;") 'comment-line)
+(setq default-directory "~/")
+
