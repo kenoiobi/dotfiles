@@ -62,5 +62,3 @@
 ;; keybindings
 (global-set-key [f4] 'compile)
 (global-set-key (kbd "C-;") 'comment-line)
-(setq default-directory "~/")
-
