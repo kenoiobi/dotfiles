@@ -92,3 +92,12 @@
 (define-key jchord (kbd "f") 'harpoon-toggle-file)
 
 (define-key chord (kbd "j") jchord)
+
+(global-set-key "\C-x2" (lambda () (interactive)(split-window-vertically) (other-window 1)))
+(global-set-key "\C-x3" (lambda () (interactive)(split-window-horizontally) (other-window 1)))
+(define-key evil-normal-state-map (kbd "C-w") 'evil-numbers/inc-at-pt)
+(define-key evil-normal-state-map (kbd "C-S-w") 'evil-numbers/dec-at-pt)
+(define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
+
+(define-key evil-insert-state-map (kbd "C-a") 'move-beginning-of-line)
+(define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
