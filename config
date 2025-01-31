@@ -1,8 +1,5 @@
 font pango:monospace 0
 
-set $mod Mod1
-
-
 default_border pixel 1
 hide_edge_borders smart
 client.focused #dddddd #dddddd #000000 #000000
@@ -14,6 +11,7 @@ set $refresh_i3status killall -SIGUSR1 i3status
 exec setxkbmap br -option ctrl:swapcaps
 exec xinput set-prop "deviceid" "libinput Accel Profile Enabled" 0 1 0
 
+set $mod Mod1
 
 bindsym $mod+Escape kill
 bindsym $mod+Shift+c reload
