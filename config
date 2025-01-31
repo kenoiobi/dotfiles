@@ -1,13 +1,13 @@
 font pango:monospace 0
-
 default_border pixel 1
 hide_edge_borders smart
 client.focused #dddddd #dddddd #000000 #000000
 workspace_layout tabbed
+set $refresh_i3status killall -SIGUSR1 i3status
+
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
-set $refresh_i3status killall -SIGUSR1 i3status
 exec setxkbmap br -option ctrl:swapcaps
 exec xinput set-prop "deviceid" "libinput Accel Profile Enabled" 0 1 0
 
@@ -79,6 +79,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
@@ -89,6 +90,7 @@ bindsym Shift+Print exec flameshot gui -c
 bindsym Print exec flameshot full -c
 bindsym $mod+m bar mode toggle
 bindsym XF86Calculator exec xcalc
+
 
 mode "resize" {
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -102,11 +104,11 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+
 bar {
 	status_command i3status
 	font pango:monospace 12
 }
-
 
 
 exec discord
@@ -144,6 +146,7 @@ exec emacs
 
 for_window [instance="com-azefsw-audioconnect-desktop-app-MainKt"] move container to workspace number 4
 for_window [instance="emacs"] move container to workspace number 2
+
 
 bindsym Next exec "for i in 1 2 3 4 5; do xdotool click 5; done"
 bindsym Prior exec "for i in 1 2 3 4 5; do xdotool click 4; done"
