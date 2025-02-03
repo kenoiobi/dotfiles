@@ -7,8 +7,11 @@ tnoremap <Esc> <C-\><C-n>
 set number relativenumber
 syntax on
 map <C-Q> :q<cr>
-map <C-S> :split<cr>
-map <C-E> :vsplit<cr>
+map <C-x>2 :split<cr>
+map <C-x>3 :vsplit<cr>
+map <C-x>o <C-w>w
+map <C-x> <C-w>
+map <C-x>h ggVG
 let mapleader = " "
 map <leader>e :Ex<CR>
 map <leader>t :tab ter<CR>
