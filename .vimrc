@@ -12,5 +12,6 @@ map <C-E> :vsplit<cr>
 let mapleader = " "
 map <leader>e :Ex<CR>
 map <leader>t :tab ter<CR>
+map <leader><CR> :e ~/.bookmark<CR>
 set clipboard=unnamedplus
 set autochdir
