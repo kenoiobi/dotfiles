@@ -3,7 +3,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(bookmark-save-flag 1)
  '(compile-command "./build.sh")
+ '(custom-enabled-themes '(doom-one))
+ '(custom-safe-themes
+   '("0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1" default))
  '(dired-dwim-target t)
  '(display-line-numbers 'relative)
  '(display-time-mode t)
@@ -22,12 +26,13 @@
  '(timeclock-mode-line-display nil)
  '(tool-bar-mode nil)
  '(vertico-mode t))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "black" :foreground "wheat" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 158 :width normal :foundry "PfEd" :family "Noto Sans Mono")))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#282c34" :foreground "#bbc2cf" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 157 :width normal :foundry "ADBO" :family "Source Code Pro")))))
 
 ;; functionality
 (package-install 'vertico)
@@ -36,18 +41,19 @@
 (package-install 'projectile)
 (package-install 'evil-collection)
 (package-install 'harpoon)
+(package-install 'doom-themes)
 
 ;; lsp bs
-(package-install 'rjsx-mode)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+;; (package-install 'rjsx-mode)
+;; (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 
-(package-install 'lsp-mode)
-(add-hook 'rjsx-mode-hook 'lsp)
+;; (package-install 'lsp-mode)
+;; (add-hook 'rjsx-mode-hook 'lsp)
 
-(package-install 'flycheck)
-(package-install 'flycheck-inline)
-(global-flycheck-mode +1)
-(add-hook 'flycheck-mode-hook #'flycheck-inline-mode)
+;; (package-install 'flycheck)
+;; (package-install 'flycheck-inline)
+;; (global-flycheck-mode +1)
+;; (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)
 
 ;; evil
 (evil-mode t)
@@ -68,7 +74,6 @@
 (define-key chord (kbd ".") 'find-file)
 
 (evil-global-set-key 'normal (kbd "SPC") chord)
-(evil-define-key 'normal dired-mode-map (kbd "SPC") chord)
 
 ;; keybindings
 (global-set-key [f4] 'compile)
@@ -101,3 +106,13 @@
 
 (define-key evil-insert-state-map (kbd "C-a") 'move-beginning-of-line)
 (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
+
+;; (bookmark-load '~/.emacs.d/bookmarks t)
+;; (bookmark-set ".emacs" "~/.emacs")
+;; (bookmark-write)
+;; (bookmark-set "~/.config/i3/config")
+;; (bookmark-set "~/Downloads")
+;; (bookmark-set "~/.bashrc")
+;; (bookmark-set "~/.config/tmux/tmux.conf")
+
+
