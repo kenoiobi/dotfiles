@@ -20,7 +20,8 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(doom-themes harpoon flycheck-inline rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
+   '(evil-numbers perspective doom-themes harpoon flycheck-inline rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
+ '(persp-mode t)
  '(projectile-mode t nil (projectile))
  '(scroll-bar-mode nil)
  '(timeclock-mode-line-display nil)
@@ -32,16 +33,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#282c34" :foreground "#bbc2cf" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 157 :width normal :foundry "ADBO" :family "Source Code Pro")))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#282c34" :foreground "#bbc2cf" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 150 :width normal :foundry "GOOG" :family "Noto Sans Mono")))))
 
 ;; functionality
+(package-install 'evil)
+(package-install 'evil-collection)
+(package-install 'evil-numbers)
 (package-install 'vertico)
 (package-install 'consult)
-(package-install 'evil)
 (package-install 'projectile)
-(package-install 'evil-collection)
 (package-install 'harpoon)
 (package-install 'doom-themes)
+(package-install 'perspective)
 
 ;; lsp bs
 ;; (package-install 'rjsx-mode)
@@ -55,64 +58,54 @@
 ;; (global-flycheck-mode +1)
 ;; (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)
 
+;; basic settings
+(setq default-directory "~/")
+
+;; basic mappings
+(global-set-key [f4] 'compile)
+(global-set-key (kbd "C-;") 'comment-line)
+
+(global-set-key "\C-x2" (lambda () (interactive)(split-window-vertically) (other-window 1)))
+(global-set-key "\C-x3" (lambda () (interactive)(split-window-horizontally) (other-window 1)))
+
+
+
 ;; evil
 (evil-mode t)
 (evil-collection-init)
 
-;; key chords
-(defvar pchord (make-sparse-keymap))
 
-(define-key pchord (kbd "p") 'projectile-switch-project)
-(define-key pchord (kbd "a") 'projectile-add-known-project)
+(evil-set-leader 'normal (kbd "SPC"))
+(evil-define-key 'normal 'global (kbd "<leader>RET") 'consult-bookmark)
+(evil-define-key 'normal 'global (kbd "<leader>SPC") 'projectile-find-file)
+(evil-define-key 'normal 'global (kbd "<leader>TAB") 'persp-switch)
+(evil-define-key 'normal 'global (kbd "<leader>[") 'persp-prev)
+(evil-define-key 'normal 'global (kbd "<leader>]") 'persp-next)
+(evil-define-key 'normal 'global (kbd "<leader>,") 'previous-buffer)
+(evil-define-key 'normal 'global (kbd "<leader>.") 'next-buffer)
 
-(defvar chord (make-sparse-keymap))
+(evil-define-key 'normal 'global (kbd "<leader>e") 'find-file)
+(evil-define-key 'normal 'global (kbd "<leader>r") 'eval-buffer)
+(evil-define-key 'normal 'global (kbd "<leader>t") 'eshell)
 
-(define-key chord (kbd "e") 'eshell)
-(define-key chord (kbd "RET") 'consult-bookmark)
-(define-key chord (kbd "p") pchord)
-(define-key chord (kbd "SPC") 'projectile-find-file)
-(define-key chord (kbd ".") 'find-file)
 
-(evil-global-set-key 'normal (kbd "SPC") chord)
+(evil-define-key 'normal 'global (kbd "<leader>1") 'harpoon-go-to-1)
+(evil-define-key 'normal 'global (kbd "<leader>2") 'harpoon-go-to-2)
+(evil-define-key 'normal 'global (kbd "<leader>3") 'harpoon-go-to-3)
+(evil-define-key 'normal 'global (kbd "<leader>4") 'harpoon-go-to-4)
+(evil-define-key 'normal 'global (kbd "<leader>5") 'harpoon-go-to-5)
+(evil-define-key 'normal 'global (kbd "<leader>6") 'harpoon-go-to-6)
+(evil-define-key 'normal 'global (kbd "<leader>7") 'harpoon-go-to-7)
+(evil-define-key 'normal 'global (kbd "<leader>8") 'harpoon-go-to-8)
+(evil-define-key 'normal 'global (kbd "<leader>9") 'harpoon-go-to-9)
 
-;; keybindings
-(global-set-key [f4] 'compile)
-(global-set-key (kbd "C-;") 'comment-line)
-(setq default-directory "~/")
-
-;; harpoon
 (global-set-key (kbd "C-s") 'harpoon-add-file)
-(define-key chord (kbd "1") 'harpoon-go-to-1)
-(define-key chord (kbd "2") 'harpoon-go-to-2)
-(define-key chord (kbd "3") 'harpoon-go-to-3)
-(define-key chord (kbd "4") 'harpoon-go-to-4)
-(define-key chord (kbd "5") 'harpoon-go-to-5)
-(define-key chord (kbd "6") 'harpoon-go-to-6)
-(define-key chord (kbd "7") 'harpoon-go-to-7)
-(define-key chord (kbd "8") 'harpoon-go-to-8)
-(define-key chord (kbd "9") 'harpoon-go-to-9)
+(evil-define-key 'normal 'global (kbd "<leader>h") 'harpoon-toggle-file)
 
-(defvar jchord (make-sparse-keymap))
-(define-key jchord (kbd "c") 'harpoon-clear)
-(define-key jchord (kbd "f") 'harpoon-toggle-file)
-
-(define-key chord (kbd "j") jchord)
-
-(global-set-key "\C-x2" (lambda () (interactive)(split-window-vertically) (other-window 1)))
-(global-set-key "\C-x3" (lambda () (interactive)(split-window-horizontally) (other-window 1)))
 (define-key evil-normal-state-map (kbd "C-w") 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map (kbd "C-S-w") 'evil-numbers/dec-at-pt)
 (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
-
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-normal-state-map (kbd "gt") 'persp-switch-last)
 (define-key evil-insert-state-map (kbd "C-a") 'move-beginning-of-line)
 (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
-
-;; (bookmark-load '~/.emacs.d/bookmarks t)
-;; (bookmark-set ".emacs" "~/.emacs")
-;; (bookmark-write)
-;; (bookmark-set "~/.config/i3/config")
-;; (bookmark-set "~/Downloads")
-;; (bookmark-set "~/.bashrc")
-;; (bookmark-set "~/.config/tmux/tmux.conf")
-
-
