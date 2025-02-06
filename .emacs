@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(bookmark-save-flag 1)
  '(compile-command "./build.sh")
+ '(cua-mode nil)
  '(custom-enabled-themes '(doom-one))
  '(custom-safe-themes
    '("0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1" default))
@@ -13,6 +14,9 @@
  '(display-time-mode t)
  '(evil-want-keybinding nil)
  '(inhibit-startup-screen t)
+ '(initial-major-mode 'org-mode)
+ '(initial-scratch-message nil)
+ '(major-mode 'org-mode)
  '(max-lisp-eval-depth 3200)
  '(menu-bar-mode nil)
  '(package-archives
@@ -20,8 +24,9 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(evil-numbers perspective doom-themes harpoon flycheck-inline rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
+   '(rainbow-identifiers evil-numbers perspective doom-themes harpoon flycheck-inline rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
  '(persp-mode t)
+ '(persp-mode-prefix-key [67109044])
  '(projectile-mode t nil (projectile))
  '(scroll-bar-mode nil)
  '(timeclock-mode-line-display nil)
@@ -45,6 +50,7 @@
 (package-install 'harpoon)
 (package-install 'doom-themes)
 (package-install 'perspective)
+(package-install 'rainbow-identifiers)
 
 ;; lsp bs
 ;; (package-install 'rjsx-mode)
@@ -71,9 +77,9 @@
 
 
 ;; evil
+(require 'dired)
+(define-key dired-mode-map (kbd "SPC") 'nil)
 (evil-mode t)
-(evil-collection-init)
-
 
 (evil-set-leader 'normal (kbd "SPC"))
 (evil-define-key 'normal 'global (kbd "<leader>RET") 'consult-bookmark)
@@ -87,7 +93,8 @@
 (evil-define-key 'normal 'global (kbd "<leader>e") 'find-file)
 (evil-define-key 'normal 'global (kbd "<leader>r") 'eval-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>t") 'eshell)
-
+(evil-define-key 'normal 'global (kbd "<leader>a") 'switch-to-buffer)
+(evil-define-key 'normal 'global (kbd "<leader>bs") 'scratch-buffer)
 
 (evil-define-key 'normal 'global (kbd "<leader>1") 'harpoon-go-to-1)
 (evil-define-key 'normal 'global (kbd "<leader>2") 'harpoon-go-to-2)
@@ -109,3 +116,6 @@
 (define-key evil-normal-state-map (kbd "gt") 'persp-switch-last)
 (define-key evil-insert-state-map (kbd "C-a") 'move-beginning-of-line)
 (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
+
+(evil-collection-init 'custom)
+(add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
