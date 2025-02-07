@@ -12,6 +12,8 @@
  '(dired-dwim-target t)
  '(display-line-numbers 'relative)
  '(display-time-mode t)
+ '(electric-pair-mode t)
+ '(evil-collection-key-blacklist '("\"SPC\""))
  '(evil-want-keybinding nil)
  '(inhibit-startup-screen t)
  '(initial-major-mode 'org-mode)
@@ -24,7 +26,7 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(rainbow-identifiers evil-numbers perspective doom-themes harpoon flycheck-inline rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
+   '(general rainbow-identifiers evil-numbers perspective doom-themes harpoon flycheck-inline rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
  '(persp-mode t)
  '(persp-mode-prefix-key [67109044])
  '(projectile-mode t nil (projectile))
@@ -42,7 +44,6 @@
 
 ;; functionality
 (package-install 'evil)
-(package-install 'evil-collection)
 (package-install 'evil-numbers)
 (package-install 'vertico)
 (package-install 'consult)
@@ -70,6 +71,7 @@
 ;; basic mappings
 (global-set-key [f4] 'compile)
 (global-set-key (kbd "C-;") 'comment-line)
+(global-set-key (kbd "C-t") 'persp)
 
 (global-set-key "\C-x2" (lambda () (interactive)(split-window-vertically) (other-window 1)))
 (global-set-key "\C-x3" (lambda () (interactive)(split-window-horizontally) (other-window 1)))
@@ -77,11 +79,12 @@
 
 
 ;; evil
-(require 'dired)
-(define-key dired-mode-map (kbd "SPC") 'nil)
 (evil-mode t)
+(setq evil-collection-key-blacklist '("SPC"))
+(evil-collection-init)
 
 (evil-set-leader 'normal (kbd "SPC"))
+(evil-set-leader 'emacs (kbd "SPC"))
 (evil-define-key 'normal 'global (kbd "<leader>RET") 'consult-bookmark)
 (evil-define-key 'normal 'global (kbd "<leader>SPC") 'projectile-find-file)
 (evil-define-key 'normal 'global (kbd "<leader>TAB") 'persp-switch)
@@ -89,12 +92,21 @@
 (evil-define-key 'normal 'global (kbd "<leader>]") 'persp-next)
 (evil-define-key 'normal 'global (kbd "<leader>,") 'previous-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>.") 'next-buffer)
+(evil-define-key 'normal 'global (kbd "<leader>'") (lambda () (interactive)
+        (let (project-root (projectile-project-root))
+          (find-file (expand-file-name "project.org" project-root))
+						     )))
+
 
 (evil-define-key 'normal 'global (kbd "<leader>e") 'find-file)
 (evil-define-key 'normal 'global (kbd "<leader>r") 'eval-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>t") 'eshell)
 (evil-define-key 'normal 'global (kbd "<leader>a") 'switch-to-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>bs") 'scratch-buffer)
+(evil-define-key 'normal 'global (kbd "<leader>wk") 'persp-kill)
+(evil-define-key 'normal 'global (kbd "<leader>wr") 'persp-rename)
+(evil-define-key 'normal 'global (kbd "<leader>pa") 'projectile-add-known-project)
+(evil-define-key 'normal 'global (kbd "<leader>pp") 'projectile-switch-project)
 
 (evil-define-key 'normal 'global (kbd "<leader>1") 'harpoon-go-to-1)
 (evil-define-key 'normal 'global (kbd "<leader>2") 'harpoon-go-to-2)
@@ -117,5 +129,4 @@
 (define-key evil-insert-state-map (kbd "C-a") 'move-beginning-of-line)
 (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
 
-(evil-collection-init 'custom)
 (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
