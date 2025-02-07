@@ -45,6 +45,7 @@
 ;; functionality
 (package-install 'evil)
 (package-install 'evil-numbers)
+(package-install 'evil-collection)
 (package-install 'vertico)
 (package-install 'consult)
 (package-install 'projectile)
