@@ -1,3 +1,4 @@
+print("Hello there")
 vim.cmd ('source ~/.vimrc')
 
 -- lazy package manager

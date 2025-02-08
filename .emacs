@@ -21,12 +21,13 @@
  '(major-mode 'org-mode)
  '(max-lisp-eval-depth 3200)
  '(menu-bar-mode nil)
+ '(org-adapt-indentation nil)
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(general rainbow-identifiers evil-numbers perspective doom-themes harpoon flycheck-inline rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
+   '(evil-org general rainbow-identifiers evil-numbers perspective doom-themes harpoon flycheck-inline rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
  '(persp-mode t)
  '(persp-mode-prefix-key [67109044])
  '(projectile-mode t nil (projectile))
@@ -46,6 +47,7 @@
 (package-install 'evil)
 (package-install 'evil-numbers)
 (package-install 'evil-collection)
+(package-install 'evil-org)
 (package-install 'vertico)
 (package-install 'consult)
 (package-install 'projectile)
@@ -131,3 +133,5 @@
 (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
 
 (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
+
+(add-hook 'org-mode-hook (lambda () (interactive) (setq-local evil-shift-width 2)))
