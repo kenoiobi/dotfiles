@@ -1,3 +1,4 @@
+
 font pango:monospace 0
 default_border pixel 1
 hide_edge_borders smart
@@ -127,7 +128,7 @@ exec firefox -P legitimuz --name legitimuz --no-remote --class legitimuz https:/
 for_window [class="legitimuz"] move to scratchpad, resize set 1500 900
 bindsym $mod+e [class="legitimuz"] scratchpad show, move position center
 
-exec urxvt -name todo -e vim ~/todo/todo.txt ~/todo/jovens.txt ~/todo/legitimuz.txt -c "tab all"
+exec urxvt -name todo -e nvim ~/todo/todo.txt ~/todo/jovens.txt ~/todo/legitimuz.txt ~/todo/quality.txt -c "tab all"
 for_window [instance="todo"] move to scratchpad, resize set 1500 900
 bindsym $mod+q [instance="todo"] scratchpad show, move position center
 
@@ -143,10 +144,16 @@ exec redshift
 exec feh --bg-scale ~/wallpaper/wallpaperflare.com_wallpaper.jpg
 exec /home/kayon/audiorelay/mic.sh
 exec emacs
+exec semacs
+exec flatpak run app.zen_browser.zen
 
 for_window [instance="com-azefsw-audioconnect-desktop-app-MainKt"] move container to workspace number 4
 for_window [instance="emacs"] move container to workspace number 2
-
+for_window [instance="zen"] move container to workspace 3
 
 bindsym Next exec "for i in 1 2 3 4 5; do xdotool click 5; done"
 bindsym Prior exec "for i in 1 2 3 4 5; do xdotool click 4; done"
+
+exec sleep 5
+exec xdotool search --sync --onlyvisible --class "whatsapp" windowactivate key F11
+exec xdotool search --sync --onlyvisible --class "legitimuz" windowactivate key F11
