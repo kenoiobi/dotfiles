@@ -27,9 +27,10 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(evil-org general rainbow-identifiers evil-numbers perspective doom-themes harpoon flycheck-inline rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
+   '(vterm magit evil-org general rainbow-identifiers evil-numbers perspective doom-themes harpoon flycheck-inline rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
  '(persp-mode t)
  '(persp-mode-prefix-key [67109044])
+ '(pop-up-windows nil)
  '(projectile-mode t nil (projectile))
  '(scroll-bar-mode nil)
  '(timeclock-mode-line-display nil)
@@ -55,6 +56,7 @@
 (package-install 'doom-themes)
 (package-install 'perspective)
 (package-install 'rainbow-identifiers)
+(package-install 'magit)
 
 ;; lsp bs
 ;; (package-install 'rjsx-mode)
@@ -95,6 +97,7 @@
 (evil-define-key 'normal 'global (kbd "<leader>]") 'persp-next)
 (evil-define-key 'normal 'global (kbd "<leader>,") 'previous-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>.") 'next-buffer)
+(evil-define-key 'normal 'global (kbd "|") 'async-shell-command)
 (evil-define-key 'normal 'global (kbd "<leader>'") (lambda () (interactive)
         (let (project-root (projectile-project-root))
           (find-file (expand-file-name "project.org" project-root))
@@ -103,7 +106,8 @@
 
 (evil-define-key 'normal 'global (kbd "<leader>e") 'find-file)
 (evil-define-key 'normal 'global (kbd "<leader>r") 'eval-buffer)
-(evil-define-key 'normal 'global (kbd "<leader>t") 'eshell)
+(evil-define-key 'normal 'global (kbd "<leader>t") 'vterm)
+(evil-define-key 'normal 'global (kbd "<leader>k") 'kill-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>a") 'switch-to-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>bs") 'scratch-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>wk") 'persp-kill)
@@ -123,6 +127,11 @@
 
 (global-set-key (kbd "C-s") 'harpoon-add-file)
 (evil-define-key 'normal 'global (kbd "<leader>h") 'harpoon-toggle-file)
+(evil-define-key 'normal 'global (kbd "<leader>gg") 'magit)
+(evil-define-key 'normal 'global (kbd "<leader>ga") 'magit-log-buffer-file)
+(evil-define-key 'normal 'global (kbd "<leader>s") 'magit-file-dispatch)
+(evil-define-key 'normal 'global (kbd "<leader>n") 'magit-blob-previous)
+(evil-define-key 'normal 'global (kbd "<leader>m") 'magit-blob-next)
 
 (define-key evil-normal-state-map (kbd "C-w") 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map (kbd "C-S-w") 'evil-numbers/dec-at-pt)
