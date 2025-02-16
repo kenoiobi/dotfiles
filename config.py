@@ -28,10 +28,20 @@ from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+from libqtile import hook
+from qtile_bonsai import Bonsai
 import subprocess
+import time
 
 mod = "mod1"
 terminal = "urxvt"
+
+
+@lazy.function
+def minimize_all(qtile):
+    for win in qtile.current_group.windows:
+        if hasattr(win, "toggle_minimize"):
+            win.toggle_minimize()
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -41,13 +51,18 @@ keys = [
     Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
+    Key([mod], "Page_Up", lazy.layout.prev_tab(), desc="Move focus up"),
+    Key([mod], "Page_Down", lazy.layout.next_tab(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
     Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod, "shift"], "Page_Up", lazy.layout.swap_tabs("previous"), desc="Move window up"),
+    Key([mod, "shift"], "Page_Down", lazy.layout.swap_tabs("next"), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
@@ -67,16 +82,30 @@ keys = [
     ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "apostrophe", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "Escape", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window",
+    Key([mod], "f", lazy.window.toggle_maximize(), desc="Toggle fullscreen on the focused window",
     ),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "shift"], "e", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "d", lazy.spawn("dmenu_run"), desc="Spawn a command using a prompt widget"),
-    Key([mod], "q", lazy.group['ssss'].dropdown_toggle('term1')),
-    Key([mod], "w", lazy.group['ssss'].dropdown_toggle('term2')),
+    Key([mod, "shift"], "d", minimize_all(), desc="Spawn a command using a prompt widget"),
+
+    Key([mod], "q", lazy.group['0'].dropdown_toggle('term')),
+    Key([mod], "w", lazy.group['0'].dropdown_toggle('whatsapp')),
+    Key([mod, "shift"], "w", lazy.group['0'].dropdown_toggle('discord')),
+    Key([mod], "e", lazy.group['0'].dropdown_toggle('legitimuz')),
+    Key([mod], "a", lazy.group['0'].dropdown_toggle('todo')),
+    Key([mod], "s", lazy.group['0'].dropdown_toggle('slack')),
+
+    Key([mod], "m", lazy.hide_show_bar(), desc="toggle bar"),
+
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset Master 5%+")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master 5%-")),
+    Key([], "Print", lazy.spawn("flameshot full -c")),
+    Key(["shift"], "Print", lazy.spawn("flameshot gui -c")),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -95,17 +124,61 @@ for vt in range(1, 8):
 
 groups = [
     Group("1"),
-    Group("2"),
-    Group("3"),
-    Group("4"),
-    Group("5"),
+    Group(
+        "2",
+        layout="bsp",
+        matches=Match(wm_class=["Emacs"]),
+    ),
+    Group(
+        "3",
+        matches=Match(wm_class=["zen"]),
+    ),
+    Group(
+        "4",
+        matches=Match(wm_class=["com-azefsw-audioconnect-desktop-app-MainKt"]),
+    ),
+    Group(
+        "5",
+        matches=Match(wm_class=["virt-manager"]),
+    ),
     Group("6"),
     Group("7"),
     Group("8"),
+    # Group("9", spawn="tmux -c alttab"),
     Group("9"),
-    ScratchPad("ssss", [
-        DropDown("term1", "urxvt", y=0.05, x=0.05, width=0.9, height=0.9),
-        DropDown("term2", "urxvt"),
+    ScratchPad("0", [
+        DropDown(
+            "term",
+            "urxvt -e tmux",
+            y=0.07, x=0.05, width=0.9, height=0.9
+        ),
+        DropDown(
+            "whatsapp",
+            "firefox --no-remote -P aaaa https://web.whatsapp.com",
+            y=0.07, x=0.05, width=0.9, height=0.9
+        ),
+        DropDown(
+            "legitimuz",
+            "firefox --no-remote -P legitimuz https://web.whatsapp.com",
+            y=0.07, x=0.05, width=0.9, height=0.9
+        ),
+        DropDown(
+            "discord",
+            "discord",
+            y=0.07, x=0.05, width=0.9, height=0.9,
+            match=Match(wm_class=['discord'])
+        ),
+        DropDown(
+            "slack",
+            "slack",
+            y=0.07, x=0.05, width=0.9, height=0.9,
+            match=Match(wm_class=['Slack'])
+        ),
+        DropDown(
+            "todo",
+            "urxvt -e nvim todo/todo.txt todo/jovens.txt todo/legitimuz.txt todo/quality.txt -c tab all",
+            y=0.07, x=0.05, width=0.9, height=0.9
+        ),
         ]
     )
 ]
@@ -137,24 +210,13 @@ for i in range(9):
 
 
 layouts = [
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    # layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    layout.Floating(margin=0),
+    layout.Bsp(margin=0),
 ]
 
 widget_defaults = dict(
     font="sans",
-    fontsize=12,
+    fontsize=16,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -163,25 +225,24 @@ screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
-                widget.WindowName(),
+                widget.TaskList(
+                    max_title_length=15
+                ),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                widget.Clock(format="%H:%M %p %a %d/%m/%Y"),
             ],
-            24,
+            35,
+            background="#292a2e"
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
@@ -189,7 +250,7 @@ screens = [
         # By default we handle these events delayed to already improve performance, however your system might still be struggling
         # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
         # x11_drag_polling_rate = 60,
-    ),
+        )
 ]
 
 # Drag floating layouts.
@@ -201,7 +262,7 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 floats_kept_above = True
 cursor_warp = False
@@ -241,5 +302,12 @@ wl_xcursor_size = 24
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
-subprocess.run("~/aa.sh &", shell=True)
-subprocess.run("setxkbmap br -option ctrl:swapcaps", shell=True)
+subprocess.run("~/.config/qtile/autostart.sh", shell=True)
+
+qtile.cmd_spawn("firefox")
+qtile.cmd_spawn("redshift")
+qtile.cmd_spawn("emacs")
+qtile.cmd_spawn("flatpak run app.zen_browser.zen")
+qtile.cmd_spawn("alttab -w 1")
+qtile.cmd_spawn("virt-manager")
+qtile.cmd_spawn("audiorelay")
