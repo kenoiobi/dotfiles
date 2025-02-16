@@ -11,6 +11,8 @@
  '(custom-safe-themes
    '("0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1" default))
  '(delete-by-moving-to-trash t)
+ '(desktop-path '("./"))
+ '(desktop-save-mode nil)
  '(dired-dwim-target t)
  '(dired-listing-switches "-ahl")
  '(display-line-numbers 'visual)
@@ -86,7 +88,7 @@
 
 
 ;; basic mappings
-(global-set-key [f4] 'compile)
+(global-set-key [f1] 'compile)
 (global-set-key (kbd "C-;") 'comment-line)
 (global-set-key (kbd "C-t") 'persp)
 
@@ -170,11 +172,16 @@
 (define-key evil-normal-state-map (kbd "gt") 'persp-switch-last)
 (define-key evil-insert-state-map (kbd "C-a") 'move-beginning-of-line)
 (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
-(evil-define-key 'normal dired-mode-map (kbd "i") 'dired-subtree-insert)
+(evil-define-key 'normal dired-mode-map (kbd "TAB") 'dired-subtree-toggle)
+(evil-define-key 'normal dired-mode-map (kbd "l") 'dired-find-file)
+(evil-define-key 'normal dired-mode-map (kbd "h") 'dired-up-directory)
 
 (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
 
 (add-hook 'org-mode-hook (lambda () (interactive) (setq-local evil-shift-width 2)))
 (setq warning-minimum-level :emergency)
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
-
+(setq persp-state-default-file "~/.emacs.d/persp")
+(persp-state-load "~/.emacs.d/persp")
+(persp-kill "main")
+(setq frame-resize-pixelwise t) 
