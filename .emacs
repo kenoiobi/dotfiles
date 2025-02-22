@@ -26,6 +26,11 @@
  '(evil-collection-key-blacklist '("\"SPC\""))
  '(evil-mode-line-format nil)
  '(evil-want-keybinding nil)
+ '(indent-bars-display-on-blank-lines t)
+ '(indent-bars-spacing-override 4)
+ '(indent-bars-starting-column 0)
+ '(indent-bars-width-frac 1)
+ '(indent-tabs-mode 1)
  '(inhibit-startup-screen t)
  '(initial-major-mode 'org-mode)
  '(initial-scratch-message nil)
@@ -49,13 +54,9 @@
  '(timeclock-mode-line-display nil)
  '(tool-bar-mode nil)
  '(vertico-mode t))
-
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#282c34" :foreground "#bbc2cf" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 150 :width normal :foundry "GOOG" :family "Noto Sans Mono")))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#1f2430" :foreground "#cbccc6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 143 :width normal :foundry "PfEd" :family "DejaVu Sans Mono")))))
+
 
 ;; functionality
 (package-install 'evil)
@@ -94,7 +95,7 @@
 
 
 ;; basic mappings
-(global-set-key [f1] 'compile)
+(global-set-key [f4] 'compile)
 (global-set-key (kbd "C-;") 'comment-line)
 (global-set-key (kbd "C-t") 'persp)
 
@@ -190,5 +191,5 @@
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 (setq persp-state-default-file "~/.emacs.d/persp")
 (persp-state-load "~/.emacs.d/persp")
-(persp-kill "main")
 (setq frame-resize-pixelwise t) 
+(load-theme 'doom-ayu-mirage t)
