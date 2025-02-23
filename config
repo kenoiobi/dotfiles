@@ -1,6 +1,5 @@
-
 font pango:monospace 0
-default_border pixel 1
+default_border pixel 2
 hide_edge_borders smart
 client.focused #dddddd #dddddd #000000 #000000
 workspace_layout tabbed
@@ -20,7 +19,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+Return exec urxvt
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+a exec --no-startup-id rofi -show window
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -132,24 +132,20 @@ exec urxvt -name todo -e nvim ~/todo/todo.txt ~/todo/jovens.txt ~/todo/legitimuz
 for_window [instance="todo"] move to scratchpad, resize set 1500 900
 bindsym $mod+q [instance="todo"] scratchpad show, move position center
 
-exec urxvt -name quick -e tmux
-for_window [instance="quick"] move to scratchpad, resize set 1500 900
-bindsym $mod+a [instance="quick"] scratchpad show, move position center
+# exec urxvt -name quick -e tmux
+# for_window [instance="quick"] move to scratchpad, resize set 1500 900
+# bindsym $mod+a [instance="quick"] scratchpad show, move position center
 
 
 exec firefox -P default
 exec /home/kayon/audiorelay/bin/AudioRelay
 exec picom
 exec redshift
-exec feh --bg-scale ~/wallpaper/wallpaperflare.com_wallpaper.jpg
+exec feh --bg-scale ~/wallpaper/wallpaperflare.com_wallpaper1.jpg
 exec /home/kayon/audiorelay/mic.sh
 exec emacs
-exec semacs
 exec flatpak run app.zen_browser.zen
 
-for_window [instance="com-azefsw-audioconnect-desktop-app-MainKt"] move container to workspace number 4
-for_window [instance="emacs"] move container to workspace number 2
-for_window [instance="zen"] move container to workspace 3
 
 bindsym Next exec "for i in 1 2 3 4 5; do xdotool click 5; done"
 bindsym Prior exec "for i in 1 2 3 4 5; do xdotool click 4; done"
@@ -157,3 +153,6 @@ bindsym Prior exec "for i in 1 2 3 4 5; do xdotool click 4; done"
 exec sleep 5
 exec xdotool search --sync --onlyvisible --class "whatsapp" windowactivate key F11
 exec xdotool search --sync --onlyvisible --class "legitimuz" windowactivate key F11
+
+for_window [instance="com-azefsw-audioconnect-desktop-app-MainKt"] move container to workspace number 4
+for_window [instance="emacs"] move container to workspace number 2
