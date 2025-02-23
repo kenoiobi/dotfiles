@@ -80,26 +80,28 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod], "apostrophe", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "Escape", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "f", lazy.window.toggle_maximize(), desc="Toggle fullscreen on the focused window",
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window",
     ),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "e", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "d", lazy.spawn("dmenu_run"), desc="Spawn a command using a prompt widget"),
+    Key([mod], "d", lazy.spawn("rofi -show run"), desc="Spawn a command using a prompt widget"),
+    Key([mod], "a", lazy.spawn("rofi -show window"), desc="Spawn a command using a prompt widget"),
     Key([mod, "shift"], "d", minimize_all(), desc="Spawn a command using a prompt widget"),
 
     Key([mod], "q", lazy.group['0'].dropdown_toggle('term')),
     Key([mod], "w", lazy.group['0'].dropdown_toggle('whatsapp')),
     Key([mod, "shift"], "w", lazy.group['0'].dropdown_toggle('discord')),
     Key([mod], "e", lazy.group['0'].dropdown_toggle('legitimuz')),
-    Key([mod], "a", lazy.group['0'].dropdown_toggle('todo')),
     Key([mod], "s", lazy.group['0'].dropdown_toggle('slack')),
 
     Key([mod], "m", lazy.hide_show_bar(), desc="toggle bar"),
+    Key([mod], "Tab", lazy.group.focus_back(), desc="Alternate between two most recent windows"),
 
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset Master 5%+")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master 5%-")),
+    Key([], "XF86AudioMute", lazy.spawn("amixer sset Master 1+ toggle"), desc="Mute/Unmute Volume"),
     Key([], "Print", lazy.spawn("flameshot full -c")),
     Key(["shift"], "Print", lazy.spawn("flameshot gui -c")),
 ]
@@ -119,28 +121,30 @@ for vt in range(1, 8):
 
 
 groups = [
-    Group("1"),
+    Group(
+        "1",
+        layout="max"
+    ),
     Group(
         "2",
-        layout="bsp",
         matches=Match(wm_class=["Emacs"]),
     ),
     Group(
         "3",
+        layout="max",
         matches=Match(wm_class=["zen"]),
     ),
     Group(
         "4",
-        matches=Match(wm_class=["com-azefsw-audioconnect-desktop-app-MainKt"]),
+        layout="max",
+        matches=Match(wm_class=["virt-manager", "com-azefsw-audioconnect-desktop-app-MainKt", "Thunar", "btop"]),
     ),
     Group(
         "5",
-        matches=Match(wm_class=["virt-manager"]),
     ),
     Group("6"),
     Group("7"),
     Group("8"),
-    # Group("9", spawn="tmux -c alttab"),
     Group("9"),
     ScratchPad("0", [
         DropDown(
@@ -169,11 +173,6 @@ groups = [
             "slack",
             y=0.07, x=0.05, width=0.9, height=0.9,
             match=Match(wm_class=['Slack'])
-        ),
-        DropDown(
-            "todo",
-            "urxvt -e nvim todo/todo.txt todo/jovens.txt todo/legitimuz.txt todo/quality.txt -c tab all",
-            y=0.07, x=0.05, width=0.9, height=0.9
         ),
         ]
     )
@@ -206,8 +205,19 @@ for i in range(9):
 
 
 layouts = [
+    layout.MonadTall(),
+    layout.MonadWide(),
+    layout.Max(),
     layout.Floating(margin=0),
-    layout.Bsp(margin=0),
+    # Plasma(
+    #     border_normal='#333333',
+    #     border_focus='#00e891',
+    #     border_normal_fixed='#006863',
+    #     border_focus_fixed='#00e8dc',
+    #     border_width=1,
+    #     border_width_single=0,
+    #     margin=0
+    # ),
 ]
 
 widget_defaults = dict(
@@ -299,11 +309,11 @@ wl_xcursor_size = 24
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
 subprocess.run("~/.config/qtile/autostart.sh", shell=True)
-
 qtile.cmd_spawn("firefox")
 qtile.cmd_spawn("redshift")
 qtile.cmd_spawn("emacs")
 qtile.cmd_spawn("flatpak run app.zen_browser.zen")
-qtile.cmd_spawn("alttab -w 1")
 qtile.cmd_spawn("virt-manager")
 qtile.cmd_spawn("audiorelay")
+qtile.cmd_spawn("thunar")
+qtile.cmd_spawn("urxvt -name btop -e btop")
