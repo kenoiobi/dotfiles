@@ -14,6 +14,7 @@
  '(desktop-path '("./"))
  '(desktop-save-mode nil)
  '(dired-dwim-target t)
+ '(dired-kill-when-opening-new-dired-buffer t)
  '(dired-listing-switches "-ahlB")
  '(display-line-numbers 'visual)
  '(display-time-24hr-format t)
@@ -55,7 +56,11 @@
  '(tool-bar-mode nil)
  '(vertico-mode t))
 (custom-set-faces
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#1f2430" :foreground "#cbccc6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 143 :width normal :foundry "PfEd" :family "DejaVu Sans Mono")))))
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#1f2430" :foreground "#cbccc6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 145 :width normal :foundry "PfEd" :family "DejaVu Sans Mono")))))
 
 
 ;; functionality
@@ -78,20 +83,20 @@
 (package-install 'doom-modeline)
 
 ;; lsp bs
-;; (package-install 'rjsx-mode)
-;; (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+(package-install 'rjsx-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 
-;; (package-install 'lsp-mode)
-;; (add-hook 'rjsx-mode-hook 'lsp)
+(package-install 'lsp-mode)
+(add-hook 'rjsx-mode-hook 'lsp)
 
-;; (add-hook 'python-mode-hook 'lsp-deferred)
+(add-hook 'python-mode-hook 'lsp-deferred)
 
-;; (package-install 'flycheck)
-;; (package-install 'flycheck-inline)
-;; (global-flycheck-mode +1)
-;; (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)
+(package-install 'flycheck)
+(package-install 'flycheck-inline)
+(global-flycheck-mode +1)
+(add-hook 'flycheck-mode-hook #'flycheck-inline-mode)
 
-;; (add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook 'global-company-mode)
 
 
 ;; basic mappings
@@ -136,8 +141,11 @@
 (evil-define-key 'normal 'global (kbd "<leader>k") 'kill-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>a") 'switch-to-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>bs") 'scratch-buffer)
+
 (evil-define-key 'normal 'global (kbd "<leader>wk") 'persp-kill)
 (evil-define-key 'normal 'global (kbd "<leader>wr") 'persp-rename)
+(evil-define-key 'normal 'global (kbd "<leader>ws") 'persp-state-save)
+
 (evil-define-key 'normal 'global (kbd "<leader>q") 'eval-buffer)
 (evil-define-key 'visual 'global (kbd "<leader>q") 'eval-region)
 (evil-define-key 'normal 'global (kbd "<leader>pa") 'projectile-add-known-project)
@@ -185,6 +193,7 @@
 (evil-define-key 'normal dired-mode-map (kbd "h") 'dired-up-directory)
 
 (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
+(add-hook 'prog-mode-hook 'indent-bars-mode)
 
 (add-hook 'org-mode-hook (lambda () (interactive) (setq-local evil-shift-width 2)))
 (setq warning-minimum-level :emergency)
@@ -193,3 +202,21 @@
 (persp-state-load "~/.emacs.d/persp")
 (setq frame-resize-pixelwise t) 
 (load-theme 'doom-ayu-mirage t)
+
+
+;; when there's a vterm buffer, auto update vterm's directory with dired
+(defun sync-dired-to-vterm ()
+    (when (derived-mode-p 'dired-mode)
+	(let ((dir (dired-current-directory)))
+
+	(when (get-buffer "*vterm*")
+	    (with-current-buffer (get-buffer "*vterm*")
+		(vterm-send-string (concat "cd " dir))
+		(vterm-send-return)
+		(vterm-send-string "clear")
+		(vterm-send-return)
+		)))
+    )
+)
+
+(add-hook 'dired-after-readin-hook 'sync-dired-to-vterm)
