@@ -29,7 +29,6 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, 
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile import hook
-from qtile_bonsai import Bonsai
 import subprocess
 import time
 

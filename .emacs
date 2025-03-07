@@ -46,7 +46,7 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(doom-modeline minions mood-line smart-mode-line dired-subtree yasnippet company envrc dumb-jump dumb-diff vterm magit evil-org general rainbow-identifiers evil-numbers perspective doom-themes harpoon flycheck-inline rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
+   '(lua-mode doom-modeline minions mood-line smart-mode-line dired-subtree yasnippet company envrc dumb-jump dumb-diff vterm magit evil-org general rainbow-identifiers evil-numbers perspective doom-themes harpoon flycheck-inline rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
  '(persp-mode t)
  '(persp-mode-prefix-key [67109044])
  '(pop-up-windows nil)
@@ -220,3 +220,4 @@
 )
 
 (add-hook 'dired-after-readin-hook 'sync-dired-to-vterm)
+

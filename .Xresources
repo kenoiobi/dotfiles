@@ -1,7 +1,9 @@
-URxvt.font: xft:Jetbrains Mono:size=16:style=Regular
+URxvt.font: xft:Jetbrains Mono:size=12:style=Regular
 URxvt.foreground: #dddddd
 URxvt.scrollBar: false
 URxvt.depth: 32
 URxvt.background: [75]#000000
-URxvt.keysym.Control-v: eval:paste_clipboard
+URxvt.keysym.Shift-Insert: eval:paste_clipboard
 URxvt.keysym.Control-Insert:    eval:selection_to_clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false
