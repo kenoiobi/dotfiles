@@ -5,7 +5,7 @@ xrdb ~/.Xresources
 setxkbmap br -option ctrl:swapcaps
 
 # ~/audiorelay/mic.sh &
-feh --bg-scale ~/git/dotfiles/wallpaper4.jpg
+feh --bg-scale ~/git/dotfiles/wallpaper3.jpg
 redshift &
 picom &
 dunst &
