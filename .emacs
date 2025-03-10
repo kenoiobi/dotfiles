@@ -9,7 +9,8 @@
  '(cua-mode nil)
  '(custom-enabled-themes '(doom-one))
  '(custom-safe-themes
-   '("0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1" default))
+   '("0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1"
+     default))
  '(delete-by-moving-to-trash t)
  '(desktop-path '("./"))
  '(desktop-save-mode nil)
@@ -27,10 +28,6 @@
  '(evil-collection-key-blacklist '("\"SPC\""))
  '(evil-mode-line-format nil)
  '(evil-want-keybinding nil)
- '(indent-bars-display-on-blank-lines t)
- '(indent-bars-spacing-override 4)
- '(indent-bars-starting-column 0)
- '(indent-bars-width-frac 1)
  '(indent-tabs-mode 1)
  '(inhibit-startup-screen t)
  '(initial-major-mode 'org-mode)
@@ -46,7 +43,12 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(lua-mode doom-modeline minions mood-line smart-mode-line dired-subtree yasnippet company envrc dumb-jump dumb-diff vterm magit evil-org general rainbow-identifiers evil-numbers perspective doom-themes harpoon flycheck-inline rjsx-mode flycheck lsp-mode ranger projectile evil-collection vertico consult evil))
+   '(company consult dired-subtree doom-modeline doom-themes dumb-diff
+	     dumb-jump envrc evil evil-collection evil-numbers
+	     evil-org flycheck flycheck-inline general harpoon
+	     indent-bars lsp-mode lua-mode magit minions mood-line
+	     perspective projectile rainbow-identifiers ranger
+	     rjsx-mode smart-mode-line vertico vterm yasnippet))
  '(persp-mode t)
  '(persp-mode-prefix-key [67109044])
  '(pop-up-windows nil)
@@ -83,20 +85,20 @@
 (package-install 'doom-modeline)
 
 ;; lsp bs
-(package-install 'rjsx-mode)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+;; (package-install 'rjsx-mode)
+;; (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 
-(package-install 'lsp-mode)
-(add-hook 'rjsx-mode-hook 'lsp)
+;; (package-install 'lsp-mode)
+;; (add-hook 'rjsx-mode-hook 'lsp)
 
-(add-hook 'python-mode-hook 'lsp-deferred)
+;; (add-hook 'python-mode-hook 'lsp-deferred)
 
-(package-install 'flycheck)
-(package-install 'flycheck-inline)
-(global-flycheck-mode +1)
-(add-hook 'flycheck-mode-hook #'flycheck-inline-mode)
+;; (package-install 'flycheck)
+;; (package-install 'flycheck-inline)
+;; (global-flycheck-mode +1)
+;; (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)
 
-(add-hook 'after-init-hook 'global-company-mode)
+;; (add-hook 'after-init-hook 'global-company-mode)
 
 
 ;; basic mappings
