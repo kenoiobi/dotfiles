@@ -1,69 +1,4 @@
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(bookmark-save-flag 1)
- '(company-minimum-prefix-length 1)
- '(compile-command "./build.sh")
- '(cua-mode nil)
- '(custom-enabled-themes '(doom-one))
- '(custom-safe-themes
-   '("0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1"
-     default))
- '(delete-by-moving-to-trash t)
- '(desktop-path '("./"))
- '(desktop-save-mode nil)
- '(dired-dwim-target t)
- '(dired-kill-when-opening-new-dired-buffer t)
- '(dired-listing-switches "-ahlB")
- '(display-line-numbers 'visual)
- '(display-time-24hr-format t)
- '(display-time-default-load-average nil)
- '(display-time-mode t)
- '(doom-modeline-mode t)
- '(dumb-jump-mode t)
- '(electric-pair-mode t)
- '(envrc-global-mode t)
- '(evil-collection-key-blacklist '("\"SPC\""))
- '(evil-mode-line-format nil)
- '(evil-want-keybinding nil)
- '(indent-tabs-mode 1)
- '(inhibit-startup-screen t)
- '(initial-major-mode 'org-mode)
- '(initial-scratch-message nil)
- '(line-number-mode nil)
- '(major-mode 'org-mode)
- '(max-lisp-eval-depth 3200)
- '(menu-bar-mode nil)
- '(mode-line-percent-position nil)
- '(org-adapt-indentation nil)
- '(package-archives
-   '(("gnu" . "https://elpa.gnu.org/packages/")
-     ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-     ("melpa" . "https://melpa.org/packages/")))
- '(package-selected-packages
-   '(company consult dired-subtree doom-modeline doom-themes dumb-diff
-	     dumb-jump envrc evil evil-collection evil-numbers
-	     evil-org flycheck flycheck-inline general harpoon
-	     indent-bars lsp-mode lua-mode magit minions mood-line
-	     perspective projectile rainbow-identifiers ranger
-	     rjsx-mode smart-mode-line vertico vterm yasnippet))
- '(persp-mode t)
- '(persp-mode-prefix-key [67109044])
- '(pop-up-windows nil)
- '(projectile-mode t nil (projectile))
- '(scroll-bar-mode nil)
- '(timeclock-mode-line-display nil)
- '(tool-bar-mode nil)
- '(vertico-mode t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#1f2430" :foreground "#cbccc6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 145 :width normal :foundry "PfEd" :family "DejaVu Sans Mono")))))
-
+(setq custom-file (make-temp-file "emacs-custom"))
 
 ;; functionality
 (package-install 'evil)
@@ -85,24 +20,89 @@
 (package-install 'doom-modeline)
 
 ;; lsp bs
-;; (package-install 'rjsx-mode)
-;; (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+(package-install 'rjsx-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 
-;; (package-install 'lsp-mode)
-;; (add-hook 'rjsx-mode-hook 'lsp)
+(package-install 'lsp-mode)
+(add-hook 'rjsx-mode-hook 'lsp)
 
-;; (add-hook 'python-mode-hook 'lsp-deferred)
+(add-hook 'python-mode-hook 'lsp-deferred)
 
-;; (package-install 'flycheck)
-;; (package-install 'flycheck-inline)
-;; (global-flycheck-mode +1)
-;; (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)
+(package-install 'flycheck)
+(package-install 'flycheck-inline)
+(global-flycheck-mode +1)
+(add-hook 'flycheck-mode-hook #'flycheck-inline-mode)
 
-;; (add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook 'global-company-mode)
+
+(package-install 'lsp-java)
+(add-hook 'java-mode-hook 'lsp-mode)
+(global-set-key [f12] 'lsp-execute-code-action)
+(global-set-key [f9] 'lsp-workspace-restart)
+
+;; in depth customization
+(custom-set-faces
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#1f2430" :foreground "#cbccc6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 130 :width normal :foundry "ADBO" :family "Source Code Pro")))))
+
+(setq display-line-numbers 'visual)
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode)
+(setq persp-mode-prefix-key (kbd "C-'"))
+(setq initial-major-mode 'org-mode)
+(setq bookmark-save-flag 1)
+(setq company-minimum-prefix-length 1)
+(setq compile-command "./build.sh")
+(setq custom-enabled-themes '(doom-one))
+(setq custom-safe-themes
+ '("0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1"
+   default))
+(setq delete-by-moving-to-trash t)
+(setq dired-dwim-target t)
+(setq dired-kill-when-opening-new-dired-buffer t)
+(setq dired-listing-switches "-ahlB")
+(setq display-time-24hr-format t)
+(setq display-time-default-load-average nil)
+(display-time-mode t)
+(doom-modeline-mode t)
+(dumb-jump-mode t)
+(electric-pair-mode t)
+(envrc-global-mode t)
+(setq evil-collection-key-blacklist '("\"SPC\""))
+(setq evil-mode-line-format nil)
+(setq evil-want-keybinding nil)
+(indent-tabs-mode 1)
+(setq inhibit-startup-screen t)
+;; (setq initial-major-mode 'org-mode)
+(setq initial-scratch-message nil)
+(line-number-mode 0)
+;; (setq major-mode 'org-mode)
+(setq max-lisp-eval-depth 3200)
+(menu-bar-mode 0)
+(setq mode-line-percent-position nil)
+(setq org-adapt-indentation nil)
+(setq package-archives
+ '(("gnu" . "https://elpa.gnu.org/packages/")
+   ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+   ("melpa" . "https://melpa.org/packages/")))
+(setq package-selected-packages
+ '(company consult dired-subtree doom-modeline doom-themes dumb-diff
+    dumb-jump envrc evil evil-collection evil-numbers
+    evil-org flycheck flycheck-inline general harpoon
+    indent-bars lsp-mode lua-mode magit minions mood-line
+    perspective projectile rainbow-identifiers ranger
+    rjsx-mode smart-mode-line vertico vterm yasnippet))
+(persp-mode t)
+(setq pop-up-windows nil)
+;; (setq projectile-mode t nil (projectile))
+(scroll-bar-mode 0)
+(setq timeclock-mode-line-display nil)
+(tool-bar-mode -1)
+(vertico-mode t)
+
 
 
 ;; basic mappings
-(global-set-key [f4] 'compile)
+(global-set-key [f3] 'compile)
 (global-set-key (kbd "C-;") 'comment-line)
 (global-set-key (kbd "C-t") 'persp)
 
@@ -193,12 +193,12 @@
 (evil-define-key 'normal dired-mode-map (kbd "TAB") 'dired-subtree-toggle)
 (evil-define-key 'normal dired-mode-map (kbd "l") 'dired-find-file)
 (evil-define-key 'normal dired-mode-map (kbd "h") 'dired-up-directory)
+(evil-define-key 'insert java-mode-map (kbd ";") 'self-insert-command)
 
 (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
 (add-hook 'prog-mode-hook 'indent-bars-mode)
 
 (add-hook 'org-mode-hook (lambda () (interactive) (setq-local evil-shift-width 2)))
-(setq warning-minimum-level :emergency)
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 (setq persp-state-default-file "~/.emacs.d/persp")
 (persp-state-load "~/.emacs.d/persp")
@@ -222,4 +222,5 @@
 )
 
 (add-hook 'dired-after-readin-hook 'sync-dired-to-vterm)
+
 
