@@ -4,16 +4,17 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/bus"
 xrdb ~/.Xresources
 # setxkbmap br -option ctrl:swapcaps
 
+flameshot &
 lxqt-policykit-agent &
 feh --bg-scale ~/git/dotfiles/wallpaper5.jpg
 redshift &
 picom &
 dunst &
 warp-cli disconnect
-pcmanfm-qt --desktop &
+xfdesktop -D &
 
 # chromium &
-firefox &
+keepassxc &
 emacs &
 zen-browser &
 virt-manager &
