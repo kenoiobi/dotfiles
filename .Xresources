@@ -7,3 +7,40 @@ URxvt.keysym.Shift-Insert: eval:paste_clipboard
 URxvt.keysym.Control-Insert:    eval:selection_to_clipboard
 URxvt.iso14755: false
 URxvt.iso14755_52: false
+
+! special
+! URxvt.background: #1E1E2E
+! URxvt.foreground: #CDD6F4
+URxvt.cursorColor: #F5E0DC
+
+! black
+URxvt.color0: #45475A
+URxvt.color8: #585B70
+
+! red
+URxvt.color1: #F38BA8
+URxvt.color9: #F38BA8
+
+! green
+URxvt.color2: #A6E3A1
+URxvt.color10: #A6E3A1
+
+! yellow
+URxvt.color3: #F9E2AF
+URxvt.color11: #F9E2AF
+
+! blue
+URxvt.color4: #89B4FA
+URxvt.color12: #89B4FA
+
+! magenta
+URxvt.color5: #F5C2E7
+URxvt.color13: #F5C2E7
+
+! cyan
+URxvt.color6: #94E2D5
+URxvt.color14: #94E2D5
+
+! white
+URxvt.color7: #BAC2DE
+URxvt.color15: #A6ADC8
