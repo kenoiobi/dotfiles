@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="neo"
 HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line if pasting URLs and other text is messed up.
@@ -41,14 +41,15 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
 plugins=(
 	git
-	zsh-autosuggestions
 	sudo
 	web-search
 	dirhistory
 	history
 	jsontools
+	zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -82,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias zup="source ~/.zshrc"
-alias legi="source ~/programming/legitimuz/kycbot/imgs/functions.sh"
+alias legi="cd ~/programming/legitimuz/kycbot/imgs && source ~/programming/legitimuz/kycbot/imgs/functions.sh"
 alias clip="xclip -sel copy"
 alias cpdir="pwd | clip"
 

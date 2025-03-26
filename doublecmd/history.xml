@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doublecmd>
+  <History>
+    <Navigation>
+      <Item>/home/kayon/test/test/</Item>
+      <Item>/home/kayon/test/</Item>
+      <Item>/home/kayon/</Item>
+      <Item>/home/kayon/test/test/test/</Item>
+      <Item>/usr/lib/</Item>
+    </Navigation>
+    <CommandLine>
+      <Item>cp %f %Dt</Item>
+      <Item>cd</Item>
+      <Item>cd ~/</Item>
+    </CommandLine>
+    <FileMask/>
+    <VolumeSize/>
+    <CreateDirectories/>
+    <SearchText/>
+    <SearchTextPath/>
+    <ReplaceText/>
+    <ReplaceTextPath/>
+    <RenameNameMask/>
+    <RenameExtMask/>
+    <SearchDirectories/>
+    <SearchExcludeFiles/>
+    <SearchExcludeDirectories/>
+  </History>
+</doublecmd>
