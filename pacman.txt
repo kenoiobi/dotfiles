@@ -1,19 +1,16 @@
 xorg-xinit
 xorg-setxkbmap
 xorg-server
+lxqt
+breeze-icons
 neovim
 sudo
 emacs
-lxqt-panel
-dunst
 picom
 zsh
 doublecmd
-xfdesktop
-lxqt-config
 thunar
 feh
-lxqt-policykit-agent
 keepassxc
 rxvt-unicode
 
