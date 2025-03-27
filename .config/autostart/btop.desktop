@@ -1,0 +1,5 @@
+[Desktop Entry]
+Exec=urxvt -name btop -e btop
+Name=btop
+Type=Application
+Version=1.0
