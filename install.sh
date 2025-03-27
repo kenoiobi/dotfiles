@@ -1,4 +1,4 @@
-sudo pacman -S
+sudo pacman -S - < pacman.txt
 cp -r ./.config/ ~/
 sudo cp 00-keyboard.conf /etc/X11/xorg.conf.d/
 
