@@ -1,3 +1,4 @@
+ttf-jetbrains-mono
 xorg-xinit
 xorg-setxkbmap
 xorg-server
