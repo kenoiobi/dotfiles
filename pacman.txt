@@ -1,3 +1,4 @@
+rofi
 ttf-jetbrains-mono
 xorg-xinit
 xorg-setxkbmap
