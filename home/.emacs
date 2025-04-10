@@ -1,4 +1,6 @@
 (setq custom-file (make-temp-file "emacs-custom"))
+;; (add-to-list 'load-path "~/.emacs.d/custom/sunrise-commander/")
+;; (require 'sunrise)
 
 ;; functionality
 (package-install 'evil)
@@ -22,9 +24,13 @@
 ;; lsp bs
 (package-install 'rjsx-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
 
 (package-install 'lsp-mode)
 (add-hook 'rjsx-mode-hook 'lsp)
+(add-hook 'typescript-mode-hook 'lsp)
 
 (add-hook 'python-mode-hook 'lsp-deferred)
 
@@ -59,7 +65,8 @@
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
 (setq dired-kill-when-opening-new-dired-buffer t)
-(setq dired-listing-switches "-ahlB")
+(setq dired-listing-switches "-ahlBo --group-directories-first")
+;; (set-face-foreground 'dired-directory "yellow" )
 (setq display-time-24hr-format t)
 (setq display-time-default-load-average nil)
 (display-time-mode t)
@@ -98,7 +105,9 @@
 (setq timeclock-mode-line-display nil)
 (tool-bar-mode -1)
 (vertico-mode t)
+;; (setq consult-find-args "find . -type d -not ( -path */.[A-Za-z]* -prune )")
 
+(setq consult-find-args "find . -type d")
 
 
 ;; basic mappings
@@ -140,9 +149,10 @@
 (evil-define-key 'normal 'global (kbd "<leader>e") 'find-file)
 (evil-define-key 'normal 'global (kbd "<leader>c") 'eval-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>t") 'vterm)
-(evil-define-key 'normal 'global (kbd "<leader>k") 'kill-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>a") 'switch-to-buffer)
+(evil-define-key 'normal 'global (kbd "<leader>k") 'kill-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>bs") 'scratch-buffer)
+(evil-define-key 'normal 'global (kbd "<leader>f") 'consult-find)
 
 (evil-define-key 'normal 'global (kbd "<leader>wk") 'persp-kill)
 (evil-define-key 'normal 'global (kbd "<leader>wr") 'persp-rename)
@@ -224,3 +234,9 @@
 (add-hook 'dired-after-readin-hook 'sync-dired-to-vterm)
 
 
+(defun locate-dir ()
+  (interactive)
+  (let ((name (read-string "Search for: ")))
+    (locate-with-filter name (concat (regexp-quote name) "$"))))
+
+(evil-define-key 'normal 'global (kbd "<leader>d") 'locate-dir)

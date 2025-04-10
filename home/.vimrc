@@ -26,7 +26,7 @@ map <leader>p :Telescope projects<CR>
 map <leader><leader> :Telescope find_files<CR>
 map <leader>, :bp<CR>
 map <leader>. :bn<CR>
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set autochdir
 
 set showtabline=0
