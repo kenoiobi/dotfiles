@@ -3,55 +3,20 @@
   <Tabs>
     <OpenedTabs>
       <Left>
-        <ActiveTab>1</ActiveTab>
+        <ActiveTab>0</ActiveTab>
         <Tab>
           <FileView Type="columns">
             <Sortings>
               <Sorting>
                 <Direction>1</Direction>
-                <Function>12</Function>
+                <Function>0</Function>
               </Sorting>
             </Sortings>
             <History>
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="..">/usr/lib/doublecmd/</Path>
-                  <Path Filename="CLucene">/usr/lib/</Path>
-                  <Path Filename="test">/home/kayon/</Path>
-                  <Path Filename="test">/home/kayon/test/</Path>
-                  <Path Filename="main.c">/home/kayon/test/test/</Path>
-                </Paths>
-              </Entry>
-            </History>
-            <ColumnsView>
-              <ColumnsSet>Default</ColumnsSet>
-            </ColumnsView>
-          </FileView>
-        </Tab>
-        <Tab>
-          <FileView Type="columns">
-            <Sortings>
-              <Sorting>
-                <Direction>1</Direction>
-                <Function>12</Function>
-              </Sorting>
-            </Sortings>
-            <History>
-              <Entry Active="True">
-                <FileSource Type="FileSystem"/>
-                <Paths>
-                  <Path Filename="..">/usr/lib/doublecmd/</Path>
-                  <Path Filename="CLucene">/usr/lib/</Path>
-                  <Path Filename="test">/home/kayon/</Path>
-                  <Path Filename="test">/home/kayon/test/</Path>
-                  <Path Filename="main.c">/home/kayon/test/test/</Path>
-                  <Path Filename="test">/home/kayon/test/</Path>
-                  <Path Filename="test">/home/kayon/</Path>
-                  <Path Filename="test">/home/kayon/test/</Path>
-                  <Path Filename="..">/home/kayon/test/test/</Path>
-                  <Path Filename="test">/home/kayon/test/</Path>
-                  <Path Filename="main.c">/home/kayon/test/test/</Path>
+                  <Path Filename="doublecmd">/usr/lib/doublecmd/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -68,7 +33,7 @@
             <Sortings>
               <Sorting>
                 <Direction>1</Direction>
-                <Function>12</Function>
+                <Function>0</Function>
               </Sorting>
             </Sortings>
             <History>
@@ -76,11 +41,6 @@
                 <FileSource Type="FileSystem"/>
                 <Paths>
                   <Path Filename="..">/usr/lib/doublecmd/</Path>
-                  <Path Filename="CLucene">/usr/lib/</Path>
-                  <Path Filename="test">/home/kayon/</Path>
-                  <Path Filename="test">/home/kayon/test/</Path>
-                  <Path Filename="test">/home/kayon/test/test/</Path>
-                  <Path Filename="..">/home/kayon/test/test/test/</Path>
                 </Paths>
               </Entry>
             </History>

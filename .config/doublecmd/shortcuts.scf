@@ -36,10 +36,6 @@
         <Command>cm_Rename</Command>
       </Hotkey>
       <Hotkey>
-        <Shortcut>Ctrl+D</Shortcut>
-        <Command>cm_MakeDir</Command>
-      </Hotkey>
-      <Hotkey>
         <Shortcut>F8</Shortcut>
         <Command>cm_Delete</Command>
       </Hotkey>
@@ -141,14 +137,6 @@
         <Command>cm_AddFilenameToCmdLine</Command>
       </Hotkey>
       <Hotkey>
-        <Shortcut>Ctrl+PgDn</Shortcut>
-        <Command>cm_OpenArchive</Command>
-      </Hotkey>
-      <Hotkey>
-        <Shortcut>Ctrl+PgUp</Shortcut>
-        <Command>cm_ChangeDirToParent</Command>
-      </Hotkey>
-      <Hotkey>
         <Shortcut>Ctrl+Alt+Enter</Shortcut>
         <Command>cm_ShellExecute</Command>
       </Hotkey>
@@ -185,7 +173,7 @@
         <Command>cm_AddPathAndFilenameToCmdLine</Command>
       </Hotkey>
       <Hotkey>
-        <Shortcut>Ctrl+Shift+Tab</Shortcut>
+        <Shortcut>Ctrl+PgUp</Shortcut>
         <Command>cm_PrevTab</Command>
       </Hotkey>
       <Hotkey>
@@ -197,7 +185,7 @@
         <Command>cm_TreeView</Command>
       </Hotkey>
       <Hotkey>
-        <Shortcut>Ctrl+Tab</Shortcut>
+        <Shortcut>Ctrl+PgDn</Shortcut>
         <Command>cm_NextTab</Command>
       </Hotkey>
       <Hotkey>
@@ -386,6 +374,10 @@
       <Hotkey>
         <Shortcut>Ctrl+F</Shortcut>
         <Command>cm_EditNew</Command>
+      </Hotkey>
+      <Hotkey>
+        <Shortcut>Ctrl+D</Shortcut>
+        <Command>cm_CopyPathOfFilesToClip</Command>
       </Hotkey>
       <Hotkey>
         <Shortcut>Del</Shortcut>
