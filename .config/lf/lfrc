@@ -151,3 +151,7 @@ map yd :yank-dirname
 set nopreview
 set ratios 1
 set info size:time
+
+set hidden true
+
+map <tab> $tmux split -h lf
