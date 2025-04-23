@@ -20,8 +20,13 @@
 (package-install 'envrc)
 (package-install 'dired-subtree)
 (package-install 'doom-modeline)
+(package-install 'fzf)
+
+(add-hook 'find-file-hook 'zoxide-add)
+(add-hook 'dired-mode-hook 'zoxide-add)
 
 ;; lsp bs
+;; javascript
 (package-install 'rjsx-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
@@ -32,6 +37,7 @@
 (add-hook 'rjsx-mode-hook 'lsp)
 (add-hook 'typescript-mode-hook 'lsp)
 
+;; python
 (add-hook 'python-mode-hook 'lsp-deferred)
 
 (package-install 'flycheck)
@@ -41,10 +47,16 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 
+;; java
 (package-install 'lsp-java)
 (add-hook 'java-mode-hook 'lsp-mode)
-(global-set-key [f12] 'lsp-execute-code-action)
+(global-set-key [f10] 'lsp-execute-code-action)
 (global-set-key [f9] 'lsp-workspace-restart)
+
+;; php
+(package-install 'php-mode)
+(add-hook 'php-mode-hook 'lsp-mode)
+
 
 ;; in depth customization
 (custom-set-faces
@@ -122,6 +134,8 @@
 
 
 ;; evil
+(require 'fzf)
+
 (evil-mode t)
 (setq evil-collection-key-blacklist '("SPC"))
 (evil-set-undo-system 'undo-redo)
@@ -129,6 +143,8 @@
 
 (evil-define-key 'normal 'global (kbd "|") 'async-shell-command)
 (evil-define-key 'normal 'global (kbd "gb") 'xref-go-back)
+(evil-define-key 'normal 'global (kbd "gh") (lambda () (interactive)
+					      (find-file "~/")))
 
 (evil-set-leader 'normal (kbd "SPC"))
 (evil-set-leader 'visual (kbd "SPC"))
@@ -152,7 +168,7 @@
 (evil-define-key 'normal 'global (kbd "<leader>a") 'switch-to-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>k") 'kill-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>bs") 'scratch-buffer)
-(evil-define-key 'normal 'global (kbd "<leader>f") 'consult-find)
+(evil-define-key 'normal 'global (kbd "<leader>z") 'zoxide-find-file)
 
 (evil-define-key 'normal 'global (kbd "<leader>wk") 'persp-kill)
 (evil-define-key 'normal 'global (kbd "<leader>wr") 'persp-rename)
@@ -189,7 +205,7 @@
 (evil-define-key 'normal 'global (kbd "<leader>h") 'harpoon-toggle-file)
 (evil-define-key 'normal 'global (kbd "<leader>gg") 'magit)
 (evil-define-key 'normal 'global (kbd "<leader>ga") 'magit-log-buffer-file)
-(evil-define-key 'normal 'global (kbd "<leader>s") 'magit-file-dispatch)
+;; (evil-define-key 'normal 'global (kbd "<leader>s") 'magit-file-dispatch)
 (evil-define-key 'normal 'global (kbd "<leader>n") 'magit-blob-previous)
 (evil-define-key 'normal 'global (kbd "<leader>m") 'magit-blob-next)
 
@@ -234,9 +250,18 @@
 (add-hook 'dired-after-readin-hook 'sync-dired-to-vterm)
 
 
-(defun locate-dir ()
-  (interactive)
-  (let ((name (read-string "Search for: ")))
-    (locate-with-filter name (concat (regexp-quote name) "$"))))
+;; (defun locate-dir ()
+;;   (interactive)
+;;   (let ((name (read-string "Search for: ")))
+;;     (locate-with-filter name (concat (regexp-quote name) "$"))))
 
-(evil-define-key 'normal 'global (kbd "<leader>d") 'locate-dir)
+;; (evil-define-key 'normal 'global (kbd "<leader>d") 'locate-dir)
+
+(evil-define-key 'normal 'global (kbd "<leader>ff") (lambda () (interactive)
+						     (fzf-with-command "find -type f" 'fzf--action-find-file default-directory)))
+
+(evil-define-key 'normal 'global (kbd "<leader>fd") (lambda () (interactive)
+						     (fzf-with-command "find -type d" 'fzf--action-find-file default-directory)))
+
+(evil-define-key 'normal 'global (kbd "<leader>z") (lambda () (interactive)
+						     (fzf-with-command "zoxide query -l" 'find-file)))
