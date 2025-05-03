@@ -6,3 +6,8 @@ cd ~/git
 git clone https://github.com/kenoiobi/dwm
 cd dwm
 sudo make clean install
+
+cd ~/git
+git clone https://github.com/kenoiobi/st
+cd dwm
+sudo make clean install
