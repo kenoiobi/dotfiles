@@ -2,6 +2,13 @@
 ;; (add-to-list 'load-path "~/.emacs.d/custom/sunrise-commander/")
 ;; (require 'sunrise)
 
+(setq package-archives
+ '(("gnu" . "https://elpa.gnu.org/packages/")
+   ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+   ("melpa" . "https://melpa.org/packages/")))
+
+(package-refresh-contents)
+
 ;; functionality
 (package-install 'evil)
 (package-install 'evil-numbers)
@@ -107,10 +114,6 @@
 (menu-bar-mode 0)
 (setq mode-line-percent-position nil)
 (setq org-adapt-indentation nil)
-(setq package-archives
- '(("gnu" . "https://elpa.gnu.org/packages/")
-   ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-   ("melpa" . "https://melpa.org/packages/")))
 (setq package-selected-packages
  '(company consult dired-subtree doom-modeline doom-themes dumb-diff
     dumb-jump envrc evil evil-collection evil-numbers
@@ -278,3 +281,4 @@
 (evil-define-key 'normal 'global (kbd "<leader>v") 'fzf-grep-with-narrowing)
 
 (evil-define-key 'normal 'global (kbd "C-f") 'avy-goto-char)
+(evil-define-key 'visual 'global (kbd "C-f") 'avy-goto-char)

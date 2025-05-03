@@ -14,5 +14,4 @@ doublecmd
 thunar
 feh
 keepassxc
-rxvt-unicode
 
