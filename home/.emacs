@@ -21,17 +21,25 @@
 (package-install 'dired-subtree)
 (package-install 'doom-modeline)
 (package-install 'fzf)
+(package-install 'pdf-tools)
+(package-install 'persistent-scratch)
+
+(persistent-scratch-setup-default)
+(persistent-scratch-autosave-mode 1)
+
 
 (add-hook 'find-file-hook 'zoxide-add)
 (add-hook 'dired-mode-hook 'zoxide-add)
+(pdf-tools-install)
 
 ;; lsp bs
 ;; javascript
 (package-install 'rjsx-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(package-install 'jtsx)
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . jtsx-tsx-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . jtsx-tsx-mode))
 
 (package-install 'lsp-mode)
 (add-hook 'rjsx-mode-hook 'lsp)
@@ -117,6 +125,8 @@
 (setq timeclock-mode-line-display nil)
 (tool-bar-mode -1)
 (vertico-mode t)
+(setq trash-directory "/home/kayon/trash")
+
 ;; (setq consult-find-args "find . -type d -not ( -path */.[A-Za-z]* -prune )")
 
 (setq consult-find-args "find . -type d")
@@ -257,11 +267,14 @@
 
 ;; (evil-define-key 'normal 'global (kbd "<leader>d") 'locate-dir)
 
-(evil-define-key 'normal 'global (kbd "<leader>ff") (lambda () (interactive)
+(evil-define-key 'normal 'global (kbd "<leader>f") (lambda () (interactive)
 						     (fzf-with-command "find -type f" 'fzf--action-find-file default-directory)))
 
-(evil-define-key 'normal 'global (kbd "<leader>fd") (lambda () (interactive)
+(evil-define-key 'normal 'global (kbd "<leader>d") (lambda () (interactive)
 						     (fzf-with-command "find -type d" 'fzf--action-find-file default-directory)))
 
 (evil-define-key 'normal 'global (kbd "<leader>z") (lambda () (interactive)
 						     (fzf-with-command "zoxide query -l" 'find-file)))
+(evil-define-key 'normal 'global (kbd "<leader>v") 'fzf-grep-with-narrowing)
+
+(evil-define-key 'normal 'global (kbd "C-f") 'avy-goto-char)
