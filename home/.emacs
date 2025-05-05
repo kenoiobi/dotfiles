@@ -1,6 +1,4 @@
 (setq custom-file (make-temp-file "emacs-custom"))
-;; (add-to-list 'load-path "~/.emacs.d/custom/sunrise-commander/")
-;; (require 'sunrise)
 
 (setq package-archives
  '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -14,89 +12,109 @@
 (package-install 'evil-numbers)
 (package-install 'evil-collection)
 (package-install 'evil-org)
+
 (package-install 'vertico)
 (package-install 'consult)
+
 (package-install 'projectile)
-(package-install 'harpoon)
-(package-install 'doom-themes)
 (package-install 'perspective)
-(package-install 'rainbow-identifiers)
-(package-install 'magit)
-(package-install 'dumb-jump)
-(package-install 'company)
-(package-install 'envrc)
-(package-install 'dired-subtree)
+(package-install 'harpoon)
+
+(package-install 'doom-themes)
 (package-install 'doom-modeline)
-(package-install 'fzf)
-(package-install 'pdf-tools)
+(package-install 'rainbow-identifiers)
+(package-install 'indent-bars)
+
+(package-install 'magit)
+(package-install 'company)
+(package-install 'dired-subtree)
 (package-install 'persistent-scratch)
+
+(package-install 'fzf)
+(package-install 'dumb-jump)
+(package-install 'envrc)
+(package-install 'zoxide)
 
 (persistent-scratch-setup-default)
 (persistent-scratch-autosave-mode 1)
 
-
 (add-hook 'find-file-hook 'zoxide-add)
 (add-hook 'dired-mode-hook 'zoxide-add)
-(pdf-tools-install)
+;; (package-install 'pdf-tools)
+;; (pdf-tools-install)
 
 ;; lsp bs
 ;; javascript
-(package-install 'rjsx-mode)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
-(package-install 'jtsx)
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . jtsx-tsx-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . jtsx-tsx-mode))
+;; (package-install 'rjsx-mode)
+;; (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+;; (package-install 'jtsx)
+;; (add-to-list 'auto-mode-alist '("\\.ts\\'" . jtsx-tsx-mode))
+;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . jtsx-tsx-mode))
 
-(package-install 'lsp-mode)
-(add-hook 'rjsx-mode-hook 'lsp)
-(add-hook 'typescript-mode-hook 'lsp)
+;; (package-install 'lsp-mode)
+;; (add-hook 'rjsx-mode-hook 'lsp)
+;; (add-hook 'typescript-mode-hook 'lsp)
 
 ;; python
-(add-hook 'python-mode-hook 'lsp-deferred)
+;; (add-hook 'python-mode-hook 'lsp-deferred)
 
-(package-install 'flycheck)
-(package-install 'flycheck-inline)
-(global-flycheck-mode +1)
-(add-hook 'flycheck-mode-hook #'flycheck-inline-mode)
+;; (package-install 'flycheck)
+;; (package-install 'flycheck-inline)
+;; (global-flycheck-mode +1)
+;; (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)
 
-(add-hook 'after-init-hook 'global-company-mode)
+;; (add-hook 'after-init-hook 'global-company-mode)
 
 ;; java
-(package-install 'lsp-java)
-(add-hook 'java-mode-hook 'lsp-mode)
-(global-set-key [f10] 'lsp-execute-code-action)
-(global-set-key [f9] 'lsp-workspace-restart)
+;; (package-install 'lsp-java)
+;; (add-hook 'java-mode-hook 'lsp-mode)
+;; (global-set-key [f10] 'lsp-execute-code-action)
+;; (global-set-key [f9] 'lsp-workspace-restart)
 
 ;; php
-(package-install 'php-mode)
-(add-hook 'php-mode-hook 'lsp-mode)
+;; (package-install 'php-mode)
+;; (add-hook 'php-mode-hook 'lsp-mode)
 
 
 ;; in depth customization
+
+;; font
 (custom-set-faces
  '(default ((t (:inherit nil :extend nil :stipple nil :background "#1f2430" :foreground "#cbccc6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 130 :width normal :foundry "ADBO" :family "Source Code Pro")))))
 
+;; numbers
 (setq display-line-numbers 'visual)
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode)
-(setq persp-mode-prefix-key (kbd "C-'"))
-(setq initial-major-mode 'org-mode)
-(setq bookmark-save-flag 1)
-(setq company-minimum-prefix-length 1)
-(setq compile-command "./build.sh")
+
+;; theme
 (setq custom-enabled-themes '(doom-one))
 (setq custom-safe-themes
  '("0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1"
    default))
-(setq delete-by-moving-to-trash t)
-(setq dired-dwim-target t)
-(setq dired-kill-when-opening-new-dired-buffer t)
-(setq dired-listing-switches "-ahlBo --group-directories-first")
-;; (set-face-foreground 'dired-directory "yellow" )
+
+(setq persp-mode-prefix-key (kbd "C-'")) ;; stop persp from complaining
+(setq initial-major-mode 'org-mode) ;; scratchpads are on org mode
+(setq bookmark-save-flag 1) ;; set bookmark also saves it
+(setq company-minimum-prefix-length 1) ;; default is 3, make it try to complete with 1 char
+(setq compile-command "./build.sh")
+(setq delete-by-moving-to-trash t) ;; default plain deletes
+(setq dired-dwim-target t) ;; dired, on any operation depending on two things (copy, move) will default to other window
+(setq dired-kill-when-opening-new-dired-buffer t) ;; by default, dired opens new buffer on each new folder you open, not good
+
+;; a = all (hidden files)
+;; h = human readable size (mb)
+;; l = long format (line by line)
+;; B = ignore files ending in ~ (emacs backups)
+;; o = hides group information
+(setq dired-listing-switches "-ahlBo --group-directories-first")  
+
+;; clock mode (show a clock)
 (setq display-time-24hr-format t)
-(setq display-time-default-load-average nil)
+(setq display-time-default-load-average nil) ;; disable load from clock mode
 (display-time-mode t)
+
 (doom-modeline-mode t)
 (dumb-jump-mode t)
 (electric-pair-mode t)
@@ -129,6 +147,7 @@
 (tool-bar-mode -1)
 (vertico-mode t)
 (setq trash-directory "/home/kayon/trash")
+(setq warning-minimum-level :emergency)
 
 ;; (setq consult-find-args "find . -type d -not ( -path */.[A-Za-z]* -prune )")
 
@@ -152,6 +171,8 @@
 (evil-mode t)
 (setq evil-collection-key-blacklist '("SPC"))
 (evil-set-undo-system 'undo-redo)
+(setq evil-mode-line-format nil)
+(setq evil-want-keybinding nil)
 (evil-collection-init)
 
 (evil-define-key 'normal 'global (kbd "|") 'async-shell-command)
@@ -240,7 +261,7 @@
 (add-hook 'org-mode-hook (lambda () (interactive) (setq-local evil-shift-width 2)))
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 (setq persp-state-default-file "~/.emacs.d/persp")
-(persp-state-load "~/.emacs.d/persp")
+;; (persp-state-load "~/.emacs.d/persp")
 (setq frame-resize-pixelwise t) 
 (load-theme 'doom-ayu-mirage t)
 
