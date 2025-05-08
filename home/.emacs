@@ -303,3 +303,5 @@
 
 (evil-define-key 'normal 'global (kbd "C-f") 'avy-goto-char)
 (evil-define-key 'visual 'global (kbd "C-f") 'avy-goto-char)
+(require 'undo-tree)
+(global-undo-tree-mode)

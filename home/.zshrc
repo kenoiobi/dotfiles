@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="robbyrussel"
+ZSH_THEME="my"
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 KEYTIMEOUT=1
@@ -13,6 +13,7 @@ plugins=(
 	zsh-autosuggestions
 	zsh-vi-mode
 	virtualenv
+	fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -53,6 +54,26 @@ mc() {
     tmux split -h "$cmd"; eval "$cmd"
 }
 
+legi() {
+    tmux split
+    tmux split
+    tmux select-layout even-vertical
+}
+
+fg() {
+    RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+    INITIAL_QUERY="${*:-}"
+    fzf --ansi --disabled --query "$INITIAL_QUERY" \
+	--bind "start:reload:$RG_PREFIX {q}" \
+	--bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+	--delimiter : \
+	--preview 'bat --color=always {1} --highlight-line {2}' \
+	# --preview 'cat' \
+	--bind 'enter:become(nvim {1} +{2})'
+}
+
+
+
 unsetopt autocd
 
 unalias 1
@@ -65,10 +86,18 @@ unalias 7
 unalias 8
 unalias 9
 
+source ~/programming/legitimuz/kycbot/imgs/functions.sh
 alias zup="source ~/.zshrc"
-alias legi="cd ~/programming/legitimuz/kycbot/imgs && source ~/programming/legitimuz/kycbot/imgs/functions.sh"
 alias clip="xclip -sel copy"
 alias cpdir="pwd | clip"
+alias vim="nvim"
+
+bindkey '^F' fzf-file-widget
 
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh

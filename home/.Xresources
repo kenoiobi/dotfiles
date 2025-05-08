@@ -1,4 +1,4 @@
-URxvt.font: xft:Jetbrains Mono:size=12:style=Regular
+URxvt.font: xft:JetbrainsMono NF:size=12:style=Regular
 URxvt.foreground: #dddddd
 URxvt.scrollBar: false
 URxvt.depth: 32
