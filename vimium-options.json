@@ -1,0 +1,10 @@
+{
+  "keyMappings": "map ; passNextKey",
+  "settingsVersion": "2.2.1",
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://www.testarteclado.com.br/*"
+    }
+  ]
+}
