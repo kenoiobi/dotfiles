@@ -6,15 +6,20 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 KEYTIMEOUT=1
 
 plugins=(
+	zsh-vi-mode
+	# fzf # added later for conflicting with zsh-vi-mode
 	git
 	web-search
 	history
 	jsontools
 	zsh-autosuggestions
-	zsh-vi-mode
 	virtualenv
-	fzf
 )
+
+# The plugin will auto execute this zvm_after_init function
+function zvm_after_init() {
+  [ -f ~/.oh-my-zsh/plugins/fzf/fzf.plugin.zsh ] && source ~/.oh-my-zsh/plugins/fzf/fzf.plugin.zsh
+}
 
 source $ZSH/oh-my-zsh.sh
 
@@ -72,6 +77,11 @@ fg() {
 	--bind 'enter:become(nvim {1} +{2})'
 }
 
+fzf-dir(){
+    find ~/ -type d | fzf
+}
+zle -N fzf-dir
+
 
 
 unsetopt autocd
@@ -91,8 +101,10 @@ alias zup="source ~/.zshrc"
 alias clip="xclip -sel copy"
 alias cpdir="pwd | clip"
 alias vim="nvim"
+alias euporie="euporie-notebook --external_editor='tmux display-popup -x {left} -y {bottom} -w {width} -h {height} -B -E nvim'"
 
 bindkey '^F' fzf-file-widget
+bindkey '^G' fzf-dir
 
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
