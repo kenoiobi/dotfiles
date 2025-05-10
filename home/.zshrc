@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="my"
+ZSH_THEME="robbyrussell"
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 KEYTIMEOUT=1
@@ -102,6 +102,9 @@ alias clip="xclip -sel copy"
 alias cpdir="pwd | clip"
 alias vim="nvim"
 alias euporie="euporie-notebook --external_editor='tmux display-popup -x {left} -y {bottom} -w {width} -h {height} -B -E nvim'"
+
+alias startcam="sudo modprobe uvcvideo"
+alias stopcam="sudo modprobe -r uvcvideo"
 
 bindkey '^F' fzf-file-widget
 bindkey '^G' fzf-dir
