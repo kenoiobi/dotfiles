@@ -6,8 +6,8 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 KEYTIMEOUT=1
 
 plugins=(
-	zsh-vi-mode
-	# fzf # added later for conflicting with zsh-vi-mode
+	# zsh-vi-mode
+	fzf # added later for conflicting with zsh-vi-mode
 	git
 	web-search
 	history
@@ -17,9 +17,9 @@ plugins=(
 )
 
 # The plugin will auto execute this zvm_after_init function
-function zvm_after_init() {
-  [ -f ~/.oh-my-zsh/plugins/fzf/fzf.plugin.zsh ] && source ~/.oh-my-zsh/plugins/fzf/fzf.plugin.zsh
-}
+# function zvm_after_init() {
+  # [ -f ~/.oh-my-zsh/plugins/fzf/fzf.plugin.zsh ] && source ~/.oh-my-zsh/plugins/fzf/fzf.plugin.zsh
+# }
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,8 +106,17 @@ alias euporie="euporie-notebook --external_editor='tmux display-popup -x {left} 
 alias startcam="sudo modprobe uvcvideo"
 alias stopcam="sudo modprobe -r uvcvideo"
 
-bindkey '^F' fzf-file-widget
-bindkey '^G' fzf-dir
+bindkey -v
+bindkey '^V' fzf-file-widget
+
+bindkey -M viins '^F' vi-forward-char
+bindkey -M viins '^B' vi-backward-char
+
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+# bindkey '^G' fzf-dir
 
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
