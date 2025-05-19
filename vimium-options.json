@@ -1,5 +1,6 @@
 {
   "keyMappings": "map ; passNextKey",
+  "linkHintCharacters": "asdfghjklçei",
   "settingsVersion": "2.2.1",
   "exclusionRules": [
     {
