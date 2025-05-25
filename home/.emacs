@@ -34,6 +34,11 @@
 (package-install 'indent-bars)
 (package-install 'treemacs)
 (package-install 'lsp-pyright)
+(package-install 'yasnippet)
+(package-install 'yasnippet-snippets)
+(package-install 'zoxide)
+
+(require 'dash)
 
 (persistent-scratch-setup-default)
 (persistent-scratch-autosave-mode 1)
@@ -90,7 +95,7 @@
 
 ;; in depth customization
 (custom-set-faces
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#1f2430" :foreground "#cbccc6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 160 :width normal :foundry "ADBO" :family "Source Code Pro")))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#1f2430" :foreground "#cbccc6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 130 :width normal :foundry "ADBO" :family "Source Code Pro")))))
 
 (setq display-line-numbers 'visual)
 (setq display-line-numbers-type 'relative)
