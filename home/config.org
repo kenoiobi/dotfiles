@@ -808,8 +808,14 @@ after considering lots of options, i've settled with indent-bars
   (add-hook 'prog-mode-hook 'indent-bars-mode)
 #+end_src
 
-this is the only option that does not depend on continous code
+This is the only option that does not depend on continous code
 and works well with dark themes, heavily recommend this
+
+Also, i like to see "lost whitespace" at end of lines and on blank lines, this shows it quite clearly
+
+#+begin_src emacs-lisp :tangle yes
+  (setq show-trailing-whitespace t)
+#+end_src
 
 
 ** SYNTAX HIGHLIGHTING
