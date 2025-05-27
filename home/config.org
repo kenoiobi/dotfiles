@@ -200,19 +200,19 @@ I'm also setting it up to have details hidden by default
 Buffers are really well made in emacs, i tend to move between them in some ways:
 
 1. Prev/Next
-#+begin_src emacs-lisp :tangle yes
-  (evil-define-key 'normal 'global (kbd "<leader>,") 'previous-buffer)
-  (evil-define-key 'normal 'global (kbd "<leader>.") 'next-buffer)
-#+end_src
+   #+begin_src emacs-lisp :tangle yes
+     (evil-define-key 'normal 'global (kbd "<leader>,") 'previous-buffer)
+     (evil-define-key 'normal 'global (kbd "<leader>.") 'next-buffer)
+   #+end_src
 
 2. Easy access to buffer listing
    #+begin_src emacs-lisp :tangle yes
-    (evil-define-key 'normal 'global (kbd "<leader>a") 'switch-to-buffer)
+     (evil-define-key 'normal 'global (kbd "<leader>a") 'switch-to-buffer)
    #+end_src
 
 3. Easy killing
    #+begin_src emacs-lisp :tangle yes
-    (evil-define-key 'normal 'global (kbd "<leader>k") 'kill-buffer)
+     (evil-define-key 'normal 'global (kbd "<leader>k") 'kill-buffer)
    #+end_src
 
 
@@ -224,19 +224,22 @@ First, we install it
   (package-install 'fzf)
   (require 'fzf) ;; not sure if necessary
 #+end_src
+
 Then, we set it to find:
-*** Files
+
+Files
 #+begin_src emacs-lisp :tangle yes
   (evil-define-key 'normal 'global (kbd "<leader>f") (lambda () (interactive)
 						      (fzf-with-command "find -type f" 'fzf--action-find-file default-directory)))
 #+end_src
-*** Directories
+
+Directories
 #+begin_src emacs-lisp :tangle yes
   (evil-define-key 'normal 'global (kbd "<leader>d") (lambda () (interactive)
 						      (fzf-with-command "find -type d" 'fzf--action-find-file default-directory)))
 #+end_src
 
-*** Rgrep
+Grep
 #+begin_src emacs-lisp :tangle yes
 (evil-define-key 'normal 'global (kbd "<leader>v") 'fzf-grep-with-narrowing)
 ;; alternative if you get mad with default implementation
