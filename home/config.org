@@ -1,9 +1,54 @@
 #+title: Kayon's Emacs Config
 #+author: Kayon Jaime (kenoiobi)
-#+STARTUP: overview
+#+STARTUP: showeverything
 #+options: toc:2
 
-* TABLE OF CONTENTS
+* TABLE OF CONTENTS :toc:
+- [[#getting-started][GETTING STARTED]]
+  - [[#melpa][MELPA]]
+  - [[#custom][CUSTOM]]
+- [[#removing-bad-default-behavior][REMOVING BAD DEFAULT BEHAVIOR]]
+- [[#evil][EVIL]]
+  - [[#install][INSTALL]]
+  - [[#keybindings][KEYBINDINGS]]
+- [[#moving-between-files][MOVING BETWEEN FILES]]
+  - [[#dired][DIRED]]
+  - [[#buffers][BUFFERS]]
+  - [[#fzf][FZF]]
+  - [[#zoxide][ZOXIDE]]
+  - [[#bookmarks][BOOKMARKS]]
+  - [[#harpoon][HARPOON]]
+- [[#moving-inside-files][MOVING INSIDE FILES]]
+  - [[#avy][AVY]]
+- [[#taking-notes][TAKING NOTES]]
+- [[#project][PROJECT]]
+  - [[#projectile][PROJECTILE]]
+  - [[#perspective][PERSPECTIVE]]
+- [[#lsp][LSP]]
+  - [[#java][Java]]
+  - [[#javascript][Javascript]]
+  - [[#python][Python]]
+  - [[#php][PHP]]
+  - [[#go][Go]]
+  - [[#completion][COMPLETION]]
+  - [[#linting][LINTING]]
+  - [[#goto-references][Goto References]]
+  - [[#show-methods-in-tree-view][Show Methods in Tree View]]
+- [[#git][GIT]]
+- [[#aesthetics][AESTHETICS]]
+  - [[#theme][Theme]]
+  - [[#modeline][Modeline]]
+  - [[#nerd-icons][Nerd Icons]]
+- [[#extra-stuff][EXTRA STUFF]]
+  - [[#splits][SPLITS]]
+  - [[#pdf][PDF]]
+  - [[#snippets][SNIPPETS]]
+  - [[#terminal][TERMINAL]]
+  - [[#electric-pairs][ELECTRIC PAIRS]]
+  - [[#line-numbers][LINE NUMBERS]]
+  - [[#indent-lines][INDENT LINES]]
+  - [[#syntax-highlighting][SYNTAX HIGHLIGHTING]]
+  - [[#org-configs][ORG CONFIGS]]
 
 * GETTING STARTED
 
@@ -376,6 +421,7 @@ the following characteristics:
 * PROJECT
 ** PROJECTILE
 Projectile is a project manager tool, you can add projects, jump between them, manage them, etc
+
 
 Install
 #+begin_src emacs-lisp :tangle yes
@@ -773,3 +819,14 @@ some people like tree sitter, i personally am a fan of rainbow identifiers
 
 it basically turns each words hex into a color and colors it, simple
 and i think it looks nice
+
+
+** ORG CONFIGS
+
+Using table of contents on org mode
+
+#+begin_src emacs-lisp :tangle yes
+  (package-install 'toc-org)
+  (toc-org-enable)
+  (add-hook 'org-mode-hook 'toc-org-enable)
+#+end_src
