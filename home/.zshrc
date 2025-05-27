@@ -6,35 +6,35 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 KEYTIMEOUT=1
 
 plugins=(
-	# zsh-vi-mode
-	fzf # added later for conflicting with zsh-vi-mode
-	git
-	web-search
-	history
-	jsontools
-	zsh-autosuggestions
-	virtualenv
+    # zsh-vi-mode
+    fzf # added later for conflicting with zsh-vi-mode
+    git
+    web-search
+    history
+    jsontools
+    zsh-autosuggestions
+    virtualenv
 )
 
 # The plugin will auto execute this zvm_after_init function
 # function zvm_after_init() {
-  # [ -f ~/.oh-my-zsh/plugins/fzf/fzf.plugin.zsh ] && source ~/.oh-my-zsh/plugins/fzf/fzf.plugin.zsh
+# [ -f ~/.oh-my-zsh/plugins/fzf/fzf.plugin.zsh ] && source ~/.oh-my-zsh/plugins/fzf/fzf.plugin.zsh
 # }
 
 source $ZSH/oh-my-zsh.sh
 source ~/.path
 
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
+    export EDITOR='nvim'
 else
-  export EDITOR='nvim'
+    export EDITOR='nvim'
 fi
 
 # functions
 zvm_vi_yank () {
-	zvm_yank
-	printf %s "${CUTBUFFER}" | xclip -sel c
-	zvm_exit_visual_mode
+    zvm_yank
+    printf %s "${CUTBUFFER}" | xclip -sel c
+    zvm_exit_visual_mode
 }
 
 cd() {
@@ -42,8 +42,8 @@ cd() {
 }
 
 fd() {
-  local dir
-  dir=$(find . -type d | fzf --reverse) && cd "$dir"
+    local dir
+    dir=$(find . -type d | fzf --reverse) && cd "$dir"
 }
 
 ff(){

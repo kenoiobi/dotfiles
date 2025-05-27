@@ -49,6 +49,7 @@
   - [[#indent-lines][INDENT LINES]]
   - [[#syntax-highlighting][SYNTAX HIGHLIGHTING]]
   - [[#org-configs][ORG CONFIGS]]
+- [[#credits][CREDITS]]
 
 * GETTING STARTED
 
@@ -173,13 +174,15 @@ First, it should do some stuff well, better than default dired does
 
 *** Better Than GUI
 
-1. Open easily, 
+1. Open easily
+
   I deal with this by setting a single key for find file
 
   #+begin_src emacs-lisp :tangle yes
     (evil-define-key 'normal 'global (kbd "<leader>e") 'find-file)
   #+end_src
-2. Bookmarks (Downloads, home), 
+2. Bookmarks (Downloads, home)
+
   I deal with this one with zoxide and GH mapping
 
   #+begin_src emacs-lisp :tangle yes
@@ -187,7 +190,8 @@ First, it should do some stuff well, better than default dired does
     					      (find-file "~/")))
   #+end_src
 
-3. Moving/Copying easily, 
+3. Moving/Copying easily
+
   I do this in a cool way, after doing a split, this config makes it so emacs defaults
   any action to the next open window
 
@@ -199,6 +203,7 @@ First, it should do some stuff well, better than default dired does
   location that the other split is at, very nice, works for other things as well
 
 4. Subtrees
+   
    Simple plugin and mapping to show subtrees
 
    #+begin_src emacs-lisp :tangle yes
@@ -207,7 +212,8 @@ First, it should do some stuff well, better than default dired does
    #+end_src
 
 5. Easy movimentation
-   i like to go in and out of directories easily, so i map H and L to it
+   
+   I like to go in and out of directories easily, so i map H and L to it
 
    #+begin_src emacs-lisp :tangle yes
     (evil-define-key 'normal dired-mode-map (kbd "l") 'dired-find-file)
@@ -798,6 +804,7 @@ after considering lots of options, i've settled with indent-bars
 
 #+begin_src emacs-lisp :tangle yes
   (package-install 'indent-bars)
+  (setq indent-bars-starting-column 0)
   (add-hook 'prog-mode-hook 'indent-bars-mode)
 #+end_src
 
@@ -830,3 +837,9 @@ Using table of contents on org mode
   (toc-org-enable)
   (add-hook 'org-mode-hook 'toc-org-enable)
 #+end_src
+
+* CREDITS
+
+This whole setup was learned (stolen) from DistroTube's Emacs series, this would not have been possible this soon without him, go give him some love
+
+https://www.youtube.com/watch?v=d1fgypEiQkE&list=PL5--8gKSku15e8lXf7aLICFmAHQVo0KXX
