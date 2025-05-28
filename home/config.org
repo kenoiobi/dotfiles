@@ -43,6 +43,7 @@
   - [[#splits][SPLITS]]
   - [[#pdf][PDF]]
   - [[#snippets][SNIPPETS]]
+  - [[#formatter][FORMATTER]]
   - [[#terminal][TERMINAL]]
   - [[#electric-pairs][ELECTRIC PAIRS]]
   - [[#line-numbers][LINE NUMBERS]]
@@ -57,19 +58,20 @@
 
 I tend to use the default package manager, this is just to setup melpa (non official packages)
 #+begin_src emacs-lisp :tangle yes
-(setq package-archives
- '(("gnu" . "https://elpa.gnu.org/packages/")
-   ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-   ("melpa" . "https://melpa.org/packages/")))
+  (setq package-archives
+	'(("gnu" . "https://elpa.gnu.org/packages/")
+	("nongnu" . "https://elpa.nongnu.org/nongnu/")
+	("melpa" . "https://melpa.org/packages/")))
 
-(package-refresh-contents)
+  (package-refresh-contents)
 #+end_src
 
 ** CUSTOM
 
-I dont like custom files being created by itself, so i contain them on a temp fil
+I dont like custom files being created by themselves, so i contain them on a temp file
+
 #+begin_src emacs-lisp :tangle yes
-(setq custom-file (make-temp-file "emacs-custom"))
+  (setq custom-file (make-temp-file "emacs-custom"))
 #+end_src
 
 
@@ -79,30 +81,38 @@ I dont like custom files being created by itself, so i contain them on a temp fi
 1. I like sh more than make, so change that
 
    #+begin_src emacs-lisp :tangle yes
-    (setq compile-command "./build.sh")
+     (setq compile-command "./build.sh")
    #+end_src
    
 2. Emacs has a ton of bars everywhere, remove em all
    
    #+begin_src emacs-lisp :tangle yes
-    (tool-bar-mode -1)
-    (scroll-bar-mode 0)
-    (menu-bar-mode 0)
+     (tool-bar-mode -1)
+     (scroll-bar-mode 0)
+     (menu-bar-mode 0)
    #+end_src
 
 3. I dont like the start screen
 
    #+begin_src emacs-lisp :tangle yes
-    (setq inhibit-startup-screen t)
-    (setq initial-scratch-message nil)
+     (setq inhibit-startup-screen t)
+     (setq initial-scratch-message nil)
    #+end_src
 
 4. I dont like percentages on my modeline
 
    #+begin_src emacs-lisp :tangle yes
-    (setq mode-line-percent-position nil)
+     (setq mode-line-percent-position nil)
    #+end_src
 
+5. To me, its expected behavior for your cursor to focus a newly open split, not staying where it is
+
+   #+begin_src emacs-lisp :tangle yes
+     (global-set-key "\C-x2" (lambda () (interactive)(split-window-vertically) (other-window 1)))
+     (global-set-key "\C-x3" (lambda () (interactive)(split-window-horizontally) (other-window 1)))
+     (global-set-key "\C-x=" 'balance-windows)
+     (global-set-key "\C-x-" (lambda () (interactive) (shrink-window 5)))
+   #+end_src
    
 * EVIL
 ** INSTALL
@@ -228,7 +238,7 @@ Second, some default configs must be changed so that dired feels better to use
 Firstly, Dired looks bad by default, lets fix that:
 
 #+begin_src emacs-lisp :tangle yes
-  (setq dired-listing-switches "-goaht --group-directories-first")
+  (setq dired-listing-switches "-goAht --group-directories-first")
 #+end_src
 
 Also, it has a bad habit of leaving tons of buffers open everywhere, this fixes it
@@ -409,10 +419,10 @@ the following characteristics:
    Achieved by using Persistent Scratch
 
    #+begin_src emacs-lisp :tangle yes
-    (package-install 'persistent-scratch)
-    (persistent-scratch-setup-default)
-    (persistent-scratch-autosave-mode 1)
-
+     (package-install 'persistent-scratch)
+     (persistent-scratch-setup-default)
+     (persistent-scratch-autosave-mode 1)
+     (setq persistent-scratch-backup-directory "~/.emacs.d/scratch/")
    #+end_src
 
 3. Modular
@@ -582,10 +592,18 @@ PHP is quite a simple setup
 #+end_src
 
 ** Go
+
 Go is very difficult to setup, principally because it does not
 like to follow conventions for path like every other language, you
 need to add custom paths for its programs, something that its not
 that easy to do in emacs
+
+#+begin_src emacs-lisp :tangle yes
+        (package-install 'go-mode)
+        (add-hook 'go-mode-hook (lambda ()
+    			      (setq tab-width 4)
+  			      ))
+#+end_src
 
 
 
@@ -640,7 +658,10 @@ For this i use treemacs
 
 #+begin_src emacs-lisp :tangle yes
   (package-install 'treemacs)
+
   (setq treemacs-position 'right)
+  (setq treemacs-width 50)
+
   (evil-define-key 'normal 'global (kbd "<leader>ss") 'lsp-treemacs-symbols)
   (evil-define-key 'normal 'global (kbd "<leader>sf") 'treemacs)
 #+end_src
@@ -760,6 +781,17 @@ Setting up:
 
 
 
+** FORMATTER
+
+Formatting is the act of having software make your code look proper for you, mostly used on vscode with prettier
+
+i like to use format-all and install the packages related to the language i'm working in
+
+#+begin_src emacs-lisp :tangle yes
+  (package-install 'format-all)
+  (evil-define-key 'normal 'global (kbd "<leader>bf") 'format-all-buffer)
+#+end_src
+
 ** TERMINAL
 
 I like full blown emulation inside my emacs, also being easy to access
@@ -785,7 +817,7 @@ Huge QOL improvement, duplicates quotes, parenthesis, etc
 
 ** LINE NUMBERS
 
-Like any Nice Republican American, i like my numbers Realive, like it should always be
+Like any Nice Republican American, i like my numbers Relative, like it should always be
 
 #+begin_src emacs-lisp :tangle yes
   (line-number-mode 0)
