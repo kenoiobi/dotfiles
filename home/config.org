@@ -351,6 +351,7 @@ more responsive, also nice substitute for helm (i think helm looks bad)
 Consult set ups some nice listing for things, i love its bookmark listing
 
 #+begin_src emacs-lisp :tangle yes
+  (package-install 'consult)
   (evil-define-key 'normal 'global (kbd "<leader>RET") 'consult-bookmark)
 #+end_src
 
@@ -422,7 +423,7 @@ the following characteristics:
      (package-install 'persistent-scratch)
      (persistent-scratch-setup-default)
      (persistent-scratch-autosave-mode 1)
-     (setq persistent-scratch-backup-directory "~/.emacs.d/scratch/")
+     (setq persistent-scratch-backup-directory "~/.emacs.d/scratch/") ;; this is very important, dont forget it, otherwise your scratch might be pernamently lost
    #+end_src
 
 3. Modular
@@ -731,7 +732,7 @@ I Like to have a clock on my modeline as well
 I like setting some nerd icons for dired, makes everything look nice
 
 #+begin_src emacs-lisp :tangle yes
-  (require 'nerd-icons-dired)
+  (package-install 'nerd-icons-dired)
   (add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
 #+end_src
 
