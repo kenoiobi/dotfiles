@@ -877,6 +877,11 @@ Using table of contents on org mode
   (add-hook 'org-mode-hook 'toc-org-enable)
 #+end_src
 
+#+begin_src emacs-lisp :tangle yes
+  (setq org-export-with-broken-links t)
+  (setq org-babel-min-lines-for-block-output 0)
+#+end_src
+
 * CREDITS
 
 This whole setup was learned (stolen) from DistroTube's Emacs series, this would not have been possible this soon without him, go give him some love
