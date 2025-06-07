@@ -22,7 +22,7 @@ plugins=(
 # }
 
 source $ZSH/oh-my-zsh.sh
-source ~/.path
+# source ~/.path
 
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='nvim'
@@ -97,7 +97,7 @@ unalias 7
 unalias 8
 unalias 9
 
-source ~/programming/legitimuz/kycbot/imgs/functions.sh
+source ~/drive/programming/legitimuz/kycbot/imgs/functions.sh
 alias zup="source ~/.zshrc"
 alias clip="xclip -sel copy"
 alias cpdir="pwd | clip"
@@ -112,6 +112,8 @@ bindkey '^V' fzf-file-widget
 
 bindkey -M viins '^F' vi-forward-char
 bindkey -M viins '^B' vi-backward-char
+bindkey -M viins '^A' vi-beginning-of-line
+bindkey -M viins '^E' vi-end-of-line
 
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history

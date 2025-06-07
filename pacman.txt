@@ -1,5 +1,6 @@
 rofi
 ttf-jetbrains-mono
+adobe-source-code-pro-fonts
 xorg-xinit
 xorg-setxkbmap
 xorg-server

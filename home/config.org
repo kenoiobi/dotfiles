@@ -704,8 +704,7 @@ Love doom themes, generally use this one:
 This font size is really nice for 27 inch monitors
 
 #+begin_src emacs-lisp :tangle yes
-  (custom-set-faces
-   '(default ((t (:inherit nil :extend nil :stipple nil :background "#1f2430" :foreground "#cbccc6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 130 :width normal :foundry "ADBO" :family "Source Code Pro")))))
+(set-frame-font "JetBrainsMono Nerd Font 14" nil t)
 #+end_src
 
 
