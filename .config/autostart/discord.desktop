@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=discord
-Name=discord
+Exec=flatpak run com.discordapp.Discord
+Name=Discord
 Type=Application
 Version=1.0

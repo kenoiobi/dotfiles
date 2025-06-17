@@ -261,7 +261,6 @@ I don't like my files to be totally deleted when i delete them, this makes dired
 #+end_src
 
 
-   
 
 ** BUFFERS
 Buffers are really well made in emacs, i tend to move between them in some ways:

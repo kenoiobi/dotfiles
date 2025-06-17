@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=floorp
-Name=Floorp
+Exec=st -e tmux
+Name=quick
 Type=Application
 Version=1.0

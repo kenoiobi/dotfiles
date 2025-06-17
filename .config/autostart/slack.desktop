@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=slack
-Name=slack
+Exec=slack --gtk-version=3
+Name=Slack
 Type=Application
 Version=1.0

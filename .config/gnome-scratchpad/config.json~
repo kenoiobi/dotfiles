@@ -1,0 +1,12 @@
+{
+    "window_width": 1280,
+    "window_height": 800,
+    "hide_keybind": "<super>n",
+    "bindings": [
+	{ "wmclass": "^st-256color$", "keybind": "<alt>q" },
+	{ "wmclass": "^web\\.whatsapp\\.com", "keybind": "<alt>w" },
+	{ "wmclass": "^discord$", "keybind": "<alt><shift>w" },
+	{ "wmclass": "^slack$", "keybind": "<alt>s" },
+	{ "wmclass": "^nautilus$", "keybind": "<alt>e" }
+    ]
+}
