@@ -254,6 +254,12 @@ I'm also setting it up to have details hidden by default
   			     (dired-hide-details-mode)))
 #+end_src
 
+I don't like my files to be totally deleted when i delete them, this makes dired send it to system trash
+
+#+begin_src emacs-lisp :tangle yes
+  (setq delete-by-moving-to-trash t)
+#+end_src
+
 
    
 

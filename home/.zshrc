@@ -103,6 +103,7 @@ alias clip="xclip -sel copy"
 alias cpdir="pwd | clip"
 alias vim="nvim"
 alias euporie="euporie-notebook --external_editor='tmux display-popup -x {left} -y {bottom} -w {width} -h {height} -B -E nvim'"
+alias rm="trash-put"
 
 alias startcam="sudo modprobe uvcvideo"
 alias stopcam="sudo modprobe -r uvcvideo"
