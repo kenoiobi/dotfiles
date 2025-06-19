@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=SaveDesktop Native Updater
+Type=Application
+Exec=python3 /home/kayon/.local/share/savedesktop/native_installer.py --update
