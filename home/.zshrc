@@ -14,6 +14,7 @@ plugins=(
     jsontools
     zsh-autosuggestions
     virtualenv
+    conda-env
 )
 
 # The plugin will auto execute this zvm_after_init function
@@ -101,12 +102,26 @@ source ~/drive/programming/legitimuz/kycbot/imgs/functions.sh
 alias zup="source ~/.zshrc"
 alias clip="xclip -sel copy"
 alias cpdir="pwd | clip"
-alias vim="nvim"
 alias euporie="euporie-notebook --external_editor='tmux display-popup -x {left} -y {bottom} -w {width} -h {height} -B -E nvim'"
 alias rm="trash-put"
+alias poweroff="sudo poweroff"
+alias py="python3"
+
+alias vim="emacsclient -t"
+alias vi="emacsclient -t"
+alias nvim="emacsclient -t"
+alias emacs="emacsclient -t"
+
+alias token="command nvim ~/.token"
+
 
 alias startcam="sudo modprobe uvcvideo"
 alias stopcam="sudo modprobe -r uvcvideo"
+
+PATH=$PATH:/home/kayon/.cargo/bin
+PATH=$PATH:/home/kayon/miniconda3/bin
+
+export TERM="st-256color"
 
 bindkey -v
 bindkey '^V' fzf-file-widget
@@ -129,3 +144,19 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/kayon/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/kayon/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/kayon/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/kayon/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
