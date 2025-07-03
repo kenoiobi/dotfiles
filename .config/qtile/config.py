@@ -7,13 +7,14 @@ from libqtile.log_utils import logger
 import subprocess
 import time
 
-mod = "mod4"
-terminal = "st"
+mod = "mod4" # only sane mod key :pray:
+terminal = "st" # only sane terminal
 
+# workspace groups global variables, it would be done like this in C, but its not as correct in py, not sure how to go from here
 curr_group = 0
 workspace_groups = [0, 0, 0, 0, 0]
 
-
+# TODO: move these to another file
 @lazy.function
 def minimize_all(qtile):
     for win in qtile.current_group.windows:
@@ -132,6 +133,7 @@ for vt in range(1, 8):
     )
 
 
+# five groups per workspace group
 groups = [
     Group(
         "1",
@@ -140,6 +142,7 @@ groups = [
     Group(
         "2",
         matches=Match(wm_class=["Emacs"]),
+        layout="max",
     ),
     Group(
         "3",
@@ -157,6 +160,7 @@ groups = [
     Group("8"),
     Group("9"),
     Group("10"),
+    # five scratchpads, like any sane person (/s)
     ScratchPad("0", [
         DropDown(
             "term",
@@ -189,30 +193,7 @@ groups = [
     )
 ]
 
-# for i in range(9):
-#     keys.extend(
-#         [
-#             # mod + group number = switch to group
-#              Key(
-#                  [mod],
-#                  groups[i].name,
-#                  lazy.group[groups[i].name].toscreen(),
-#                  desc=f"Switch to groups {groups[i].name}",
-#              ),
-#              # mod + shift + group number = switch to & move focused window to group
-#              Key(
-#                  [mod, "shift"],
-#                  groups[i].name,
-#                  lazy.window.togroup(groups[i].name, switch_group=True),
-#                  desc=f"Switch to & move focused window to groups {groups[i].name}",
-#              ),
-#              # Or, use below if you prefer not to switch to that group.
-#              # # mod + shift + group number = move focused window to group
-#              # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-#              #     desc="move focused window to group {}".format(i.name)),
-#          ]
-#     )
-
+# main workspace switch keys
 keys.extend([
     Key([mod], "q", my_workspace(0)),
     Key([mod], "w", my_workspace(1)),
@@ -221,6 +202,7 @@ keys.extend([
     Key([mod], "t", my_workspace(4)),
 ])
 
+# move to workspace
 keys.extend([
     Key([mod, "control"], "q", my_workspace_move(0)),
     Key([mod, "control"], "w", my_workspace_move(1)),
@@ -229,38 +211,25 @@ keys.extend([
     Key([mod, "control"], "t", my_workspace_move(4)),
 ])
 
+# change workspace group
 keys.extend([
     Key([mod], "1", my_group(0)),
     Key([mod], "2", my_group(1)),
 ])
 
+# move to workspace last selected on workspace group
 keys.extend([
     Key([mod, "control"], "1", my_group_move(0)),
     Key([mod, "control"], "2", my_group_move(1)),
 ])
 
 
-# keys.extend(
-#     [
-#         Key([mod], groups[0].name, lazy.group[groups[0].name].toscreen())
-#     ]
-# )
-
-
+# i only like 3 layouts
 layouts = [
     layout.MonadTall(),
     # layout.MonadWide(),
     layout.Max(),
     layout.Floating(margin=0),
-    # Plasma(
-    #     border_normal='#333333',
-    #     border_focus='#00e891',
-    #     border_normal_fixed='#006863',
-    #     border_focus_fixed='#00e8dc',
-    #     border_width=1,
-    #     border_width_single=0,
-    #     margin=0
-    # ),
 ]
 
 widget_defaults = dict(
@@ -270,6 +239,7 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+# bar config only on main monitor
 screens = [
     Screen(
         bottom=bar.Bar(
@@ -321,6 +291,7 @@ mouse = [
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
+# from here on, qtile default config, haven't changed anything
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = False
@@ -354,21 +325,4 @@ wl_input_rules = None
 wl_xcursor_theme = None
 wl_xcursor_size = 24
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
 wmname = "LG3D"
-# subprocess.run("~/.config/qtile/autostart.sh", shell=True)
-# qtile.cmd_spawn("firefox")
-# qtile.cmd_spawn("redshift")
-# qtile.cmd_spawn("emacs")
-# qtile.cmd_spawn("flatpak run app.zen_browser.zen")
-# qtile.cmd_spawn("virt-manager")
-# qtile.cmd_spawn("audiorelay")
-# qtile.cmd_spawn("thunar")
-# qtile.cmd_spawn("alttab")
