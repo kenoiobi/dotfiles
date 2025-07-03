@@ -50,6 +50,8 @@
   - [[#indent-lines][INDENT LINES]]
   - [[#syntax-highlighting][SYNTAX HIGHLIGHTING]]
   - [[#org-configs][ORG CONFIGS]]
+  - [[#undo-tree][UNDO TREE]]
+  - [[#server][SERVER]]
 - [[#credits][CREDITS]]
 
 * GETTING STARTED
@@ -128,21 +130,25 @@ Evil is the center to my whole config, so we set it up first and set the rest ac
 
 Its config is a bit weird because of evil-collection, but works out
 #+begin_src emacs-lisp :tangle yes
-  ;; i use space as leader, if this is not setup, it works badly
-  (setq evil-collection-key-blacklist '("\"SPC\""))
-  (setq evil-mode-line-format nil) ;; evil collection complains if these two aren't set
-  (setq evil-want-keybinding nil)
+    ;; i use space as leader, if this is not setup, it works badly
+    (setq evil-collection-key-blacklist '("\"SPC\""))
+    (setq evil-mode-line-format nil) ;; evil collection complains if these two aren't set
+    (setq evil-want-keybinding nil)
 
-  ;; it all needs to be done in this order
-  (evil-mode t)
-  (setq evil-collection-key-blacklist '("SPC")) ;; twice cuz unsure where it should go, works fine like this
-  ;; enabling ctrl-r on evil
-  (evil-set-undo-system 'undo-redo)
-  (evil-collection-init)
+    ;; it all needs to be done in this order
+    (evil-mode t)
+    (setq evil-collection-key-blacklist '("SPC")) ;; twice cuz unsure where it should go, works fine like this
+    ;; enabling ctrl-r on evil
+    (evil-set-undo-system 'undo-redo)
+    (evil-collection-init)
 
-  ;; leader key
-  (evil-set-leader 'normal (kbd "SPC"))
-  (evil-set-leader 'visual (kbd "SPC"))
+    (add-hook 'org-mode-hook                                                                      
+		(lambda ()                                                                          
+	    (define-key evil-normal-state-map (kbd "TAB") 'org-cycle))) 
+
+    ;; leader key
+    (evil-set-leader 'normal (kbd "SPC"))
+    (evil-set-leader 'visual (kbd "SPC"))
 #+end_src
 
 
@@ -153,6 +159,7 @@ Initially, lets configure some default emacs behavior, then we'll mess with pack
 #+begin_src emacs-lisp :tangle yes
   (global-set-key [f3] 'compile) ;; really like to compile like this
   (global-set-key (kbd "C-;") 'comment-line) ;; amazing, makes commenting easy
+  (global-set-key (kbd "C-/") 'comment-line) ;; amazing, makes commenting easy
 #+end_src
 
 
@@ -709,7 +716,7 @@ Love doom themes, generally use this one:
 This font size is really nice for 27 inch monitors
 
 #+begin_src emacs-lisp :tangle yes
-(set-frame-font "JetBrainsMono Nerd Font 14" nil t)
+(add-to-list 'default-frame-alist '(font . "OpenDyslexicMono Nerd Font 11"))
 #+end_src
 
 
@@ -884,6 +891,23 @@ Using table of contents on org mode
 #+begin_src emacs-lisp :tangle yes
   (setq org-export-with-broken-links t)
   (setq org-babel-min-lines-for-block-output 0)
+#+end_src
+
+** UNDO TREE
+This packages allows for you to visuaIize your undos on a tree view, way better
+
+#+begin_src emacs-lisp :tangle yes
+  (package-install 'undo-tree)
+  (global-undo-tree-mode)
+  (setq undo-tree-save-history t)
+  (setq undo-tree-history-alist '(("." . "~/.emacs.d/undo-tree")))
+  (add-hook 'after-save-hook (lambda () (undo-tree-save-history nil t)))
+#+end_src
+** SERVER
+Set this to make your first Emacs execution start a server to use other sessions on terminal quickly
+#+begin_src emacs-lisp :tangle yes
+  (server-mode t)
+  (xclip-mode)
 #+end_src
 
 * CREDITS
