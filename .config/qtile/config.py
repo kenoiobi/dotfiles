@@ -226,10 +226,17 @@ keys.extend([
 
 # i only like 3 layouts
 layouts = [
-    layout.MonadTall(),
+    layout.MonadTall(
+        margin=25
+    ),
     # layout.MonadWide(),
     layout.Max(),
-    layout.Floating(margin=0),
+    layout.Floating(
+        margin=2,
+        border_width=8,
+        border_focus="#000000",
+        border_normal="#000000",
+    ),
 ]
 
 widget_defaults = dict(
@@ -244,29 +251,25 @@ screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.GroupBox(),
+                widget.Sep(
+                    background="141820",
+                    foreground="141820"
+                ),
+                widget.GroupBox(
+                    highlight_method="block",
+                    fontsize=16,
+                    padding_x=5,
+                    padding_y=7,
+                ),
+
+                widget.Spacer(),
                 widget.Prompt(),
                 widget.TaskList(
-                    max_title_length=15
-                ),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.Clock(format="%H:%M %p %a %d/%m/%Y"),
-            ],
-            35,
-        ),
-    ),
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.TaskList(
-                    max_title_length=15
+                    borderwidth=0,
+                    fontsize=16,
+                    icon_size=30,
+                    padding_y=5,
+                    padding_x=10,
                 ),
                 widget.Chord(
                     chords_colors={
@@ -276,12 +279,24 @@ screens = [
                 ),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
+                widget.Spacer(),
+                widget.Sep(padding=10),
+                widget.Clock(format="%H:%M"),
+                widget.Sep(padding=10),
+                widget.Clock(format="%p %a %d/%m/%Y"),
+                widget.Sep(padding=10),
                 widget.Systray(),
-                widget.Clock(format="%H:%M %p %a %d/%m/%Y"),
+                widget.Sep(
+                    background="141820",
+                    foreground="141820",
+                    padding=10,
+                ),
             ],
             35,
+            background="141820",
         ),
-    )
+    ),
+    Screen()
 ]
 
 # Drag floating layouts.
