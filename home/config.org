@@ -550,11 +550,13 @@ i am satisfied with these options
   (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
 
-  (package-install 'jtsx)
+  (package-install 'jtsx) ;; IMPORTANT!! do M-x jtsx-install-treesit-language for it to work
   (package-install 'typescript-mode)
 
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . jtsx-tsx-mode))
+
+  (setq js-indent-level 2)
 #+end_src
 
 and then, hook to lsp
@@ -563,6 +565,16 @@ and then, hook to lsp
   (add-hook 'rjsx-mode-hook 'lsp)
   (add-hook 'jtsx-tsx-mode-hook 'lsp)
   (add-hook 'typescript-mode-hook 'lsp)
+#+end_src
+
+Also, prettier, if you're into that
+
+#+begin_src emacs-lisp :tangle yes
+  (package-install 'prettier-js)
+  (add-to-list 'auto-mode-alist '("\\.js\\'"  . prettier-js-mode))
+  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . prettier-js-mode))
+  (add-to-list 'auto-mode-alist '("\\.ts\\'"  . prettier-js-mode))
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . prettier-js-mode))
 #+end_src
 
 ** Python
@@ -716,7 +728,7 @@ Love doom themes, generally use this one:
 This font size is really nice for 27 inch monitors
 
 #+begin_src emacs-lisp :tangle yes
-(add-to-list 'default-frame-alist '(font . "OpenDyslexicMono Nerd Font 11"))
+(add-to-list 'default-frame-alist '(font . "OpenDyslexicMono Nerd Font 12"))
 #+end_src
 
 
@@ -909,6 +921,7 @@ Set this to make your first Emacs execution start a server to use other sessions
   (server-mode t)
   (xclip-mode)
 #+end_src
+
 
 * CREDITS
 
