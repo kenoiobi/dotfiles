@@ -165,29 +165,34 @@ groups = [
         DropDown(
             "term",
             "st -e tmux",
-            y=0.07, x=0.05, width=0.9, height=0.9
+            y=0.07, x=0.05, width=0.9, height=0.9,
+            opacity=1
         ),
         DropDown(
             "whatsapp",
             'chromium --user-data-dir=/home/kayon/chrome/whats --app=https://web.whatsapp.com --class="whatsapp"',
-            y=0.07, x=0.05, width=0.9, height=0.9
+            y=0.07, x=0.05, width=0.9, height=0.9,
+            opacity=1
         ),
         DropDown(
             "dolphin",
             "dolphin",
-            y=0.07, x=0.05, width=0.9, height=0.9
+            y=0.07, x=0.05, width=0.9, height=0.9,
+            opacity=1
         ),
         DropDown(
             "discord",
             "discord",
             y=0.07, x=0.05, width=0.9, height=0.9,
-            match=Match(wm_class=['discord'])
+            match=Match(wm_class=['discord']),
+            opacity=1
         ),
         DropDown(
             "slack",
             "slack",
             y=0.07, x=0.05, width=0.9, height=0.9,
-            match=Match(wm_class=['Slack'])
+            match=Match(wm_class=['Slack']),
+            opacity=1
         ),
         ]
     )
