@@ -87,7 +87,7 @@ keys = [
     # starting and killing
     Key([mod], "Return", lazy.spawn("st"), desc="Launch terminal"),
     Key([mod], "Escape", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "d", lazy.spawn("rofi -show run"), desc="Spawn a command using a prompt widget"),
+    Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
     Key([mod], "a", lazy.spawn("rofi -show window"), desc="Spawn a command using a prompt widget"),
 
     # qtile management
@@ -160,6 +160,7 @@ groups = [
     Group("8"),
     Group("9"),
     Group("10"),
+    Group("11", screen_affinity=1),
     # five scratchpads, like any sane person (/s)
     ScratchPad("0", [
         DropDown(

@@ -107,10 +107,8 @@ alias rm="trash-put"
 alias poweroff="sudo poweroff"
 alias py="python3"
 
-alias vim="emacsclient -t"
-alias vi="emacsclient -t"
-alias nvim="emacsclient -t"
 alias emacs="emacsclient -t"
+alias em="emacsclient -t"
 
 alias token="command nvim ~/.token"
 
@@ -160,3 +158,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# GoLang
+export GOROOT=/home/kayon/.go
+export PATH=$GOROOT/bin:$PATH
+export GOPATH=/home/kayon/go
+export PATH=$GOPATH/bin:$PATH

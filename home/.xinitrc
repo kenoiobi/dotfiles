@@ -4,6 +4,7 @@
 # xrdb ~/.Xresources
 setxkbmap br
 
+emacs --fg-daemon &
 flameshot &
 lxqt-policykit-agent &
 feh --bg-scale ~/git/dotfiles/wallpaper/wallpaper6.jpg
@@ -11,8 +12,8 @@ redshift &
 dunst &
 blueman-applet &
 picom &
-# warp-cli disconnect
-# emacsclient &
+warp-cli disconnect &
+emacsclient -c
 
 # chromium --user-data-dir=/home/kayon/chrome/whats --app=https://web.whatsapp.com --class="whatsapp" &
 

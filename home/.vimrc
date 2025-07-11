@@ -15,7 +15,7 @@ map <C-x> <C-w>
 map <C-x>h ggVG
 map <C-t> :tabe<CR>
 let mapleader = " "
-map <leader>e :Ex<CR>
+map <leader>e :e ./
 map <leader>r :so ~/.vimrc<CR>
 map <leader>t :ter<CR>
 map <leader><CR> :e ~/.bookmark<CR>
