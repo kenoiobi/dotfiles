@@ -1,4 +1,8 @@
-source ~/git/dotfiles/init.zsh
+source ~/git/dotfiles/zsh/settings.zsh
+source ~/git/dotfiles/zsh/plugins.zsh
+source ~/git/dotfiles/zsh/keys.zsh
+source ~/git/dotfiles/zsh/aliases.zsh
+source ~/git/dotfiles/zsh/functions.zsh
 
 # path
 PATH=$PATH:/home/kayon/.cargo/bin

@@ -14,6 +14,8 @@ blueman-applet &
 picom &
 warp-cli disconnect &
 emacsclient -c
+~/bash/sidebery.sh &
+rclone mount drive:/ ~/drive &
 
 # chromium --user-data-dir=/home/kayon/chrome/whats --app=https://web.whatsapp.com --class="whatsapp" &
 

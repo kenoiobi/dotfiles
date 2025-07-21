@@ -1,3 +1,4 @@
+# Just a modified robby russel theme
 NEWLINE=$'\n'
 PROMPT="%{$fg[cyan]%}%c%{$reset_color%} %(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[green]%}%1{➜%} )"
 
