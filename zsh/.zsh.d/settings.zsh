@@ -1,4 +1,4 @@
-source ~/git/dotfiles/zsh/my-theme.zsh-theme 
+source ~/dotfiles/zsh/my-theme.zsh-theme 
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
