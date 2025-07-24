@@ -1,5 +1,0 @@
-[Desktop Entry]
-Exec=flatpak run one.ablaze.floorp
-Name=Floorp
-Type=Application
-Version=1.0

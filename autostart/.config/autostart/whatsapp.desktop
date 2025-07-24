@@ -1,0 +1,5 @@
+[Desktop Entry]
+Exec=chromium --user-data-dir=/home/kayon/chrome/whats --app=https://web.whatsapp.com --class="whatsapp"
+Name=whatsapp
+Type=Application
+Version=1.0
