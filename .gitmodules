@@ -1,3 +1,6 @@
 [submodule "zsh/antidote"]
 	path = zsh/antidote
 	url = https://github.com/mattmc3/antidote/
+[submodule "zsh/.zsh.d/antidote"]
+	path = zsh/.zsh.d/antidote
+	url = https://github.com/mattmc3/antidote/
