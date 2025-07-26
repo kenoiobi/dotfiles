@@ -74,7 +74,8 @@ in
   nixpkgs.config.allowUnfree = true;
 
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.startx.enable = true;
   services.xserver.windowManager.qtile.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -87,7 +88,8 @@ in
 	terminator
 	rofi
 	brightnessctl
-	rxvt-unicode
+	# rxvt-unicode
+	alacritty
 	redshift
 	kdePackages.qtsvg	
 	kdePackages.dolphin
@@ -117,6 +119,7 @@ in
 	killall
 	ffmpeg
 	yazi
+	alttab
   ];
 
   fonts.packages = with pkgs; [
