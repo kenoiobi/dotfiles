@@ -20,3 +20,6 @@ alias token="command nvim ~/.token"
 
 alias startcam="sudo modprobe uvcvideo"
 alias stopcam="sudo modprobe -r uvcvideo"
+
+alias ne="sudo nvim /etc/nixos/"
+alias nu="sudo nixos-rebuild switch"
