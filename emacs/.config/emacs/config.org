@@ -53,6 +53,7 @@
   - [[#undo-tree][UNDO TREE]]
   - [[#server][SERVER]]
   - [[#exec-path-from-shell][EXEC PATH FROM SHELL]]
+  - [[#http-client][HTTP CLIENT]]
 - [[#credits][CREDITS]]
 
 * GETTING STARTED
@@ -930,6 +931,15 @@ This package makes emacs respect your terminal path
   (package-install 'exec-path-from-shell)
   (when (daemonp)
   (exec-path-from-shell-initialize))
+#+end_src
+
+** HTTP CLIENT
+I'm using Verb
+
+#+begin_src emacs-lisp :tangle yes
+  (package-install 'verb)
+  (with-eval-after-load 'org
+    (define-key org-mode-map (kbd "C-c C-r") verb-command-map))
 #+end_src
 
 
