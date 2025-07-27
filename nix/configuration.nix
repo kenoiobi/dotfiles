@@ -132,6 +132,7 @@ in
 	gzip
 	nodejs
 	sumneko-lua-language-server
+	emacs
   ];
 
   fonts.packages = with pkgs; [

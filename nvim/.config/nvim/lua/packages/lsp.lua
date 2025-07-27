@@ -4,6 +4,7 @@
 -- BUT, there is no total integration between mason and lspconfig itself, lspconfig cant ask for an lsp and etc
 
 -- that's where this plugin comes in, it requires both and allows integration between both
+-- also, coq.nvim does completion, we set it up here as well
 return {
 	"mason-org/mason-lspconfig.nvim",
 	opts = {
@@ -21,8 +22,8 @@ return {
 	},
 	init = function()
 		vim.g.coq_settings = {
-			auto_start = "shut-up", -- if you want to start COQ at startup
-			-- Your COQ settings here
+			-- default is true, shut-up makes coq not have any message on startup
+			auto_start = "shut-up",
 		}
 	end,
 }

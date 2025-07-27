@@ -10,7 +10,7 @@
 	  userEmail = "kenoiobi@gmail.com";
 	  userName = "kenoiobi";
 	};
-	
+
 	programs.firefox = {
 
 		enable = true;
