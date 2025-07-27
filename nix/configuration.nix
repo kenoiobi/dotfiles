@@ -127,6 +127,10 @@ in
 	xorg.xev
 	playerctl
 	keepassxc
+	unzip
+	gnutar
+	gzip
+	nodejs
   ];
 
   fonts.packages = with pkgs; [
