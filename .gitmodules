@@ -4,3 +4,6 @@
 [submodule "zsh/.zsh.d/antidote"]
 	path = zsh/.zsh.d/antidote
 	url = https://github.com/mattmc3/antidote/
+[submodule "retroarch"]
+	path = retroarch
+	url = https://github.com/kenoiobi/retroarch/

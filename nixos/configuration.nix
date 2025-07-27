@@ -13,7 +13,7 @@ in
       ./hardware-configuration.nix # hardware, per computer
 # 	  ./nvidia.nix
       (import "${home-manager}/nixos")
-	  # ./emulation.nix
+	  ./emulation.nix
     ];
 
   home-manager.useUserPackages = true;
@@ -134,6 +134,7 @@ in
 	nodejs
 	sumneko-lua-language-server
 	emacs
+	tree
   ];
 
   fonts.packages = with pkgs; [
@@ -159,6 +160,7 @@ in
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.udisks2.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
