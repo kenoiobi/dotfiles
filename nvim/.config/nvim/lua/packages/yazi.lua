@@ -1,9 +1,11 @@
 return {
   "mikavilpas/yazi.nvim",
   event = "VeryLazy",
+
   dependencies = {
     { "nvim-lua/plenary.nvim", lazy = true },
   },
+
   keys = {
     -- 👇 in this section, choose your own keymappings!
     {
@@ -14,10 +16,11 @@ return {
     },
     {
       "<leader>e",
-      "<cmd>Yazi toggle<cr>",
+      "<cmd>Yazi<cr>",
       desc = "Resume the last yazi session",
     },
   },
+
   ---@type YaziConfig | {}
   opts = {
     -- if you want to open yazi instead of netrw, see below for more info

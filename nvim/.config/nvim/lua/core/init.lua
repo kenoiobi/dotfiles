@@ -7,6 +7,8 @@ vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 -- vim.cmd("set noexpandtab=4")
 vim.cmd("set shiftwidth=4")
+vim.diagnostic.config({ virtual_text = true })
 
 -- call keybinding file
 vim.cmd("source ~/.config/nvim/lua/core/keys.vim") -- i use vim script for keybindings cuz its 100x easier
+require("core.folds")

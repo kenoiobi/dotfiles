@@ -11,6 +11,9 @@ map <C-x>h ggVG
 map <C-x>t :tabe<cr>
 map <C-x>k :bd!<cr>
 
+" folding
+map <Tab> za
+
 " Leader bindings
 map <leader>, :bp<CR>
 map <leader>. :bn<CR>

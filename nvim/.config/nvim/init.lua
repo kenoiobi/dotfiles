@@ -30,6 +30,7 @@ require("lazy").setup({
 })
 
 require("core")
+require("languages")
 
 -- first, i use lazy to parse packages to install everything
 -- then, i require "core", it has some initial configurations + calls every other part of the config
