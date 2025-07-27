@@ -21,5 +21,5 @@ alias token="command nvim ~/drive/passwords/.token"
 alias startcam="sudo modprobe uvcvideo"
 alias stopcam="sudo modprobe -r uvcvideo"
 
-alias ne="nvim ~/dotfiles/nix/configuration.nix"
+alias ne="nvim ~/dotfiles/nixos/configuration.nix"
 alias nu="sudo nixos-rebuild switch"

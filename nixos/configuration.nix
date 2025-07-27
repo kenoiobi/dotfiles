@@ -10,9 +10,10 @@ in
 {
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      (import "${home-manager}/nixos")
+      ./hardware-configuration.nix # hardware, per computer
 # 	  ./nvidia.nix
+      (import "${home-manager}/nixos")
+	  # ./emulation.nix
     ];
 
   home-manager.useUserPackages = true;

@@ -730,7 +730,7 @@ Love doom themes, generally use this one:
 This font size is really nice for 27 inch monitors
 
 #+begin_src emacs-lisp :tangle yes
-(add-to-list 'default-frame-alist '(font . "OpenDyslexicMono Nerd Font 12"))
+(add-to-list 'default-frame-alist '(font . "Jetbrains Mono Nerd Font 16"))
 #+end_src
 
 
