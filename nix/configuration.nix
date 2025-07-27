@@ -131,6 +131,7 @@ in
 	gnutar
 	gzip
 	nodejs
+	sumneko-lua-language-server
   ];
 
   fonts.packages = with pkgs; [

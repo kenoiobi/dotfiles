@@ -5,17 +5,26 @@
 
 -- that's where this plugin comes in, it requires both and allows integration between both
 return {
-    "mason-org/mason-lspconfig.nvim",
-    opts = {
-        ensure_installed = { 
+	"mason-org/mason-lspconfig.nvim",
+	opts = {
+		ensure_installed = {
 			"lua_ls",
 			"pyright",
 		},
-    },
-    dependencies = {
-        { "mason-org/mason.nvim", opts = {} },
-        "neovim/nvim-lspconfig",
-    },
+	},
+	dependencies = {
+		{ "mason-org/mason.nvim", opts = {} },
+		"neovim/nvim-lspconfig",
+		{ "ms-jpq/coq_nvim", branch = "coq" },
+		{ "ms-jpq/coq.artifacts", branch = "artifacts" },
+		{ 'ms-jpq/coq.thirdparty', branch = "3p" },
+	},
+	init = function()
+		vim.g.coq_settings = {
+			auto_start = "shut-up", -- if you want to start COQ at startup
+			-- Your COQ settings here
+		}
+	end,
 }
 
 -- also, check linting.lua, it has the config to show errors inline

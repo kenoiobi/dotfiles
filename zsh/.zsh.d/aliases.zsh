@@ -16,7 +16,7 @@ alias drive="~/Downloads/drive"
 alias emacs="emacsclient -t"
 alias em="emacsclient -t"
 
-alias token="command nvim ~/.token"
+alias token="command nvim ~/drive/passwords/.token"
 
 alias startcam="sudo modprobe uvcvideo"
 alias stopcam="sudo modprobe -r uvcvideo"

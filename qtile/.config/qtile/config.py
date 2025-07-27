@@ -7,8 +7,10 @@ from libqtile.log_utils import logger
 import subprocess
 import time
 
+
 mod = "mod4" # only sane mod key :pray:
 terminal = "alacritty" # only sane terminal
+
 
 # workspace groups global variables, it would be done like this in C, but its not as correct in py, not sure how to go from here
 curr_group = 0
@@ -40,7 +42,6 @@ def my_workspace(screen, index):
 
     screen.toggle_group(final)
 
-
 @lazy.screen.function
 def my_group(screen, index):
     global curr_group
@@ -67,7 +68,6 @@ def my_workspace_move(screen, index):
 
     final = str(final + 1)
     screen.group.current_window.togroup(final)
-
 
 @lazy.screen.function
 def my_group_move(screen, index):
