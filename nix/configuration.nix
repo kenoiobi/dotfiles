@@ -10,7 +10,7 @@ in
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
       (import "${home-manager}/nixos")
 # 	  ./nvidia.nix
     ];
@@ -78,6 +78,8 @@ in
   services.xserver.displayManager.startx.enable = true;
   services.xserver.windowManager.qtile.enable = true;
 
+  services.libinput.touchpad.naturalScrolling = true;
+
   environment.systemPackages = with pkgs; [
 	vim
 	neovim
@@ -120,6 +122,11 @@ in
 	ffmpeg
 	yazi
 	alttab
+	pavucontrol
+	discord
+	xorg.xev
+	playerctl
+	keepassxc
   ];
 
   fonts.packages = with pkgs; [
@@ -159,4 +166,7 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
+	hardware.bluetooth.enable = true; # enables support for Bluetooth
+	hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.pulseaudio.enable = false; # Use Pipewire, the modern sound subsystem
 }

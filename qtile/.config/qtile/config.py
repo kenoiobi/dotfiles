@@ -8,7 +8,7 @@ import subprocess
 import time
 
 mod = "mod4" # only sane mod key :pray:
-terminal = "st" # only sane terminal
+terminal = "alacritty" # only sane terminal
 
 # workspace groups global variables, it would be done like this in C, but its not as correct in py, not sure how to go from here
 curr_group = 0
@@ -85,7 +85,7 @@ def my_group_move(screen, index):
 
 keys = [
     # starting and killing
-    Key([mod], "Return", lazy.spawn("st"), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn("alacritty"), desc="Launch terminal"),
     Key([mod], "Escape", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
     Key([mod], "a", lazy.spawn("rofi -show window"), desc="Spawn a command using a prompt widget"),
@@ -105,8 +105,8 @@ keys = [
 
     # media
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset Master 5%+")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master 5%-")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume @DEFAULT_SINK@ .05+")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("wpctl set-volume @DEFAULT_SINK@ .05-")),
     Key([], "XF86AudioMute", lazy.spawn("amixer sset Master 1+ toggle"), desc="Mute/Unmute Volume"),
     Key([], "Print", lazy.spawn("flameshot full")),
     Key(["shift"], "Print", lazy.spawn("flameshot gui")),
@@ -165,7 +165,7 @@ groups = [
     ScratchPad("0", [
         DropDown(
             "term",
-            "st -e tmux",
+            "alacritty -e tmux",
             y=0.07, x=0.05, width=0.9, height=0.9,
             opacity=1
         ),

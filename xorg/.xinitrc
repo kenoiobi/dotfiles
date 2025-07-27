@@ -7,7 +7,7 @@ setxkbmap br
 emacs --fg-daemon &
 flameshot &
 lxqt-policykit-agent &
-feh --bg-scale ~/git/dotfiles/wallpaper/wallpaper6.jpg
+feh --bg-scale ~/dotfiles/wallpaper/wallpaper6.jpg
 redshift &
 dunst &
 blueman-applet &
