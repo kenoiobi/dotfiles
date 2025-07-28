@@ -1,0 +1,11 @@
+nixos/hardware-configuration.nix
+emacs/.config/emacs/config.el
+emacs/.emacs.d/.persistent-scratch
+emacs/.emacs.d/auto-save-list/
+emacs/.emacs.d/eln-cache/
+emacs/.emacs.d/elpa/
+emacs/.emacs.d/scratch/
+emacs/.emacs.d/transient/
+nvim/.config/nvim/lazy-lock.json
+qtile/.config/qtile/__pycache__/
+tmux/.config/tmux/plugins

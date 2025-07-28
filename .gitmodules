@@ -7,3 +7,6 @@
 [submodule "retroarch"]
 	path = retroarch
 	url = https://github.com/kenoiobi/retroarch/
+[submodule "dwm"]
+	path = dwm
+	url = https://github.com/kenoiobi/dwm/

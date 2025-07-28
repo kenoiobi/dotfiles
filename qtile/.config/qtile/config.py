@@ -77,17 +77,17 @@ def my_group_move(screen, index):
     final = workspace_groups[index]
     for i in range(index):
         final = final + 5
-    
+
     final = str(final + 1)
-    
+
     screen.group.current_window.togroup(final)
 
 
 keys = [
     # starting and killing
-    Key([mod], "Return", lazy.spawn("alacritty"), desc="Launch terminal"),
+    Key([mod], "Backspace", lazy.spawn("alacritty"), desc="Launch terminal"),
     Key([mod], "Escape", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
+    Key([mod], "Return", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
     Key([mod], "a", lazy.spawn("rofi -show window"), desc="Spawn a command using a prompt widget"),
 
     # qtile management
@@ -97,8 +97,8 @@ keys = [
     # layout management
     Key([mod, "control"], "Return", lazy.layout.swap_main(), desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "apostrophe", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window",),
-    Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
+    Key([mod], "g", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window",),
+    Key([mod, "shift"], "g", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "shift"], "d", minimize_all(), desc="Spawn a command using a prompt widget"),
     Key([mod], "m", lazy.hide_show_bar(), desc="toggle bar"),
     Key([mod], "Tab", lazy.screen.toggle_group(), desc="Alternate between two most recent windows"),
