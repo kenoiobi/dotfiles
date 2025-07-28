@@ -81,7 +81,7 @@ in
 	services.xserver.windowManager.dwm.enable = true;
 
 	services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
-	  src = /home/kayon/dwm;
+	  src = /home/kayon/dotfiles/dwm;
 	};
 
 	services.libinput.touchpad.naturalScrolling = true;
