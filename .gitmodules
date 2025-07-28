@@ -9,4 +9,4 @@
 	url = https://github.com/kenoiobi/retroarch/
 [submodule "dwm"]
 	path = dwm
-	url = https://github.com/kenoiobi/dwm/
+	url = https://github.com/kenoiobi/dwm
