@@ -77,7 +77,7 @@ in
 	services.xserver.enable = true;
 	# services.xserver.displayManager.gdm.enable = true;
 	services.xserver.displayManager.startx.enable = true;
-	services.xserver.windowManager.qtile.enable = true;
+
 	services.xserver.windowManager.dwm.enable = true;
 
 	services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
