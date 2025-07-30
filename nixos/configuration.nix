@@ -86,6 +86,8 @@ in
 
 	services.libinput.touchpad.naturalScrolling = true;
 
+	programs.gamemode.enable = true;
+
 	environment.systemPackages = with pkgs; [
 			vim
 			neovim
@@ -142,8 +144,23 @@ in
 			postman
 			fastfetch
 			obsidian
+			pcsx2
+			dbeaver-bin
+			vial
+			coreutils-full
 	];
 
+	services.udev = {
+
+	  packages = with pkgs; [
+		qmk
+		qmk-udev-rules # the only relevant
+		qmk_hid
+		via
+		vial
+	  ]; # packages
+
+};
 	programs.steam = {
 		enable = true;
 		remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
