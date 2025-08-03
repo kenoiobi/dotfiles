@@ -11,6 +11,7 @@ return {
 		ensure_installed = {
 			"lua_ls",
 			"pyright",
+			"vtsls",
 		},
 	},
 	dependencies = {
@@ -25,6 +26,11 @@ return {
 			-- default is true, shut-up makes coq not have any message on startup
 			auto_start = "shut-up",
 		}
+		vim.lsp.config("vtsls", {
+			settings = {
+				['vtsls'] = {},
+			},
+		})
 	end,
 }
 
