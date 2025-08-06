@@ -81,6 +81,7 @@ in
 	services.xserver.displayManager.startx.enable = true;
 
 	services.xserver.windowManager.dwm.enable = true;
+	services.xserver.windowManager.openbox.enable = true;
 
 	services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
 		src = /home/kayon/dotfiles/dwm;
@@ -94,69 +95,71 @@ in
 	programs.gamemode.enable = true;
 
 	environment.systemPackages = with pkgs; [
-			vim
-			neovim
-			curl
-			tmux
-			librewolf-bin
-			git
-			terminator
-			rofi
-			brightnessctl
-			alacritty
-			redshift
-			kdePackages.qtsvg
-			kdePackages.dolphin
-			kdePackages.ark
-			rclone
-			zsh
-			fzf
-			zoxide
-			direnv
-			xclip
-			lf
-			flameshot
-			dunst
-			lxqt.lxqt-policykit
-			feh
-			blueman
-			picom
-			chromium
-			slack
-			stow
-			trash-cli
-			lshw
-			btop
-			obs-studio
-			gcc
-			linuxPackages.v4l2loopback
-			killall
-			ffmpeg
-			yazi
-			alttab
-			pavucontrol
-			discord
-			xorg.xev
-			playerctl
-			keepassxc
-			unzip
-			gnutar
-			gzip
-			nodejs
-			sumneko-lua-language-server
-			emacs
-			tree
-			postman
-			fastfetch
-			obsidian
-			pcsx2
-			dbeaver-bin
-			vial
-			coreutils-full
-			bc
-			prettierd
-			nil
-			];
+		vim
+		neovim
+		curl
+		tmux
+		librewolf-bin
+		git
+		terminator
+		rofi
+		brightnessctl
+		alacritty
+		redshift
+		kdePackages.qtsvg
+		kdePackages.dolphin
+		kdePackages.ark
+		rclone
+		zsh
+		fzf
+		zoxide
+		direnv
+		xclip
+		lf
+		flameshot
+		dunst
+		lxqt.lxqt-policykit
+		feh
+		blueman
+		picom
+		chromium
+		slack
+		stow
+		trash-cli
+		lshw
+		btop
+		obs-studio
+		gcc
+		linuxPackages.v4l2loopback
+		killall
+		ffmpeg
+		yazi
+		alttab
+		pavucontrol
+		discord
+		xorg.xev
+		playerctl
+		keepassxc
+		unzip
+		gnutar
+		gzip
+		nodejs
+		sumneko-lua-language-server
+		emacs
+		tree
+		postman
+		fastfetch
+		obsidian
+		pcsx2
+		dbeaver-bin
+		vial
+		coreutils-full
+		bc
+		prettierd
+		nil
+		github-desktop
+		sublime-merge
+	];
 
 	services.udev = {
 
