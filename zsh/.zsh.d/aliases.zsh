@@ -23,3 +23,5 @@ alias stopcam="sudo modprobe -r uvcvideo"
 
 alias ne="nvim ~/dotfiles/nixos/configuration.nix"
 alias nu="sudo nixos-rebuild switch"
+
+alias nvim="/home/kayon/Downloads/nvim-linux-x86_64/bin/nvim"

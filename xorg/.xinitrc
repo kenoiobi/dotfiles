@@ -1,21 +1,24 @@
 #!/bin/sh
 # export DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/bus"
 while true; do sleep 1; xsetroot -name "$(echo -n " " && date '+%a %k:%M:%S %d-%m-%Y ')"; done &
-# xrdb ~/.Xresources
-setxkbmap br
+xrdb ~/.Xresources
+# setxkbmap br -option ctrl:swapcaps
+# kanata -c ~/dotfiles/kanata/.config/kanata/kanata.kbd
 
 emacs --fg-daemon &
 flameshot &
 lxqt-policykit-agent &
-feh --bg-scale ~/dotfiles/wallpaper/wallpaper6.jpg
+feh --bg-scale ~/dotfiles/wallpaper/wallpaper3.jpg
 redshift &
 dunst &
 blueman-applet &
 picom &
 warp-cli disconnect &
-emacsclient -c
-~/bash/sidebery.sh &
+emacsclient -c &
+# ~/bash/sidebery.sh &
 rclone mount drive:/ ~/drive --vfs-cache-mode full &
+nm-applet &
+cbatticon &
 
 # chromium --user-data-dir=/home/kayon/chrome/whats --app=https://web.whatsapp.com --class="whatsapp" &
 

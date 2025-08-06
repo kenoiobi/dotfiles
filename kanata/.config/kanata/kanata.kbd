@@ -1,0 +1,34 @@
+(defsrc)
+(deflayermap (base-layer)
+caps @cesc
+lctl caps
+spc @sp
+rshift @slash
+)
+
+(defalias
+	cesc (tap-hold-press 100 100 esc lctl)
+)
+
+(defalias sp
+	(tap-hold-press 100 100 spc (layer-while-held sp-layer))
+)
+
+(defalias slash
+	(tap-hold-press 100 100 ; rshift)
+)
+(deflayermap (sp-layer)
+	w up
+	a lft
+	s down
+	d rght
+	q home
+	e end
+	r pgup
+	f pgdn
+	t pp
+	g volu
+	b voldwn
+	z mwd
+	x mwu
+)
