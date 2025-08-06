@@ -86,6 +86,9 @@ in
 		src = /home/kayon/dotfiles/dwm;
 	};
 
+	services.xserver.windowManager.awesome.enable = true;
+
+
 	services.libinput.touchpad.naturalScrolling = true;
 
 	programs.gamemode.enable = true;
@@ -152,6 +155,7 @@ in
 			coreutils-full
 			bc
 			prettierd
+			nil
 			];
 
 	services.udev = {
@@ -163,6 +167,7 @@ in
 				via
 				vial
 				zellij
+				findutils
 		]; # packages
 
 	};
@@ -181,18 +186,23 @@ in
 	services.udisks2.enable = true;
 	services.flatpak.enable = true;
 
-  xdg = {
-    portal = {
+	# mullvad
+	services.resolved.enable = true; # bugs if not enabled
+	services.mullvad-vpn.enable = true;
 
-    enable = true ;
-    xdgOpenUsePortal = true ;
-    extraPortals = ( with pkgs;  [
-      libsForQt5.xdg-desktop-portal-kde
-      xdg-desktop-portal
-      xdg-desktop-portal-gtk
-     ] ) ; 
-    };
-  };
+# dependency for flatpak
+	xdg = {
+		portal = {
+
+			enable = true ;
+			xdgOpenUsePortal = true ;
+			extraPortals = ( with pkgs;  [
+					libsForQt5.xdg-desktop-portal-kde
+					xdg-desktop-portal
+					xdg-desktop-portal-gtk
+			] ) ;
+		};
+	};
 
 # home manager setup
 	home-manager.useUserPackages = true;

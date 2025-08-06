@@ -22,6 +22,7 @@ map <Tab> za
 map <leader>, :bp<CR>
 map <leader>. :bn<CR>
 map <leader>t :ter<CR>
+map <leader>e :Ex<CR>
 
 " plugin keybindings
 " Telescope

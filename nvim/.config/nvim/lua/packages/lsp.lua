@@ -15,10 +15,10 @@ return {
 		},
 	},
 	dependencies = {
-		{ "mason-org/mason.nvim", opts = {} },
+		{ "mason-org/mason.nvim",  opts = {} },
 		"neovim/nvim-lspconfig",
-		{ "ms-jpq/coq_nvim", branch = "coq" },
-		{ "ms-jpq/coq.artifacts", branch = "artifacts" },
+		{ "ms-jpq/coq_nvim",       branch = "coq" },
+		{ "ms-jpq/coq.artifacts",  branch = "artifacts" },
 		{ 'ms-jpq/coq.thirdparty', branch = "3p" },
 	},
 	init = function()
@@ -26,11 +26,6 @@ return {
 			-- default is true, shut-up makes coq not have any message on startup
 			auto_start = "shut-up",
 		}
-		vim.lsp.config("vtsls", {
-			settings = {
-				['vtsls'] = {},
-			},
-		})
 	end,
 }
 
