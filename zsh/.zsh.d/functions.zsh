@@ -15,3 +15,12 @@ zvm_vi_yank () {
 	printf %s "${CUTBUFFER}" | xclip -sel c
 	zvm_exit_visual_mode
 }
+
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}

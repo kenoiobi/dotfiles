@@ -11,13 +11,14 @@ return {
 		ensure_installed = {
 			"lua_ls",
 			"pyright",
+			"vtsls",
 		},
 	},
 	dependencies = {
-		{ "mason-org/mason.nvim", opts = {} },
+		{ "mason-org/mason.nvim",  opts = {} },
 		"neovim/nvim-lspconfig",
-		{ "ms-jpq/coq_nvim", branch = "coq" },
-		{ "ms-jpq/coq.artifacts", branch = "artifacts" },
+		{ "ms-jpq/coq_nvim",       branch = "coq" },
+		{ "ms-jpq/coq.artifacts",  branch = "artifacts" },
 		{ 'ms-jpq/coq.thirdparty', branch = "3p" },
 	},
 	init = function()

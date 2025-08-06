@@ -1,6 +1,10 @@
 " exit terminal mode with escape
 tnoremap <Esc> <C-\><C-n>
 
+" show trailing white space
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/
+
 " some emacs bindings
 map <C-x>1 :only<cr>
 map <C-x>2 :split<cr>
@@ -18,6 +22,7 @@ map <Tab> za
 map <leader>, :bp<CR>
 map <leader>. :bn<CR>
 map <leader>t :ter<CR>
+map <leader>e :Ex<CR>
 
 " plugin keybindings
 " Telescope
@@ -31,6 +36,9 @@ map <leader>gg :Neogit kind=replace<CR>
 
 " bookmarks
 map <leader><CR> :Telescope bookmarks list<CR>
+
+" find files
+map <leader><leader> :Telescope find_files<CR>
 
 " Persistent undo
 if has("persistent_undo")
@@ -46,6 +54,3 @@ if has("persistent_undo")
     set undofile
 endif
 
-" show trailing white space
-:highlight ExtraWhitespace ctermbg=red guibg=red
-:match ExtraWhitespace /\s\+$/

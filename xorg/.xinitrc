@@ -5,6 +5,7 @@ xrdb ~/.Xresources
 # setxkbmap br -option ctrl:swapcaps
 # kanata -c ~/dotfiles/kanata/.config/kanata/kanata.kbd
 
+# background processes
 emacs --fg-daemon &
 flameshot &
 lxqt-policykit-agent &
@@ -20,9 +21,15 @@ rclone mount drive:/ ~/drive --vfs-cache-mode full &
 nm-applet &
 cbatticon &
 
-# chromium --user-data-dir=/home/kayon/chrome/whats --app=https://web.whatsapp.com --class="whatsapp" &
+# autostart
+pavucontrol &
+blueman-manager &
+obsidian &
+dbeaver &
+keepassxc &
+obs &
+Vial &
 
-# slack &
 
 xrandr --output DP-1 --off --output DP-2 --off --output DP-3 --mode 1680x1050 --pos 0x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 1680x0 --rotate normal
 

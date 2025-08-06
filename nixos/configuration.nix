@@ -10,13 +10,13 @@ in
 {
 	imports =
 		[
-			./hardware-configuration.nix
-			# ./nvidia.nix
+		./hardware-configuration.nix
+# ./nvidia.nix
 			(import "${home-manager}/nixos")
 			./emulation.nix
 		];
 
-    # Bootloader.
+# Bootloader.
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
 
@@ -25,12 +25,12 @@ in
 
 	networking.hostName = "nixos"; # Define your hostname.
 
-	networking.networkmanager.enable = true;
+		networking.networkmanager.enable = true;
 
-	# Set your time zone.
+# Set your time zone.
 	time.timeZone = "America/Recife";
 
-	# Select internationalisation properties.
+# Select internationalisation properties.
 	i18n.defaultLocale = "en_US.UTF-8";
 
 	i18n.extraLocaleSettings = {
@@ -45,44 +45,49 @@ in
 		LC_TIME = "pt_BR.UTF-8";
 	};
 
-	# Configure console keymap
+# Configure console keymap
 	console.keyMap = "br-abnt2";
 	programs.zsh.enable = true;
 
-	# Audio and bluetooth
+# Audio and bluetooth
 	hardware.bluetooth.enable = true; # enables support for Bluetooth
-	hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-	services.pulseaudio.enable = false; # Use Pipewire, the modern sound subsystem
+		hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+		services.pulseaudio.enable = false; # Use Pipewire, the modern sound subsystem
 
-	# Configure keymap in X11
-	services.xserver.xkb = {
-		layout = "br";
-		variant = "";
-	};
+# Configure keymap in X11
+		services.xserver.xkb = {
+			layout = "br";
+			variant = "";
+		};
 
 
-	# Define a user account. Don't forget to set a password with ‘passwd’.
+# Define a user account. Don't forget to set a password with ‘passwd’.
 	users.users.kayon = {
 		isNormalUser = true;
 		description = "kayon";
 		extraGroups = [ "networkmanager" "wheel" ];
-		packages = with pkgs; [];
+		packages = with pkgs; [
+			flatpak
+		];
 		shell = pkgs.zsh;
 	};
 
 
-	# Allow unfree packages
+# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 
 	services.xserver.enable = true;
-	# services.xserver.displayManager.gdm.enable = true;
+# services.xserver.displayManager.gdm.enable = true;
 	services.xserver.displayManager.startx.enable = true;
 
 	services.xserver.windowManager.dwm.enable = true;
 
 	services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
-	  src = /home/kayon/dotfiles/dwm;
+		src = /home/kayon/dotfiles/dwm;
 	};
+
+	services.xserver.windowManager.awesome.enable = true;
+
 
 	services.libinput.touchpad.naturalScrolling = true;
 
@@ -148,19 +153,24 @@ in
 			dbeaver-bin
 			vial
 			coreutils-full
-	];
+			bc
+			prettierd
+			nil
+			];
 
 	services.udev = {
 
-	  packages = with pkgs; [
-		qmk
-		qmk-udev-rules # the only relevant
-		qmk_hid
-		via
-		vial
-	  ]; # packages
+		packages = with pkgs; [
+			qmk
+				qmk-udev-rules # the only relevant
+				qmk_hid
+				via
+				vial
+				zellij
+				findutils
+		]; # packages
 
-};
+	};
 	programs.steam = {
 		enable = true;
 		remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -174,8 +184,27 @@ in
 
 	services.openssh.enable = true;
 	services.udisks2.enable = true;
+	services.flatpak.enable = true;
 
-	# home manager setup
+	# mullvad
+	services.resolved.enable = true; # bugs if not enabled
+	services.mullvad-vpn.enable = true;
+
+# dependency for flatpak
+	xdg = {
+		portal = {
+
+			enable = true ;
+			xdgOpenUsePortal = true ;
+			extraPortals = ( with pkgs;  [
+					libsForQt5.xdg-desktop-portal-kde
+					xdg-desktop-portal
+					xdg-desktop-portal-gtk
+			] ) ;
+		};
+	};
+
+# home manager setup
 	home-manager.useUserPackages = true;
 	home-manager.useGlobalPkgs = true;
 	home-manager.backupFileExtension = "backup";
