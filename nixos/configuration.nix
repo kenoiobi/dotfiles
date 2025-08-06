@@ -156,6 +156,7 @@ in
 			bc
 			prettierd
 			nil
+			github-desktop
 			];
 
 	services.udev = {
