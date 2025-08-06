@@ -46,4 +46,4 @@ URxvt.color7: #BAC2DE
 URxvt.color15: #A6ADC8
 
 ! High dpi screens
-Xft.dpi: 192
+! Xft.dpi: 192

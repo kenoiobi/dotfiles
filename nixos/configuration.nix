@@ -81,6 +81,7 @@ in
 	services.xserver.displayManager.startx.enable = true;
 
 	services.xserver.windowManager.dwm.enable = true;
+	services.xserver.windowManager.openbox.enable = true;
 
 	services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
 		src = /home/kayon/dotfiles/dwm;
@@ -157,6 +158,7 @@ in
 			prettierd
 			nil
 			github-desktop
+			lazygit
 			];
 
 	services.udev = {
