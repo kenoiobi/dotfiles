@@ -83,8 +83,6 @@ in
 	services.xserver.displayManager.startx.enable = true;
 
 	services.xserver.windowManager.dwm.enable = true;
-	services.xserver.windowManager.qtile.enable = true;
-	services.xserver.desktopManager.lxqt.enable = true;
 
 	services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
 		src = /home/kayon/dotfiles/dwm;
@@ -163,7 +161,6 @@ in
 		kdePackages.qtstyleplugin-kvantum
 		gruvbox-kvantum
 		python314
-		sublime-merge
 		zellij
 		findutils
 		github-desktop
