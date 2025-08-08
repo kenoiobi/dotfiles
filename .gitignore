@@ -9,3 +9,6 @@ emacs/.emacs.d/transient/
 nvim/.config/nvim/lazy-lock.json
 qtile/.config/qtile/__pycache__/
 tmux/.config/tmux/plugins
+/emacs/.emacs.d/.cache
+emacs/.emacs.d/.lsp-session-v1
+/emacs/.emacs.d/eshell

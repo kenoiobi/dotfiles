@@ -4,6 +4,7 @@ while true; do sleep 1; xsetroot -name "$(echo -n " " && date '+%a %k:%M:%S %d-%
 xrdb ~/.Xresources
 # setxkbmap br -option ctrl:swapcaps
 # kanata -c ~/dotfiles/kanata/.config/kanata/kanata.kbd
+dbus-update-activation-environment --systemd DISPLAY
 
 # background processes
 emacs --fg-daemon &
@@ -29,6 +30,9 @@ dbeaver &
 keepassxc &
 obs &
 Vial &
+
+systemctl --user import-environment PATH
+systemctl --user restart xdg-desktop-portal.service
 
 
 xrandr --output DP-1 --off --output DP-2 --off --output DP-3 --mode 1680x1050 --pos 0x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 1680x0 --rotate normal

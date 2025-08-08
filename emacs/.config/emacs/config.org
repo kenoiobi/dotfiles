@@ -549,16 +549,15 @@ i am satisfied with these options
 
 #+begin_src emacs-lisp :tangle yes
   (package-install 'rjsx-mode)
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
-  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+
 
   (package-install 'jtsx) ;; IMPORTANT!! do M-x jtsx-install-treesit-language for it to work
   (package-install 'typescript-mode)
 
-  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . jtsx-tsx-mode))
+  ;; (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+  ;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . jtsx-tsx-mode))
 
-  (setq js-indent-level 2)
+  ;; (setq js-indent-level 2)
 #+end_src
 
 and then, hook to lsp

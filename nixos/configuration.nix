@@ -16,6 +16,8 @@ in
 			./emulation.nix
 		];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
 # Bootloader.
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
@@ -81,7 +83,8 @@ in
 	services.xserver.displayManager.startx.enable = true;
 
 	services.xserver.windowManager.dwm.enable = true;
-	services.xserver.windowManager.openbox.enable = true;
+	services.xserver.windowManager.qtile.enable = true;
+	services.xserver.desktopManager.lxqt.enable = true;
 
 	services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
 		src = /home/kayon/dotfiles/dwm;
@@ -129,7 +132,6 @@ in
 		lshw
 		btop
 		obs-studio
-		gcc
 		linuxPackages.v4l2loopback
 		killall
 		ffmpeg
@@ -157,9 +159,15 @@ in
 		bc
 		prettierd
 		nil
-		github-desktop
+		ripgrep
+		kdePackages.qtstyleplugin-kvantum
+		gruvbox-kvantum
+		python314
 		sublime-merge
+		zellij
+		findutils
 	];
+
 
 	services.udev = {
 
@@ -169,8 +177,6 @@ in
 				qmk_hid
 				via
 				vial
-				zellij
-				findutils
 		]; # packages
 
 	};
@@ -187,25 +193,27 @@ in
 
 	services.openssh.enable = true;
 	services.udisks2.enable = true;
-	services.flatpak.enable = true;
+	services.locate.enable = true;
+	# services.passSecretService.enable = true; # github desktop
 
 	# mullvad
 	services.resolved.enable = true; # bugs if not enabled
 	services.mullvad-vpn.enable = true;
 
-# dependency for flatpak
-	xdg = {
-		portal = {
 
-			enable = true ;
-			xdgOpenUsePortal = true ;
-			extraPortals = ( with pkgs;  [
-					libsForQt5.xdg-desktop-portal-kde
-					xdg-desktop-portal
-					xdg-desktop-portal-gtk
-			] ) ;
+# dependency for flatpak
+		xdg = {
+			portal = {
+
+				enable = true ;
+				xdgOpenUsePortal = true ;
+				extraPortals = ( with pkgs;  [
+						xdg-desktop-portal-gtk
+				] ) ;
+			};
 		};
-	};
+
+	services.flatpak.enable = true;
 
 # home manager setup
 	home-manager.useUserPackages = true;
