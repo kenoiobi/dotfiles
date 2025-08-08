@@ -166,6 +166,7 @@ in
 		sublime-merge
 		zellij
 		findutils
+		github-desktop
 	];
 
 
