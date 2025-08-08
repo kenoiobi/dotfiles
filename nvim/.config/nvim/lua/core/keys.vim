@@ -39,6 +39,7 @@ map <leader><CR> :Telescope bookmarks list<CR>
 
 " find files
 map <leader><leader> :Telescope find_files<CR>
+map <leader>f :Telescope live_grep<CR>
 
 " Persistent undo
 if has("persistent_undo")
