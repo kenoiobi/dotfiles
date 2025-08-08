@@ -15,7 +15,7 @@ rshift @slash
 )
 
 (defalias slash
-	(tap-hold-press 100 100 ; rshift)
+	(tap-hold-press 100 100 RA-q rshift)
 )
 (deflayermap (sp-layer)
 	w up
@@ -31,4 +31,7 @@ rshift @slash
 	b voldwn
 	z mwd
 	x mwu
+	y C-pgup
+	h C-pgdn
+	rshift RA-w
 )
