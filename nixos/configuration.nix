@@ -75,6 +75,7 @@ in
 	};
 
 
+
 # Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 
@@ -164,6 +165,7 @@ in
 		zellij
 		findutils
 		github-desktop
+		qbittorrent
 	];
 
 
@@ -213,11 +215,24 @@ in
 
 	services.flatpak.enable = true;
 
-# home manager setup
+	# home manager setup
 	home-manager.useUserPackages = true;
 	home-manager.useGlobalPkgs = true;
 	home-manager.backupFileExtension = "backup";
 	home-manager.users.kayon = import ./home.nix;
+
+	# docker
+	virtualisation.docker.enable = true;
+	users.extraGroups.docker.members = [ "kayon" ];
+	virtualisation.docker.rootless = {
+	  enable = true;
+	  setSocketVariable = true;
+	};
+
+	# virt-manager
+	programs.virt-manager.enable = true;
+	virtualisation.libvirtd.enable = true;
+	virtualisation.spiceUSBRedirection.enable = true;
 
 	system.stateVersion = "25.05";
 }

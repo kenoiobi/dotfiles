@@ -41,6 +41,10 @@ map <leader><CR> :Telescope bookmarks list<CR>
 map <leader><leader> :Telescope find_files<CR>
 map <leader>f :Telescope live_grep<CR>
 
+" Debugger
+map <leader>d :DapContinue<CR>
+map <leader>b :DapToggleBreakpoint<CR>
+
 " Persistent undo
 if has("persistent_undo")
    let target_path = expand('~/.undodir')
