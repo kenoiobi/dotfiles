@@ -12,3 +12,4 @@ tmux/.config/tmux/plugins
 /emacs/.emacs.d/.cache
 emacs/.emacs.d/.lsp-session-v1
 /emacs/.emacs.d/eshell
+/emacs/.emacs.d/url
