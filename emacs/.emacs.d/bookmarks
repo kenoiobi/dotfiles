@@ -1,0 +1,23 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("token"
+ (filename . "~/drive/passwords/.token")
+ (front-context-string . "\nlegitimuz\nghp_R")
+ (rear-context-string . "SQOz64BBt3hBKuH\n")
+ (position . 51)
+ (last-modified 26778 7494 273671 715000))
+("accounts"
+ (filename . "~/drive/passwords/accounts.txt")
+ (front-context-string . "\nkayon.jaime+adm")
+ (rear-context-string . "sEtw2xRjj*2Peo!\n")
+ (position . 68)
+ (last-modified 26778 7479 647202 779000))
+("config.org"
+ (filename . "~/dotfiles/emacs/.config/emacs/config.org")
+ (front-context-string . "#+options: toc:2")
+ (rear-context-string . " showeverything\n")
+ (position . 90)
+ (last-modified 26778 5209 664004 858000))
+)

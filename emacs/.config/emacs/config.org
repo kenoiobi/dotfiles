@@ -365,8 +365,8 @@ more responsive, also nice substitute for helm (i think helm looks bad)
 Consult set ups some nice listing for things, i love its bookmark listing
 
 #+begin_src emacs-lisp :tangle yes
-  (package-install 'consult)
-  (evil-define-key 'normal 'global (kbd "<leader>RET") 'consult-bookmark)
+  (package-install 'counsel)
+  (evil-define-key 'normal 'global (kbd "<leader>RET") 'counsel-bookmark)
 #+end_src
 
 Necessary, dont remember why
@@ -473,17 +473,18 @@ Installation
 #+begin_src emacs-lisp :tangle yes
   (package-install 'perspective)
   (setq persp-mode-prefix-key (kbd "C-'")) ;; not used, just set to make persp stop complaining
+
   (persp-mode t)
 #+end_src
 
 My setup
 
 #+begin_src emacs-lisp :tangle yes
-  (evil-define-key 'normal 'global (kbd "<leader>TAB") 'persp-switch)
+  (evil-define-key 'normal 'global (kbd "C-t") 'persp-switch)
 
   ;; next and prev
-  (evil-define-key 'normal 'global (kbd "<leader>[") 'persp-prev)
-  (evil-define-key 'normal 'global (kbd "<leader>]") 'persp-next)
+  (evil-define-key 'normal 'global (kbd "C-<prior>") 'persp-prev)
+  (evil-define-key 'normal 'global (kbd "C-<next>") 'persp-next)
 
   ;; since i dont use tabs, quick switching with gt
   (define-key evil-normal-state-map (kbd "gt") 'persp-switch-last)
@@ -494,7 +495,11 @@ Also, general managing of workspaces
 #+begin_src emacs-lisp :tangle yes
   (evil-define-key 'normal 'global (kbd "<leader>wk") 'persp-kill)
   (evil-define-key 'normal 'global (kbd "<leader>wr") 'persp-rename)
-  (evil-define-key 'normal 'global (kbd "<leader>ws") 'persp-state-save)
+  (evil-define-key 'normal 'global (kbd "<leader>ws") (lambda () (interactive)
+						      (persp-state-save "~/.emacs.d/persp")
+						      )
+    )
+  (persp-state-load "~/.emacs.d/persp")
 #+end_src
 
 
@@ -714,16 +719,9 @@ Magit is so good that some people use Emacs just for it LOL
 Love doom themes, generally use this one:
 
 #+begin_src emacs-lisp :tangle yes
-  (package-install 'doom-themes)
 
-  ;; (setq custom-safe-themes
-  ;; '("0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1"
-  ;;  default))
+    (load-theme 'modus-vivendi-deuteranopia t)
 
-    (load-theme 'doom-ayu-mirage t)
-
-  (setq
-   custom-enabled-themes '(doom-ayu-mirage))
 #+end_src
 
 This font size is really nice for 27 inch monitors
