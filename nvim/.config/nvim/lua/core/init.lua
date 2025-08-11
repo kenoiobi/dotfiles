@@ -2,6 +2,7 @@
 vim.cmd("colorscheme habamax")
 vim.opt.clipboard = "unnamedplus"
 vim.opt.relativenumber = true
+vim.opt.number = true
 
 -- tab size
 vim.cmd("set tabstop=4")
