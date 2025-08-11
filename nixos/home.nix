@@ -5,6 +5,73 @@
 	home.homeDirectory = "/home/kayon";
 	home.stateVersion = "25.05";
 
+	home.packages = [
+		pkgs.neovim
+		pkgs.curl
+		pkgs.tmux
+		pkgs.git
+		pkgs.rofi
+		pkgs.brightnessctl
+		pkgs.alacritty
+		pkgs.redshift
+		pkgs.kdePackages.qtsvg
+		pkgs.kdePackages.dolphin
+		pkgs.kdePackages.ark
+		pkgs.rclone
+		pkgs.zsh
+		pkgs.fzf
+		pkgs.zoxide
+		pkgs.direnv
+		pkgs.xclip
+		pkgs.flameshot
+		pkgs.dunst
+		pkgs.lxqt.lxqt-policykit
+		pkgs.feh
+		pkgs.blueman
+		pkgs.picom
+		pkgs.chromium
+		pkgs.slack
+		pkgs.stow
+		pkgs.trash-cli
+		pkgs.lshw
+		pkgs.btop
+		pkgs.obs-studio
+		pkgs.killall
+		pkgs.ffmpeg
+		pkgs.yazi
+		pkgs.alttab
+		pkgs.pavucontrol
+		pkgs.discord
+		pkgs.xorg.xev
+		pkgs.playerctl
+		pkgs.keepassxc
+		pkgs.unzip
+		pkgs.gnutar
+		pkgs.gzip
+		pkgs.nodejs
+		pkgs.sumneko-lua-language-server
+		pkgs.emacs
+		pkgs.tree
+		pkgs.postman
+		pkgs.fastfetch
+		pkgs.obsidian
+		pkgs.pcsx2
+		pkgs.dbeaver-bin
+		pkgs.vial
+		pkgs.coreutils-full
+		pkgs.bc
+		pkgs.prettierd
+		pkgs.nil
+		pkgs.ripgrep
+		pkgs.kdePackages.qtstyleplugin-kvantum
+		pkgs.gruvbox-kvantum
+		pkgs.python314
+		pkgs.zellij
+		pkgs.findutils
+		pkgs.github-desktop
+		pkgs.qbittorrent
+	];
+
 	programs.git = {
 	  enable = true;
 	  userEmail = "kenoiobi@gmail.com";
@@ -14,7 +81,7 @@
 	programs.firefox = {
 
 		enable = true;
-		package = pkgs.librewolf;
+		package = pkgs.librewolf-bin;
 		policies = {
 		    DisableTelemetry = true;
 			DisableFirefoxStudies = true;

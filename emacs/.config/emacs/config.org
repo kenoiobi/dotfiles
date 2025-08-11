@@ -819,14 +819,10 @@ i like to use format-all and install the packages related to the language i'm wo
 
 ** TERMINAL
 
-I like full blown emulation inside my emacs, also being easy to access
-
-My choice is vterm
+Just set leader t to eshell. You'll thank me later.
 
 #+begin_src emacs-lisp :tangle yes
-  (package-install 'vterm)
-  (setq vterm-shell 'zsh)
-  (evil-define-key 'normal 'global (kbd "<leader>t") 'vterm)
+  (evil-define-key 'normal 'global (kbd "<leader>t") 'eshell)
 #+end_src
 
 
