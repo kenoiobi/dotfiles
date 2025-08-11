@@ -6,6 +6,20 @@ from libqtile import hook
 from libqtile.log_utils import logger
 import subprocess
 import time
+from libqtile.backend.wayland import InputConfig
+
+wl_input_rules = {
+    "1739:32183:SYNA7DB5:01 06CB:7DB7 Touchpad": InputConfig(
+    ),
+    "*": InputConfig(
+        kb_options="ctrl:swapcaps",
+        kb_layout="br",
+        click_method='clickfinger'
+
+    ),
+    "4133:4649:Acer Wireless Radio Control": InputConfig(
+    ),
+}
 
 
 mod = "mod4" # only sane mod key :pray:
@@ -27,13 +41,13 @@ def minimize_all(qtile):
 def my_workspace(screen, index):
     global curr_group
     global workspace_groups
-    
+
     workspace_groups[curr_group] = index # 1
-    
+
     logger.warning(curr_group)
-    
+
     final = index # 1
-    for i in range(curr_group): 
+    for i in range(curr_group):
         final = final + 5 # 1
 
     final = str(final + 1)

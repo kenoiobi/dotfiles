@@ -10,8 +10,8 @@ in
 {
 	imports =
 		[
-		./hardware-configuration.nix
-# ./nvidia.nix
+			./hardware-configuration.nix
+			# ./nvidia.nix
 			(import "${home-manager}/nixos")
 			./emulation.nix
 		];
@@ -80,7 +80,7 @@ in
 	nixpkgs.config.allowUnfree = true;
 
 	services.xserver.enable = true;
-# services.xserver.displayManager.gdm.enable = true;
+	# services.xserver.displayManager.gdm.enable = true;
 	services.xserver.displayManager.startx.enable = true;
 
 	services.xserver.windowManager.dwm.enable = true;
@@ -90,6 +90,7 @@ in
 	};
 
 	services.xserver.windowManager.awesome.enable = true;
+	services.xserver.windowManager.qtile.enable = true;
 
 
 	services.libinput.touchpad.naturalScrolling = true;
