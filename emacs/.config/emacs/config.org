@@ -54,6 +54,7 @@
   - [[#server][SERVER]]
   - [[#exec-path-from-shell][EXEC PATH FROM SHELL]]
   - [[#http-client][HTTP CLIENT]]
+  - [[#sudo-edit][SUDO EDIT]]
 - [[#credits][CREDITS]]
 
 * GETTING STARTED
@@ -499,7 +500,7 @@ Also, general managing of workspaces
 						      (persp-state-save "~/.emacs.d/persp")
 						      )
     )
-  (persp-state-load "~/.emacs.d/persp")
+  ;; (persp-state-load "~/.emacs.d/persp")
 #+end_src
 
 
@@ -719,15 +720,20 @@ Magit is so good that some people use Emacs just for it LOL
 Love doom themes, generally use this one:
 
 #+begin_src emacs-lisp :tangle yes
-
-    (load-theme 'modus-vivendi-deuteranopia t)
+(if (daemonp)
+    (add-hook 'after-make-frame-functions
+              (lambda (frame)
+                (with-selected-frame frame
+                  (load-theme 'modus-vivendi-deuteranopia t)))
+              nil)
+  (load-theme 'modus-vivendi-deuteranopia t))
 
 #+end_src
 
 This font size is really nice for 27 inch monitors
 
 #+begin_src emacs-lisp :tangle yes
-(add-to-list 'default-frame-alist '(font . "Jetbrains Mono Nerd Font 16"))
+  (add-to-list 'default-frame-alist '(font . "Jetbrains Mono Nerd Font 16"))
 #+end_src
 
 
@@ -913,8 +919,8 @@ This packages allows for you to visuaIize your undos on a tree view, way better
 ** SERVER
 Set this to make your first Emacs execution start a server to use other sessions on terminal quickly
 #+begin_src emacs-lisp :tangle yes
-  (server-mode t)
-  (xclip-mode)
+;;  (server-mode t)
+;;  (xclip-mode)
 #+end_src
 
 ** EXEC PATH FROM SHELL
@@ -933,6 +939,13 @@ I'm using Verb
   (package-install 'verb)
   (with-eval-after-load 'org
     (define-key org-mode-map (kbd "C-c C-r") verb-command-map))
+#+end_src
+
+** SUDO EDIT
+Sometimes, you want to edit some write protected files, to do that, you can use this minor mode
+#+begin_src emacs-lisp :tangle yes
+  (package-install 'auto-sudoedit)
+  (auto-sudoedit-mode 1)
 #+end_src
 
 

@@ -14,3 +14,5 @@ emacs/.emacs.d/.lsp-session-v1
 /emacs/.emacs.d/eshell
 /emacs/.emacs.d/url
 emacs/.emacs.d/bookmarks~
+emacs/.emacs.d/.dap-breakpoints
+emacs/.emacs.d/tramp
