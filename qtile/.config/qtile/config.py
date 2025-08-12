@@ -111,11 +111,16 @@ keys = [
     # layout management
     Key([mod, "control"], "Return", lazy.layout.swap_main(), desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "apostrophe", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "g", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window",),
-    Key([mod, "shift"], "g", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window",),
+    Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "shift"], "d", minimize_all(), desc="Spawn a command using a prompt widget"),
     Key([mod], "m", lazy.hide_show_bar(), desc="toggle bar"),
     Key([mod], "Tab", lazy.screen.toggle_group(), desc="Alternate between two most recent windows"),
+
+    Key([mod], "y", lazy.layout.previous(), desc="Toggle fullscreen on the focused window",),
+    Key([mod], "h", lazy.layout.next(), desc="Toggle fullscreen on the focused window",),
+    Key([mod, "shift"], "y", lazy.layout.move_up(), desc="Toggle fullscreen on the focused window",),
+    Key([mod, "shift"], "h", lazy.layout.move_down(), desc="Toggle fullscreen on the focused window",),
 
     # media
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
@@ -128,9 +133,9 @@ keys = [
     # scratchpads
     Key(['mod1'], "q", lazy.group['0'].dropdown_toggle('term')),
     Key(['mod1'], "w", lazy.group['0'].dropdown_toggle('whatsapp')),
-    Key(['mod1', "shift"], "w", lazy.group['0'].dropdown_toggle('discord')),
     Key(['mod1'], "e", lazy.group['0'].dropdown_toggle('dolphin')),
     Key(['mod1'], "s", lazy.group['0'].dropdown_toggle('slack')),
+    Key(['mod1'], "d", lazy.group['0'].dropdown_toggle('discord')),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -156,7 +161,7 @@ groups = [
     Group(
         "2",
         matches=Match(wm_class=["Emacs"]),
-        layout="max",
+        layout="treetab",
     ),
     Group(
         "3",
@@ -215,32 +220,30 @@ groups = [
 
 # main workspace switch keys
 keys.extend([
-    Key([mod], "q", my_workspace(0)),
-    Key([mod], "w", my_workspace(1)),
-    Key([mod], "e", my_workspace(2)),
-    Key([mod], "r", my_workspace(3)),
-    Key([mod], "t", my_workspace(4)),
+    Key([mod], "q", lazy.group["1"].toscreen()),
+    Key([mod], "w", lazy.group["2"].toscreen()),
+    Key([mod], "e", lazy.group["3"].toscreen()),
+    Key([mod], "r", lazy.group["4"].toscreen()),
+    Key([mod], "t", lazy.group["5"].toscreen()),
+    Key([mod], "1", lazy.group["6"].toscreen()),
+    Key([mod], "2", lazy.group["7"].toscreen()),
+    Key([mod], "3", lazy.group["8"].toscreen()),
+    Key([mod], "4", lazy.group["9"].toscreen()),
+    Key([mod], "5", lazy.group["10"].toscreen()),
 ])
 
 # move to workspace
 keys.extend([
-    Key([mod, "control"], "q", my_workspace_move(0)),
-    Key([mod, "control"], "w", my_workspace_move(1)),
-    Key([mod, "control"], "e", my_workspace_move(2)),
-    Key([mod, "control"], "r", my_workspace_move(3)),
-    Key([mod, "control"], "t", my_workspace_move(4)),
-])
-
-# change workspace group
-keys.extend([
-    Key([mod], "1", my_group(0)),
-    Key([mod], "2", my_group(1)),
-])
-
-# move to workspace last selected on workspace group
-keys.extend([
-    Key([mod, "control"], "1", my_group_move(0)),
-    Key([mod, "control"], "2", my_group_move(1)),
+    Key([mod, "control"], "q", lazy.window.togroup("1")),
+    Key([mod, "control"], "w", lazy.window.togroup("2")),
+    Key([mod, "control"], "e", lazy.window.togroup("3")),
+    Key([mod, "control"], "r", lazy.window.togroup("4")),
+    Key([mod, "control"], "t", lazy.window.togroup("5")),
+    Key([mod, "control"], "1", lazy.window.togroup("6")),
+    Key([mod, "control"], "2", lazy.window.togroup("7")),
+    Key([mod, "control"], "3", lazy.window.togroup("8")),
+    Key([mod, "control"], "4", lazy.window.togroup("9")),
+    Key([mod, "control"], "5", lazy.window.togroup("10")),
 ])
 
 
@@ -256,6 +259,9 @@ layouts = [
         border_width=8,
         border_focus="#000000",
         border_normal="#000000",
+    ),
+    layout.TreeTab(
+        place_right=True
     ),
 ]
 
