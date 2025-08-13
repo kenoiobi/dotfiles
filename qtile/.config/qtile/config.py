@@ -6,20 +6,6 @@ from libqtile import hook
 from libqtile.log_utils import logger
 import subprocess
 import time
-from libqtile.backend.wayland import InputConfig
-
-wl_input_rules = {
-    "1739:32183:SYNA7DB5:01 06CB:7DB7 Touchpad": InputConfig(
-    ),
-    "*": InputConfig(
-        kb_options="ctrl:swapcaps",
-        kb_layout="br",
-        click_method='clickfinger'
-
-    ),
-    "4133:4649:Acer Wireless Radio Control": InputConfig(
-    ),
-}
 
 
 mod = "mod4" # only sane mod key :pray:
