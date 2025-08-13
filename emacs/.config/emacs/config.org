@@ -311,8 +311,8 @@ Files
 
 Directories
 #+begin_src emacs-lisp :tangle yes
-  (evil-define-key 'normal 'global (kbd "<leader>d") (lambda () (interactive)
-						      (fzf-with-command "find -type d" 'fzf--action-find-file default-directory)))
+  ;; (evil-define-key 'normal 'global (kbd "<leader>d") (lambda () (interactive)
+						      ;; (fzf-with-command "find -type d" 'fzf--action-find-file default-directory)))
 #+end_src
 
 Grep
@@ -497,10 +497,12 @@ Also, general managing of workspaces
   (evil-define-key 'normal 'global (kbd "<leader>wk") 'persp-kill)
   (evil-define-key 'normal 'global (kbd "<leader>wr") 'persp-rename)
   (evil-define-key 'normal 'global (kbd "<leader>ws") (lambda () (interactive)
-						      (persp-state-save "~/.emacs.d/persp")
-						      )
+							(persp-state-save "~/.emacs.d/persp")
+							)
     )
-  ;; (persp-state-load "~/.emacs.d/persp")
+  (evil-define-key 'normal 'global (kbd "<leader>wl") (lambda () (interactive)
+						      (persp-state-load "~/.emacs.d/persp")
+						      )
 #+end_src
 
 
@@ -919,8 +921,9 @@ This packages allows for you to visuaIize your undos on a tree view, way better
 ** SERVER
 Set this to make your first Emacs execution start a server to use other sessions on terminal quickly
 #+begin_src emacs-lisp :tangle yes
-;;  (server-mode t)
-;;  (xclip-mode)
+  ;;  (server-mode t)
+  ;;  (xclip-mode)
+  (evil-define-key 'normal 'global (kbd "<leader>d") 'select-frame-by-name)
 #+end_src
 
 ** EXEC PATH FROM SHELL

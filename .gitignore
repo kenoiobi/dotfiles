@@ -16,3 +16,6 @@ emacs/.emacs.d/.lsp-session-v1
 emacs/.emacs.d/bookmarks~
 emacs/.emacs.d/.dap-breakpoints
 emacs/.emacs.d/tramp
+rofi/.config/rofi/config.rasi
+rofi/.config/rofi/config.rasi
+*.rasi

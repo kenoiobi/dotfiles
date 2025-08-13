@@ -160,7 +160,9 @@ groups = [
     ),
     Group(
         "2",
-        matches=Match(wm_class=["Emacs"]),
+        matches=[
+            Match(wm_class=["Emacs"]),
+        ],
         layout="treetab",
     ),
     Group(
@@ -169,13 +171,29 @@ groups = [
     ),
     Group(
         "4",
+        matches=[
+            Match(wm_class=["DBeaver"]),
+            Match(wm_class=["Emacs"]),
+        ],
         layout="max",
     ),
     Group(
         "5",
+        matches=[
+            Match(wm_class=["Vial"]),
+            Match(wm_class=["KeePassXC"]),
+            Match(wm_class=["obs"]),
+        ],
+        layout="max",
     ),
     Group("6"),
-    Group("7"),
+    Group(
+        "7",
+        matches=[
+            Match(wm_class=[".blueman-manager-wrapped"]),
+            Match(wm_class=["pavucontrol"]),
+        ],
+    ),
     Group("8"),
     Group("9"),
     Group("10"),
