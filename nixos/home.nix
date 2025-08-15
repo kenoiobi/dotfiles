@@ -43,7 +43,6 @@
 		pkgs.yazi
 		pkgs.alttab
 		pkgs.pavucontrol
-		pkgs.discord
 		pkgs.xorg.xev
 		pkgs.playerctl
 		pkgs.keepassxc
@@ -72,6 +71,8 @@
 		pkgs.findutils
 		pkgs.github-desktop
 		pkgs.qbittorrent
+		pkgs.pandoc
+		pkgs.sublime-merge
 	];
 
 	programs.git = {
