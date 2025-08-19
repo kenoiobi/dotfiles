@@ -73,6 +73,9 @@
 		pkgs.qbittorrent
 		pkgs.pandoc
 		pkgs.sublime-merge
+		pkgs.v4l-utils
+		pkgs.vscode
+		pkgs.via
 	];
 
 	programs.git = {

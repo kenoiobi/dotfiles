@@ -68,7 +68,7 @@ I tend to use the default package manager, this is just to setup melpa (non offi
 	("nongnu" . "https://elpa.nongnu.org/nongnu/")
 	("melpa" . "https://melpa.org/packages/")))
 
-  ;; (package-refresh-contents)
+ (package-refresh-contents)
 #+end_src
 
 ** CUSTOM
@@ -178,6 +178,28 @@ Initially, lets configure some default emacs behavior, then we'll mess with pack
   (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
   (define-key evil-normal-state-map (kbd "C-w") 'evil-numbers/inc-at-pt)
   (define-key evil-normal-state-map (kbd "C-S-w") 'evil-numbers/dec-at-pt)
+
+  ;; movement keys with shift
+  (evil-define-key 'normal 'global (kbd "J") (lambda () (interactive)
+  					      (evil-next-line 5)
+  						  ))
+  (evil-define-key 'normal 'global (kbd "K") (lambda () (interactive)
+  					      (evil-previous-line 5)
+  						  ))
+
+  (evil-define-key 'visual 'global (kbd "J") (lambda () (interactive)
+  					      (evil-next-line 5)
+  						  ))
+  (evil-define-key 'visual 'global (kbd "K") (lambda () (interactive)
+  					      (evil-previous-line 5)
+  						  ))
+
+  (define-key visual-line-mode-map (kbd "J") (lambda () (interactive)
+  					      (evil-next-line 5)
+  						  ))
+  (define-key visual-line-mode-map (kbd "K") (lambda () (interactive)
+  					      (evil-previous-line 5)
+  						  ))
 #+end_src
 
 
@@ -497,12 +519,13 @@ Also, general managing of workspaces
   (evil-define-key 'normal 'global (kbd "<leader>wk") 'persp-kill)
   (evil-define-key 'normal 'global (kbd "<leader>wr") 'persp-rename)
   (evil-define-key 'normal 'global (kbd "<leader>ws") (lambda () (interactive)
-							(persp-state-save "~/.emacs.d/persp")
-							)
+						      (persp-state-save "~/.emacs.d/persp")
+						      )
     )
   (evil-define-key 'normal 'global (kbd "<leader>wl") (lambda () (interactive)
 						      (persp-state-load "~/.emacs.d/persp")
 						      )
+    )
 #+end_src
 
 
@@ -919,10 +942,12 @@ This packages allows for you to visuaIize your undos on a tree view, way better
   ;; (add-hook 'after-save-hook (lambda () (undo-tree-save-history nil t)))
 #+end_src
 ** SERVER
-Set this to make your first Emacs execution start a server to use other sessions on terminal quickly
+Some settings to make emacs on the terminal good
++ shortcuts for dealing with multiple frames (windows)
+
 #+begin_src emacs-lisp :tangle yes
-  ;;  (server-mode t)
-  ;;  (xclip-mode)
+  (package-install 'xclip)
+  (xclip-mode t)
   (evil-define-key 'normal 'global (kbd "<leader>d") 'select-frame-by-name)
 #+end_src
 

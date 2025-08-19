@@ -19,3 +19,5 @@ emacs/.emacs.d/tramp
 rofi/.config/rofi/config.rasi
 rofi/.config/rofi/config.rasi
 *.rasi
+*.org#
+emacs/.config/emacs/.\#config.org
