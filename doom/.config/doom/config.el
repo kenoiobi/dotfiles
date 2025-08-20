@@ -78,7 +78,7 @@
 
 (map! :leader
  "e" #'find-file
- "t" #'eshell
+ "t" #'term
  "k" #'kill-buffer
  "," #'previous-buffer
  "." #'next-buffer
@@ -99,5 +99,20 @@
  "C-<prior>" #'+workspace/switch-left
  "C-<next>" #'+workspace/switch-right
  )
+
+(add-hook 'find-file-hook 'zoxide-add)
+(add-hook 'dired-mode-hook 'zoxide-add)
+
+(require 'fzf)
+
+(map! :leader
+      "z" #'my-zoxide
+)
+
+(defun my-zoxide () (interactive)
+       (find-file "~/")
+       (fzf-with-command "zoxide query -l" 'find-file)
+       )
+
 
 (global-blamer-mode 1)

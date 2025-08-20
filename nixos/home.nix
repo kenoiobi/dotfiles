@@ -10,6 +10,7 @@
 	home.packages = [
 		pkgs.neovim
 		pkgs.curl
+		pkgs.wget
 		pkgs.tmux
 		pkgs.git
 		pkgs.rofi

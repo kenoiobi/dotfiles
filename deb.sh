@@ -1,7 +1,7 @@
 #/usr/bin/env sh
 
-sudo apt update
-sudo apt upgrade
+sudo apt update -y
+sudo apt upgrade -y
 sudo apt install\
     neovim\
 	curl\
@@ -55,7 +55,7 @@ sudo apt install\
 	qbittorrent\
     extrepo\
     docker\
-    steam\
+    steam-installer\
     flatpak\
     -y
 
