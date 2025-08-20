@@ -95,3 +95,5 @@
  :i
  "C-n" #'next-line
 )
+
+(global-blamer-mode 1)
