@@ -30,7 +30,7 @@ cbatticon &
 pavucontrol &
 blueman-manager &
 obsidian &
-dbeaver &
+# dbeaver &
 keepassxc &
 obs &
 Vial &

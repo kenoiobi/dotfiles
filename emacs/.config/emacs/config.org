@@ -174,10 +174,13 @@ Initially, lets configure some default emacs behavior, then we'll mess with pack
 
   (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 
+  (define-key evil-insert-state-map (kbd "C-p") 'previous-line)
+  (define-key evil-insert-state-map (kbd "C-n") 'next-line)
   (define-key evil-insert-state-map (kbd "C-a") 'move-beginning-of-line)
   (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
   (define-key evil-normal-state-map (kbd "C-w") 'evil-numbers/inc-at-pt)
   (define-key evil-normal-state-map (kbd "C-S-w") 'evil-numbers/dec-at-pt)
+
 
   ;; movement keys with shift
   (evil-define-key 'normal 'global (kbd "J") (lambda () (interactive)
@@ -581,9 +584,10 @@ i am satisfied with these options
 #+begin_src emacs-lisp :tangle yes
   (package-install 'rjsx-mode)
 
-
   (package-install 'jtsx) ;; IMPORTANT!! do M-x jtsx-install-treesit-language for it to work
   (package-install 'typescript-mode)
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . jtsx-jsx-mode))
+  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
 
   ;; (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
   ;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . jtsx-tsx-mode))
