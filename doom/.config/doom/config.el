@@ -95,5 +95,9 @@
  :i
  "C-n" #'next-line
 )
+(map!
+ "C-<prior>" #'+workspace/switch-left
+ "C-<next>" #'+workspace/switch-right
+ )
 
 (global-blamer-mode 1)
