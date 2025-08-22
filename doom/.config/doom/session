@@ -1,0 +1,295 @@
+;; -*- mode: emacs-lisp; eval: (progn (pp-buffer) (indent-buffer)) -*-
+((def-persp nil nil
+            (def-wconf
+             (((min-height . 4) (min-width . 10) (min-height-ignore . 3)
+               (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2)
+               (min-pixel-height . 120) (min-pixel-width . 130)
+               (min-pixel-height-ignore . 90) (min-pixel-width-ignore . 52)
+               (min-pixel-height-safe . 30) (min-pixel-width-safe . 26))
+              leaf (pixel-width . 1056) (pixel-height . 1050) (total-width . 81)
+              (total-height . 35) (normal-height . 1.0) (normal-width . 1.0)
+              (buffer "*scratch*" (selected . t) (hscroll . 0)
+                      (fringes 8 8 nil nil) (margins nil)
+                      (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0)
+                      (dedicated) (point . 1) (start . 1))))
+            (def-params nil) t nil t)
+ (def-persp "config"
+            ((def-buffer "init.el"
+                         "/home/kayon/dotfiles/doom/.config/doom/init.el"
+                         emacs-lisp-mode)
+             (def-buffer "config.el"
+                         "/home/kayon/dotfiles/doom/.config/doom/config.el"
+                         emacs-lisp-mode)
+             (def-buffer "packages.el"
+                         "/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                         emacs-lisp-mode))
+            (def-wconf
+             (((min-height . 4) (min-width . 10) (min-height-ignore . 2)
+               (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2)
+               (min-pixel-height . 120) (min-pixel-width . 130)
+               (min-pixel-height-ignore . 60) (min-pixel-width-ignore . 52)
+               (min-pixel-height-safe . 30) (min-pixel-width-safe . 26))
+              leaf (pixel-width . 1056) (pixel-height . 1050) (total-width . 81)
+              (total-height . 35) (normal-height . 1.0) (normal-width . 1.0)
+              (parameters
+               (better-jumper-struct
+                . #s(better-jumper-jump-list-struct
+                     (0 59
+                        . [("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            170 "k62nsx")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2361 "l9ydqj")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "zttoix")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2361 "6pqvyi")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            170 "1yns7q")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2361 "mlnfcb")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            170 "ipk7m4")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "df7x2n")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2361 "ozqfck")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "2a4lwj")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            170 "7u5hc9")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "tadx6j")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2361 "rnda2g")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "jd5qf6")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            170 "ehu7ql")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            343 "ii95zd")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            4439 "rryb9u")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            52 "cw97nl")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            3970 "nhroig")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            3477 "a47ln0")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            3655 "lyvo47")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            3669 "jotswm")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            4329 "69abzf")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "8gl3xg")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2361 "7nm44r")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "cq52xw")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            4335 "ea0l9u")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "cjhwh2")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2361 "6nrnl3")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "yd4i2h")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            4335 "qub518")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "xll5s8")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2361 "96p4i9")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "nb53wy")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            4335 "zlutvo")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "cwzz65")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2361 "rb10tm")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "bzcg6v")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            4335 "b3h5j3")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "nlaydm")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2361 "k9l1p9")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "qfqfjc")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            4335 "9k7gfs")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "ykp61d")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2361 "hhfjas")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "m3xhso")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2361 "hui3dv")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "so1xi5")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2479 "17fw2s")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            4335 "anemq5")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2479 "jav3ps")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "li4twt")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            4335 "ljpijr")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "5dne52")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            4335 "7c17zs")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "n5xs9i")
+                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            2479 "5qqnhx")
+                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
+                            293 "8op0v6")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            4335 "l2ycu4")
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil])
+                     -1)))
+              (buffer "config.el" (selected . t) (hscroll . 0)
+                      (fringes 8 8 t nil) (margins nil)
+                      (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0)
+                      (dedicated) (point . 4335) (start . 3729))
+              (prev-buffers ("packages.el" 1 293) ("init.el" 1359 2479)
+                            ("config.el" 3729 4335) ("*scratch*" 1 1))))
+            (def-params nil) nil nil nil)
+ (def-persp "psy"
+            ((def-buffer "public" "/home/kayon/git/big-calendar/public/"
+                         dired-mode)
+             (def-buffer "src" "/home/kayon/git/big-calendar/src/" dired-mode)
+             (def-buffer "components.json"
+                         "/home/kayon/git/big-calendar/components.json"
+                         js-json-mode)
+             (def-buffer "big-calendar" "/home/kayon/git/big-calendar/"
+                         dired-mode))
+            (def-wconf
+             (((min-height . 4) (min-width . 10) (min-height-ignore . 3)
+               (min-width-ignore . 3) (min-height-safe . 1) (min-width-safe . 2)
+               (min-pixel-height . 120) (min-pixel-width . 130)
+               (min-pixel-height-ignore . 90) (min-pixel-width-ignore . 39)
+               (min-pixel-height-safe . 30) (min-pixel-width-safe . 26))
+              leaf (pixel-width . 1056) (pixel-height . 1050) (total-width . 81)
+              (total-height . 35) (normal-height . 1.0) (normal-width . 1.0)
+              (parameters
+               (better-jumper-struct
+                . #s(better-jumper-jump-list-struct
+                     (0 48
+                        . [("*scratch*" 1 "3ovybr")
+                           ("/home/kayon/git/big-calendar/next.config.mjs" 1
+                            "owvl1y")
+                           ("/home/kayon/git/big-calendar/components.json" 1
+                            "p6nhbn")
+                           ("/home/kayon/git/big-calendar/next.config.mjs" 63
+                            "o9ngno")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "jgco5p")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 1
+                            "7k0tir")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "vmtn7o")
+                           ("/home/kayon/git/big-calendar/next.config.mjs" 63
+                            "11u7cn")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "jy7q3b")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 1
+                            "td7qx9")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "9gn10g")
+                           ("/home/kayon/git/big-calendar/next.config.mjs" 63
+                            "k35yet")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "w6ba84")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 1
+                            "wio9rn")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "5kqcyt")
+                           ("/home/kayon/git/big-calendar/next.config.mjs" 63
+                            "8np4l1")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "2hjtzu")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 3
+                            "qhd3tt")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "hivseh")
+                           ("/home/kayon/git/big-calendar/next.config.mjs" 63
+                            "ywcg29")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "5lso0v")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 3
+                            "5zr4gf")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "cg8sqh")
+                           ("/home/kayon/git/big-calendar/next.config.mjs" 63
+                            "ex1y8p")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "x63kyh")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 3
+                            "znlp5t")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "t6e12y")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 51
+                            "eaa6rk")
+                           ("/home/kayon/git/big-calendar/next.config.mjs" 63
+                            "fkrqwu")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 51
+                            "cw2w5b")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "iwcvh7")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 51
+                            "jpinov")
+                           ("/home/kayon/git/big-calendar/next.config.mjs" 63
+                            "64k07h")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 51
+                            "qdzv34")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "muxep4")
+                           ("/home/kayon/git/big-calendar/next.config.mjs" 63
+                            "tartcs")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "co9afc")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 51
+                            "a2ckeo")
+                           ("/home/kayon/git/big-calendar/next.config.mjs" 63
+                            "alsffx")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 51
+                            "a0zw4l")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "a1x7sm")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 51
+                            "xyd27b")
+                           ("/home/kayon/git/big-calendar/next.config.mjs" 63
+                            "felwiw")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 51
+                            "0wt1oh")
+                           ("/home/kayon/git/big-calendar/components.json" 53
+                            "j71q5r")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 51
+                            "k94sdf")
+                           ("/home/kayon/git/big-calendar/next.config.mjs" 63
+                            "r5ia58")
+                           ("/home/kayon/git/big-calendar/package-lock.json" 51
+                            "fekk2b")
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil])
+                     -1)))
+              (buffer "src" (selected . t) (hscroll . 0) (fringes 3 1 nil nil)
+                      (margins nil) (scroll-bars nil 0 t nil 0 t nil)
+                      (vscroll . 0) (dedicated) (point . 407) (start . 1))
+              (prev-buffers ("big-calendar" 1 247) ("public" 1 85) ("src" 1 407)
+                            ("components.json" 1 53) ("*scratch*" 1 1)
+                            ("config.el" 3729 4335) ("packages.el" 1 293))))
+            (def-params nil) nil nil nil))

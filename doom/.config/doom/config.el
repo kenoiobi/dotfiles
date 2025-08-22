@@ -83,6 +83,19 @@
  "," #'previous-buffer
  "." #'next-buffer
  "a" #'consult-buffer
+ "TAB s" (lambda () (interactive)
+                (doom/save-session "~/.config/doom/session")
+            )
+ "1" #'+workspace/switch-to-0
+ "2" #'+workspace/switch-to-1
+ "3" #'+workspace/switch-to-2
+ "4" #'+workspace/switch-to-3
+ "5" #'+workspace/switch-to-4
+ "6" #'+workspace/switch-to-5
+ "7" #'+workspace/switch-to-6
+ "8" #'+workspace/switch-to-7
+ "9" #'+workspace/switch-to-8
+ "0" #'+workspace/switch-to-9
  )
 
 (map!
@@ -96,8 +109,11 @@
  "C-n" #'next-line
 )
 (map!
- "C-<prior>" #'+workspace/switch-left
- "C-<next>" #'+workspace/switch-right
+ "C-<prior>" #'+tabs:previous-or-goto
+ "C-<next>" #'+tabs:next-or-goto
+ "C-S-<prior>" #'centaur-tabs-move-current-tab-to-left
+ "C-S-<next>" #'centaur-tabs-move-current-tab-to-right
+ "<f3>" #'compile
  )
 
 (add-hook 'find-file-hook 'zoxide-add)
@@ -116,3 +132,8 @@
 
 
 (global-blamer-mode 1)
+
+(centaur-tabs-mode t)
+(after! centaur-tabs (centaur-tabs-group-buffer-groups))
+
+(doom/load-session "~/.config/doom/session")
