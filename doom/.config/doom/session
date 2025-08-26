@@ -2,16 +2,14 @@
 ((def-persp nil nil
             (def-wconf
              (((min-height . 4) (min-width . 10) (min-height-ignore . 3)
-               (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2)
-               (min-pixel-height . 120) (min-pixel-width . 130)
-               (min-pixel-height-ignore . 90) (min-pixel-width-ignore . 52)
-               (min-pixel-height-safe . 30) (min-pixel-width-safe . 26))
-              leaf (pixel-width . 1056) (pixel-height . 1050) (total-width . 81)
-              (total-height . 35) (normal-height . 1.0) (normal-width . 1.0)
-              (parameters
-               (better-jumper-struct . #s(better-jumper-jump-list-struct nil -1)))
+               (min-width-ignore . 2) (min-height-safe . 1) (min-width-safe . 2)
+               (min-pixel-height . 4) (min-pixel-width . 10)
+               (min-pixel-height-ignore . 3) (min-pixel-width-ignore . 2)
+               (min-pixel-height-safe . 1) (min-pixel-width-safe . 2))
+              leaf (pixel-width . 174) (pixel-height . 44) (total-width . 174)
+              (total-height . 44) (normal-height . 1.0) (normal-width . 1.0)
               (buffer "*scratch*" (selected . t) (hscroll . 0)
-                      (fringes 8 8 nil nil) (margins nil)
+                      (fringes 0 0 nil nil) (margins nil)
                       (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0)
                       (dedicated) (point . 1) (start . 1))))
             (def-params nil) t nil t)
@@ -38,229 +36,301 @@
               (parameters
                (better-jumper-struct
                 . #s(better-jumper-jump-list-struct
-                     (0 86
-                        . [("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            170 "k62nsx")
+                     (0 4
+                        . [("/home/kayon/dotfiles/doom/.config/doom/init.el"
+                            4684 "vhdnaj")
                            ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2361 "l9ydqj")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "zttoix")
+                            5627 "blb44k")
+                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
+                            4436 "f0d2s9")
                            ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2361 "6pqvyi")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            170 "1yns7q")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2361 "mlnfcb")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            170 "ipk7m4")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "df7x2n")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2361 "ozqfck")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "2a4lwj")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            170 "7u5hc9")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "tadx6j")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2361 "rnda2g")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "jd5qf6")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            170 "ehu7ql")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            343 "ii95zd")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4439 "rryb9u")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            52 "cw97nl")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            3970 "nhroig")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            3477 "a47ln0")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            3655 "lyvo47")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            3669 "jotswm")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4329 "69abzf")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "8gl3xg")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2361 "7nm44r")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "cq52xw")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4335 "ea0l9u")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "cjhwh2")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2361 "6nrnl3")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "yd4i2h")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4335 "qub518")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "xll5s8")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2361 "96p4i9")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "nb53wy")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4335 "zlutvo")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "cwzz65")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2361 "rb10tm")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "bzcg6v")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4335 "b3h5j3")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "nlaydm")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2361 "k9l1p9")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "qfqfjc")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4335 "9k7gfs")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "ykp61d")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2361 "hhfjas")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "m3xhso")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2361 "hui3dv")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "so1xi5")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2479 "17fw2s")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4335 "anemq5")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2479 "jav3ps")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "li4twt")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4335 "ljpijr")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "5dne52")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4335 "7c17zs")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "n5xs9i")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2479 "5qqnhx")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "8op0v6")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4335 "l2ycu4")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "rn6xih")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            2479 "bu13he")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            293 "3kvbdq")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            338 "awnke2")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            2062 "dzn3yp")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            13 "sb6mjz")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            2182 "5niki7")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4335 "bkw19x")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4346 "irv72g")
-                           ("/home/kayon/drive/passwords/accounts.txt" 1
-                            "okannh")
-                           ("/home/kayon/drive/passwords/accounts.txt" 635
-                            "5p7wym")
-                           ("/home/kayon/drive/passwords/accounts.txt" 1
-                            "92jeba")
-                           ("/home/kayon/drive/passwords/accounts.txt" 47
-                            "5duf18")
-                           ("/home/kayon/drive/passwords/accounts.txt" 198
-                            "7gbh59")
-                           ("/home/kayon/drive/passwords/accounts.txt" 984
-                            "0tmn1m")
-                           ("/home/kayon/drive/passwords/accounts.txt" 1
-                            "4uqqnw")
-                           ("/home/kayon/drive/passwords/accounts.txt" 220
-                            "29q0b1")
-                           ("/home/kayon/drive/passwords/accounts.txt" 984
-                            "3rrkh7")
-                           ("/home/kayon/drive/passwords/accounts.txt" 69
-                            "qe5ted")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4436 "dyng8s")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            4183 "67432z")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            13 "5mn3xi")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4436 "b0bpul")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            13 "m2mhw1")
-                           ("/home/kayon/dotfiles/doom/.config/doom/init.el"
-                            4183 "y0k9m1")
-                           ("/home/kayon/dotfiles/doom/.config/doom/packages.el"
-                            13 "gcgiv2")
-                           ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                            4436 "d1chzk")
+                            5494 "9x1nzn")
                            nil nil nil nil nil nil nil nil nil nil nil nil nil
-                           nil])
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil])
                      -1)))
-              (buffer "config.el" (selected . t) (hscroll . 0)
-                      (fringes 8 8 t nil) (margins nil)
-                      (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0)
-                      (dedicated) (point . 4436) (start . 4102))
-              (prev-buffers ("packages.el" 1 13) ("init.el" 3165 4183)
-                            ("config.el" 4102 4436) ("accounts.txt" 520 887)
+              (buffer "init.el" (selected . t) (hscroll . 0) (fringes 8 8 t nil)
+                      (margins nil) (scroll-bars nil 0 t nil 0 t nil)
+                      (vscroll . 0) (dedicated) (point . 2860) (start . 1736))
+              (prev-buffers ("config.el" 4101 4436) ("init.el" 1736 2860)
+                            ("packages.el" 1 13) ("accounts.txt" 520 887)
                             ("*scratch*" 1 1))))
             (def-params nil) nil nil nil)
  (def-persp "psy"
-            ((def-buffer "psy-front" "/home/kayon/git/psy-front/" dired-mode)
+            ((def-buffer "page.tsx<2>"
+                         "/home/kayon/git/psy-front/app/test/page.tsx"
+                         typescript-mode)
+             (def-buffer "test" "/home/kayon/git/psy-front/app/test/" dired-mode)
+             (def-buffer "layout.tsx" "/home/kayon/git/psy-front/app/layout.tsx"
+                         typescript-mode)
+             (def-buffer "calendar-mode-icon-map.tsx"
+                         "/home/kayon/git/calendar/components/calendar/calendar-mode-icon-map.tsx"
+                         typescript-mode)
+             (def-buffer "calendar-types.ts"
+                         "/home/kayon/git/calendar/components/calendar/calendar-types.ts"
+                         typescript-mode)
+             (def-buffer "toggle-group.tsx"
+                         "/home/kayon/git/calendar/components/ui/toggle-group.tsx"
+                         typescript-mode)
+             (def-buffer "date-time-picker.tsx"
+                         "/home/kayon/git/calendar/components/form/date-time-picker.tsx"
+                         typescript-mode)
+             (def-buffer "calendar-header-date-chevrons.tsx"
+                         "/home/kayon/git/calendar/components/calendar/header/date/calendar-header-date-chevrons.tsx"
+                         typescript-mode)
+             (def-buffer "Navigation.tsx"
+                         "/home/kayon/git/calendar/node_modules/react-day-picker/src/components/Navigation/Navigation.tsx"
+                         typescript-mode)
+             (def-buffer "WeekNumber.tsx"
+                         "/home/kayon/git/calendar/node_modules/react-day-picker/src/components/WeekNumber/WeekNumber.tsx"
+                         typescript-mode)
+             (def-buffer "calendar-header-actions-mode.tsx"
+                         "/home/kayon/git/calendar/components/calendar/header/actions/calendar-header-actions-mode.tsx"
+                         typescript-mode)
+             (def-buffer "calendar-header.tsx"
+                         "/home/kayon/git/calendar/components/calendar/header/calendar-header.tsx"
+                         typescript-mode)
+             (def-buffer "calendar.tsx"
+                         "/home/kayon/git/calendar/components/calendar/calendar.tsx"
+                         typescript-mode)
+             (def-buffer "calendar-demo.tsx"
+                         "/home/kayon/git/calendar/components/calendar-demo.tsx"
+                         typescript-mode)
+             (def-buffer "page.tsx" "/home/kayon/git/calendar/app/page.tsx"
+                         typescript-mode)
              (def-buffer "components.json"
                          "/home/kayon/git/big-calendar/components.json"
-                         js-json-mode))
+                         js-json-mode)
+             (def-buffer "project.org" "/home/kayon/git/calendar/project.org"
+                         org-mode))
             (def-wconf
              (((min-height . 4) (min-width . 10) (min-height-ignore . 2)
-               (min-width-ignore . 3) (min-height-safe . 1) (min-width-safe . 2)
-               (min-pixel-height . 120) (min-pixel-width . 130)
-               (min-pixel-height-ignore . 60) (min-pixel-width-ignore . 39)
-               (min-pixel-height-safe . 30) (min-pixel-width-safe . 26))
-              leaf (pixel-width . 1056) (pixel-height . 1050) (total-width . 81)
-              (total-height . 35) (normal-height . 1.0) (normal-width . 1.0)
+               (min-width-ignore . 2) (min-height-safe . 1) (min-width-safe . 2)
+               (min-pixel-height . 4) (min-pixel-width . 10)
+               (min-pixel-height-ignore . 2) (min-pixel-width-ignore . 2)
+               (min-pixel-height-safe . 1) (min-pixel-width-safe . 2))
+              leaf (pixel-width . 174) (pixel-height . 44) (total-width . 174)
+              (total-height . 44) (normal-height . 1.0) (normal-width . 1.0)
               (parameters
                (better-jumper-struct
                 . #s(better-jumper-jump-list-struct
-                     (0 1
-                        . [("*scratch*" 1 "ic2hkk") nil nil nil nil nil nil nil
-                           nil nil nil nil nil nil nil nil nil nil nil nil nil
-                           nil nil nil nil nil nil nil nil nil nil nil nil nil
-                           nil nil nil nil nil nil nil nil nil nil nil nil nil
-                           nil nil nil nil nil nil nil nil nil nil nil nil nil
-                           nil nil nil nil nil nil nil nil nil nil nil nil nil
-                           nil nil nil nil nil nil nil nil nil nil nil nil nil
-                           nil nil nil nil nil nil nil nil nil nil nil nil nil
-                           nil])
+                     (1 100
+                        . [("/home/kayon/git/psy-front/app/test/page.tsx" 1550
+                            "flg4mi")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 154
+                            "izhhgs")
+                           ("/home/kayon/git/psy-front/app/layout.tsx" 1
+                            "t7uta8")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 184
+                            "2qgkdq")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1390
+                            "9ok7lc")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 106
+                            "q8f2no")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1390
+                            "dpi0ri")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1529
+                            "1d8xbh")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 155
+                            "i7ykuq")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 177
+                            "10w5n8")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1605
+                            "yxa3w3")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 209
+                            "5umlxf")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 213
+                            "e4y6lv")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1604
+                            "bj4bvw")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1658
+                            "4i1lh1")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 222
+                            "6osr5t")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1474
+                            "2pajee")
+                           ("/home/kayon/git/psy-front/app/layout.tsx" 1
+                            "v7kkeh")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 335
+                            "pt4i8s")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 355
+                            "irhr8e")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 385
+                            "ss3knr")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 228
+                            "qu2ah4")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 383
+                            "93mjir")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 965
+                            "ohrgnw")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1659
+                            "rpn2wy")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 271
+                            "r3db4e")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1136
+                            "2qileb")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1579
+                            "0cqkb1")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1580
+                            "59q6re")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1600
+                            "r6vsoc")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1574
+                            "dl8tk7")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 155
+                            "hp6pmk")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1647
+                            "fibm8e")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1486
+                            "c7a0fh")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1652
+                            "tdf3j7")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1662
+                            "c20goz")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1466
+                            "dfh0kh")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1475
+                            "3myckk")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1450
+                            "zl1kx3")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1662
+                            "mrivgb")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1672
+                            "hi16nm")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1777
+                            "792kkv")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2154
+                            "bamhpm")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1961
+                            "0agmsl")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1813
+                            "e02dqi")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2035
+                            "gvjmob")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2615
+                            "azmfv5")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2468
+                            "fed3xy")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2615
+                            "osiu1x")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2468
+                            "jk6dv0")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2615
+                            "0zo6b1")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2468
+                            "i1q9bm")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2588
+                            "wm1hru")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2615
+                            "ay9cn5")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2468
+                            "63otti")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2615
+                            "5ja0dy")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2468
+                            "kjwqvq")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2615
+                            "zglh3x")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2468
+                            "z5xosq")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2615
+                            "wxsxpi")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2468
+                            "z0d0w8")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2668
+                            "z8bix2")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2604
+                            "o6q5pr")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2605
+                            "pcz0ih")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2606
+                            "c0go70")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2605
+                            "cxpj15")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2652
+                            "dswimf")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1558
+                            "zxshxc")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1577
+                            "jho0dt")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1680
+                            "d1f5cj")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1879
+                            "4uuu3g")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1491
+                            "ola9l9")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1864
+                            "ye4a4j")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1918
+                            "sepf3i")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1962
+                            "y01722")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1919
+                            "a71xp5")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1901
+                            "aequsv")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1911
+                            "xusl3u")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2043
+                            "4djvhc")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2054
+                            "e6johr")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1487
+                            "0y3ct9")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 498
+                            "3va84n")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 809
+                            "duoxzc")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1223
+                            "w9nf59")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 638
+                            "819tmt")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 498
+                            "926apr")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 560
+                            "fetrre")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1249
+                            "0lhi10")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 732
+                            "tad0ab")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1456
+                            "puc3s9")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1471
+                            "pgduc1")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1210
+                            "3qu1n6")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 2774
+                            "ok54a3")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1489
+                            "qdg2qp")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1314
+                            "9gie8k")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1495
+                            "633vgr")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1264
+                            "cd10wq")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1502
+                            "4xc62y")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1733
+                            "8kdpjv")
+                           ("/home/kayon/git/psy-front/app/test/page.tsx" 1312
+                            "dkbj4d")])
                      -1)))
-              (buffer "psy-front" (selected . t) (hscroll . 0)
-                      (fringes 3 1 nil nil) (margins nil)
+              (buffer "page.tsx<2>" (selected . t) (hscroll . 0)
+                      (fringes 0 0 nil nil) (margins nil)
                       (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0)
-                      (dedicated) (point . 181) (start . 1))
-              (prev-buffers ("*scratch*" 1 1) ("config.el" 4102 4436)
-                            ("packages.el" 1 13) ("init.el" 3165 4183)
-                            ("accounts.txt" 520 887))))
+                      (dedicated) (point . 1290) (start . 1075))
+              (prev-buffers ("page.tsx<2>" 1075 1274)
+                            ("*terminal*" 113930 113938) ("layout.tsx" 1 1)
+                            ("test" 1 84) ("*Messages*" 1 1) ("*scratch*" 1 1))))
             (def-params nil) nil nil nil)
  (def-persp "legitimuz"
-            ((def-buffer "doom" "/home/kayon/dotfiles/doom/.config/doom/"
-                         dired-mode)
-             (def-buffer "SessionModule.ts"
+            ((def-buffer "SessionModule.ts"
                          "/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
                          typescript-mode)
              (def-buffer "KYC.ts"
@@ -276,225 +346,36 @@
                          "/home/kayon/git/legitimuz-api/app/Models/ValidationsPersons/ValidationsPersons.ts"
                          typescript-mode))
             (def-wconf
-             (((min-height . 4) (min-width . 10) (min-height-ignore . 3)
-               (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2)
-               (min-pixel-height . 120) (min-pixel-width . 130)
-               (min-pixel-height-ignore . 90) (min-pixel-width-ignore . 52)
-               (min-pixel-height-safe . 30) (min-pixel-width-safe . 26))
-              leaf (pixel-width . 1056) (pixel-height . 1050) (total-width . 81)
-              (total-height . 35) (normal-height . 1.0) (normal-width . 1.0)
+             (((min-height . 4) (min-width . 10) (min-height-ignore . 2)
+               (min-width-ignore . 2) (min-height-safe . 1) (min-width-safe . 2)
+               (min-pixel-height . 4) (min-pixel-width . 10)
+               (min-pixel-height-ignore . 2) (min-pixel-width-ignore . 2)
+               (min-pixel-height-safe . 1) (min-pixel-width-safe . 2))
+              leaf (pixel-width . 174) (pixel-height . 34) (total-width . 174)
+              (total-height . 34) (normal-height . 1.0) (normal-width . 1.0)
               (parameters
                (better-jumper-struct
                 . #s(better-jumper-jump-list-struct
-                     (25 100
-                         . [("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             7246 "mpinxk")
-                            ("/home/kayon/dotfiles/doom/.config/doom/config.el"
-                             4436 "xvmnn1")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             7246 "zjwdyz")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             12604 "13tw4f")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             3654 "o5ipcj")
-                            ("/home/kayon/git/legitimuz-api/start/routes/external.ts"
-                             1419 "q8aumg")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             3654 "uf06yh")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             12604 "oqryue")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             7246 "g96cdg")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             12604 "o7g1z7")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             3654 "4i2dq7")
-                            ("/home/kayon/git/legitimuz-api/start/routes/external.ts"
-                             1419 "ia1yz3")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             3654 "x33kqq")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             12604 "x0xm4n")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             7246 "9u7al6")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             7277 "jsti6k")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             22304 "k5hxz6")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             174 "dk4h2c")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             22304 "kf6xn9")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             20 "mbaggn")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             22304 "0eg8ki")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             20 "6qgqjh")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             22304 "yz8qct")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             20 "dra9ih")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             22304 "bcbv4i")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             2285 "16d09v")
-                            ("/home/kayon/git/legitimuz-api/app/Validators/KYC/KycStartSessionValidator.ts"
-                             322 "gv40h3")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             2285 "guodyk")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             2370 "npy2y5")
-                            ("/home/kayon/git/legitimuz-api/app/Validators/KYC/KycStartSessionValidator.ts"
-                             322 "kdme65")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             11227 "7gouoe")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             211 "5n5toq")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             11227 "2hnu55")
-                            ("/home/kayon/git/legitimuz-api/app/Validators/KYC/KycStartSessionValidator.ts"
-                             322 "5wfue1")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             2383 "hld6sg")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             11227 "cclgu0")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             211 "utfrke")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             452 "oaiqqv")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             3215 "kvfk0t")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             3231 "a88av5")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             4171 "j7q6gw")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             3819 "v41oq2")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             4171 "579pkr")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             3819 "vee797")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             4171 "btml74")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             3819 "gkt776")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             11227 "pp804e")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             4651 "2kqsxf")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             11227 "xgrk0g")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             2383 "kw6p2n")
-                            ("/home/kayon/git/legitimuz-api/start/routes/external.ts"
-                             1197 "ipnwd8")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             2469 "t1ep2z")
-                            ("/home/kayon/git/legitimuz-api/start/routes/external.ts"
-                             1197 "em5y4s")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             2469 "8qe0v8")
-                            ("/home/kayon/git/legitimuz-api/start/routes/external.ts"
-                             1197 "or8sev")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             2469 "pzj1wh")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             11500 "n00scx")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             4651 "x5bpc4")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             11500 "xiqajk")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             2469 "28qw07")
-                            ("/home/kayon/git/legitimuz-api/start/routes/external.ts"
-                             1197 "1thhek")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             2469 "4e04oq")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             11500 "hmybk1")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             4651 "u3lefk")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             1937 "gl3019")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             1934 "949wos")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             1938 "cawcr9")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             1831 "yi9fd7")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             1999 "ufx2no")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             21577 "jafoqw")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             21374 "fa9h20")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             21610 "6466mr")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             21307 "4w4m3v")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             21610 "cy9g3i")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             21307 "hi5inw")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             14695 "da2zme")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             22304 "6d2cq8")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             22069 "empndy")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             22304 "amrib3")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             164 "zigvxy")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             21449 "on34dr")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             22304 "169ore")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             11500 "h1htc7")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             2469 "ln9pki")
-                            ("/home/kayon/git/legitimuz-api/start/routes/external.ts"
-                             1197 "b4f0tq")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             2469 "fwmunu")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             11500 "ulsopz")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             12682 "il3dy5")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             164 "32ti3z")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             7371 "paumqj")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             7225 "kxi3q7")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             7371 "iktxzc")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             7225 "yjh5jw")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             7153 "wdhwml")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             7907 "2au6iq")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             7153 "91j1rq")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/SessionModule.ts"
-                             7907 "mucr3s")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             12604 "bg9i90")
-                            ("/home/kayon/git/legitimuz-api/app/Http/Controllers/KycController.ts"
-                             3654 "2rbhd5")
-                            ("/home/kayon/git/legitimuz-api/app/Modules/KYC/KYC.ts"
-                             12604 "p16iu3")])
+                     (0 2
+                        . [("/home/kayon/git/legitimuz-api/start/routes/external.ts"
+                            1 "qdb80i")
+                           ("/home/kayon/git/legitimuz-api/app/Models/ValidationsPersons/ValidationsPersons.ts"
+                            1 "67dt6p")
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil nil nil nil nil nil nil
+                           nil nil nil nil nil nil nil])
                      -1)))
-              (buffer "SessionModule.ts" (selected . t) (hscroll . 0)
-                      (fringes 8 8 t nil) (margins nil)
+              (buffer "ValidationsPersons.ts" (selected . t) (hscroll . 0)
+                      (fringes 0 0 nil nil) (margins nil)
                       (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0)
-                      (dedicated) (point . 20) (start . 1))
-              (prev-buffers ("KYC.ts" 12371 12604)
-                            ("KycController.ts" 3011 3654)
-                            ("external.ts" 526 1445) ("SessionModule.ts" 1 174)
-                            ("doom" 1 88) ("config.el" 4102 4436)
-                            ("ValidationsPersons.ts" 4335 4569))))
+                      (dedicated) (point . 1) (start . 1))
+              (prev-buffers ("external.ts" 1 1) ("ValidationsPersons.ts" 1 1)
+                            ("*scratch*" 1 1) ("page.tsx<2>" 1075 1290)
+                            ("*terminal*" 113930 113938) ("layout.tsx" 1 1)
+                            ("test" 1 84) ("*Messages*" 1 1))))
             (def-params nil) nil nil nil))
