@@ -3,7 +3,7 @@
 while true; do sleep 1; xsetroot -name "$(echo -n " " && date '+%a %k:%M:%S %d-%m-%Y ')"; done &
 xrdb ~/.Xresources
 # setxkbmap br -option ctrl:swapcaps
-# kanata -c ~/dotfiles/kanata/.config/kanata/kanata.kbd
+kanata -c ~/dotfiles/kanata/.config/kanata/kanata.kbd
 
 # Necessary for xdg to properly work on nixos
 dbus-update-activation-environment --systemd DISPLAY
@@ -29,7 +29,7 @@ cbatticon &
 # autostart
 pavucontrol &
 blueman-manager &
-obsidian &
+flatpak run obsidian &
 # dbeaver &
 keepassxc &
 obs &
