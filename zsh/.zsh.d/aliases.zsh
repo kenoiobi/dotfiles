@@ -23,6 +23,7 @@ alias stopcam="sudo modprobe -r uvcvideo"
 
 alias ne="nvim ~/dotfiles/nixos/configuration.nix"
 alias nu="sudo nixos-rebuild switch"
+alias dup="~/dotfiles/deb/apt.sh"
 
 alias ff="find -type f | fzf | xargs nvim"
 
