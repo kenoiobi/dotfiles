@@ -2,8 +2,13 @@
 
 sudo apt update -y
 sudo apt upgrade -y
+
+sudo apt install netselect-apt -y
+netselect-apt
+
 sudo apt install\
     neovim\
+	build-essential\
 	curl\
 	tmux\
 	git\
@@ -25,47 +30,40 @@ sudo apt install\
 	blueman\
 	picom\
 	chromium\
-	slack\
 	stow\
 	trash-cli\
 	lshw\
 	btop\
 	obs-studio\
-	killall\
 	ffmpeg\
-	yazi\
 	alttab\
 	pavucontrol\
 	playerctl\
 	keepassxc\
 	unzip\
-	gnutar\
 	gzip\
 	nodejs\
-	sumneko-lua-language-server\
+	npm\
 	emacs\
 	tree\
-	postman\
 	fastfetch\
-	obsidian\
-	pcsx2\
-	dbeaver-bin\
 	bc\
 	findutils\
 	qbittorrent\
     extrepo\
-    docker\
-    steam-installer\
     flatpak\
+    libx11-dev\
+    libxft-dev\
+    libxinerama-dev\
+    ark\
+    v4l2loopback-dkms\
+    xinput\
+    acpi\
+    apt-transport-https\
     -y
 
 sudo extrepo enable\
     librewolf\
-    slack
 
 sudo apt install\
     librewolf\
-    slack
-
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.discordapp.Discord
