@@ -10,3 +10,6 @@
 [submodule "dwm"]
 	path = dwm
 	url = https://github.com/kenoiobi/dwm
+[submodule "tpm"]
+	path = tmux/.config/tmux/tpm
+	url = https://github.com/tmux-plugins/tpm

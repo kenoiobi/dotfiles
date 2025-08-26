@@ -10,6 +10,7 @@
 	home.packages = [
 		pkgs.neovim
 		pkgs.curl
+		pkgs.wget
 		pkgs.tmux
 		pkgs.git
 		pkgs.rofi
@@ -43,7 +44,6 @@
 		pkgs.yazi
 		pkgs.alttab
 		pkgs.pavucontrol
-		pkgs.discord
 		pkgs.xorg.xev
 		pkgs.playerctl
 		pkgs.keepassxc
@@ -72,6 +72,11 @@
 		pkgs.findutils
 		pkgs.github-desktop
 		pkgs.qbittorrent
+		pkgs.pandoc
+		pkgs.sublime-merge
+		pkgs.v4l-utils
+		pkgs.vscode
+		pkgs.via
 	];
 
 	programs.git = {

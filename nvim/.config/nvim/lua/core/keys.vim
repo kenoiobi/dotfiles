@@ -18,6 +18,9 @@ map <C-x>k :bd!<cr>
 " folding
 map <Tab> za
 
+map J 5j
+map K 5k
+
 " Leader bindings
 map <leader>, :bp<CR>
 map <leader>. :bn<CR>
