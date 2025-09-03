@@ -77,6 +77,9 @@
 		pkgs.v4l-utils
 		pkgs.vscode
 		pkgs.via
+		pkgs.ardour
+		pkgs.bucklespring
+		pkgs.spotify
 	];
 
 	programs.git = {

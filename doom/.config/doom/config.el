@@ -160,4 +160,4 @@
 (setq dired-listing-switches "-goAht --group-directories-first")
 (setq delete-by-moving-to-trash t)
 (setq auto-save-visited-interval 0)
-(auto-save-visited-mode +1)
+;; (auto-save-visited-mode +1)
