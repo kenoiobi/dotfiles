@@ -87,8 +87,14 @@
  "f" #'consult-ripgrep
 
  "TAB s" (lambda () (interactive)
-                (doom/save-session "~/.config/doom/session")
-            )
+           (doom/save-session "~/.config/doom/session")
+           )
+
+ "x" (lambda () (interactive)
+       (doom/open-scratch-buffer)
+       (delete-other-windows)
+       )
+
  "1" #'+workspace/switch-to-0
  "2" #'+workspace/switch-to-1
  "3" #'+workspace/switch-to-2
@@ -160,4 +166,8 @@
 (setq dired-listing-switches "-goAht --group-directories-first")
 (setq delete-by-moving-to-trash t)
 (setq auto-save-visited-interval 0)
+
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
+(display-time-mode t)
 ;; (auto-save-visited-mode +1)
+(require 'org-mouse)
