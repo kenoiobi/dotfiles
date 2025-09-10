@@ -18,7 +18,7 @@ feh --bg-scale ~/dotfiles/wallpaper/wallpaper3.jpg
 redshift &
 dunst &
 blueman-applet &
-picom &
+# picom &
 warp-cli disconnect &
 emacsclient -c &
 # ~/bash/sidebery.sh &
