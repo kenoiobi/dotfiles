@@ -95,6 +95,8 @@ in
 
 	services.libinput.touchpad.naturalScrolling = true;
 
+  programs.kdeconnect.enable = true;
+
 	programs.gamemode.enable = true;
 
 	environment.systemPackages = with pkgs; [

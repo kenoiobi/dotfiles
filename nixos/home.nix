@@ -80,6 +80,16 @@
 		pkgs.ardour
 		pkgs.bucklespring
 		pkgs.spotify
+		pkgs.xdotool
+		pkgs.xorg.xwininfo
+		pkgs.xbindkeys
+		pkgs.gcc
+		pkgs.fd
+		pkgs.scrcpy
+		pkgs.fish
+		pkgs.xonsh
+		pkgs.jless
+		pkgs.bluetui
 	];
 
 	programs.git = {
