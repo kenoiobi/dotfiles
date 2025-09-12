@@ -90,6 +90,7 @@
 		pkgs.xonsh
 		pkgs.jless
 		pkgs.bluetui
+		pkgs.arandr
 	];
 
 	programs.git = {

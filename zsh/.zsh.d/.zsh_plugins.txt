@@ -1,2 +1,1 @@
 zsh-users/zsh-autosuggestions
-jacobpbrugh/zsh-vi-mode
