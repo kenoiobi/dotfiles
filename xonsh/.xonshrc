@@ -1,0 +1,7 @@
+$PROMPT = '{BOLD_GREEN}{cwd_base}{RESET}{curr_branch: {}}{env_name} ➜\n'
+$XONSH_COLOR_STYLE='bw'
+
+execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
+
+aliases["cd"] = "z"
+aliases["l"] = "ls -lah"

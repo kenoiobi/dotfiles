@@ -91,6 +91,7 @@
 		pkgs.jless
 		pkgs.bluetui
 		pkgs.arandr
+		pkgs.vlc
 	];
 
 	programs.git = {
