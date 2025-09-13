@@ -5,3 +5,4 @@ execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
 
 aliases["cd"] = "z"
 aliases["l"] = "ls -lah"
+aliases["token"] = "command nvim ~/drive/passwords/.token"
