@@ -67,7 +67,7 @@ sudo apt install\
     -y
 
 sudo extrepo enable\
-    librewolf\
+  librewolf\
 
 sudo apt install\
     librewolf\

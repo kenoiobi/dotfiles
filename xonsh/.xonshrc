@@ -6,7 +6,7 @@ execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
 
 $PATH.append("$HOME/bin")
 aliases["l"] = "ls -lah"
-aliases["token"] = "command nvim ~/drive/passwords/.token"
+aliases["token"] = "nvim ~/drive/passwords/.token"
 aliases["cd"] = "z @($args) && ls"
 aliases["poweroff"] = "sudo poweroff"
 aliases["reboot"] = "sudo reboot"
