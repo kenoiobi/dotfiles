@@ -4,4 +4,6 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak install flathub\
     com.discordapp.Discord\
     com.valvesoftware.Steam\
-    md.obsidian.Obsidian
+    org.vinegarhq.Sober\
+    md.obsidian.Obsidian\
+    -y

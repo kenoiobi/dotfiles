@@ -1,2 +1,2 @@
 #! /bin/sh
-stow picom xorg lazyvim tmux lf rofi yazi zsh alacritty redshift doom
+stow picom xorg lazyvim tmux lf rofi yazi zsh alacritty redshift doom xonsh
