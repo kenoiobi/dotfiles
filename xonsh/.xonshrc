@@ -1,8 +1,24 @@
 $PROMPT = '{BOLD_GREEN}{cwd_base}{RESET}{curr_branch: {}}{env_name} ➜\n'
-$XONSH_COLOR_STYLE='bw'
+$XONSH_COLOR_STYLE = 'default'
+$EDITOR="nvim"
 
 execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
 
-aliases["cd"] = "z"
+$PATH.append("$HOME/bin")
 aliases["l"] = "ls -lah"
 aliases["token"] = "command nvim ~/drive/passwords/.token"
+aliases["cd"] = "z @($args) && ls"
+aliases["poweroff"] = "sudo poweroff"
+aliases["reboot"] = "sudo reboot"
+
+def _y(args):
+    tmp = $(mktemp -t "yazi-cwd.XXXXXX")
+    args.append(f"--cwd-file={tmp}")
+    $[yazi @(args)]
+    with open(tmp) as f:
+        cwd = f.read()
+    if cwd != $PWD:
+        cd @(cwd)
+    rm -f -- @(tmp)
+
+aliases["y"] = _y

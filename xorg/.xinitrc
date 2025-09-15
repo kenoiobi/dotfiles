@@ -11,7 +11,6 @@ systemctl --user import-environment PATH
 systemctl --user restart xdg-desktop-portal.service
 
 # background processes
-emacs --fg-daemon &
 flameshot &
 lxqt-policykit-agent &
 feh --bg-scale ~/dotfiles/wallpaper/wallpaper3.jpg
@@ -20,24 +19,25 @@ dunst &
 blueman-applet &
 # picom &
 warp-cli disconnect &
-emacsclient -c &
 # ~/bash/sidebery.sh &
 rclone mount drive:/ ~/drive --vfs-cache-mode full &
 nm-applet &
 cbatticon &
+# mechvibes &
+
 
 # autostart
-pavucontrol &
-blueman-manager &
-flatpak run obsidian &
-# dbeaver &
+emacs &
+librewolf &
+
 keepassxc &
 obs &
 Vial &
 
+pavucontrol &
+blueman-manager &
 
-
-xrandr --output DP-1 --off --output DP-2 --off --output DP-3 --mode 1680x1050 --pos 0x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 1680x0 --rotate normal
+xrandr --output DisplayPort-0 --off --output DisplayPort-1 --off --output DisplayPort-2 --mode 1680x1050 --pos 0x0 --rotate normal --output HDMI-A-0 --primary --mode 1920x1080 --pos 1680x0 --rotate normal
 
 # exec qtile start
 exec dwm
