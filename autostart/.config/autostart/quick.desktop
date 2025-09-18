@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=alacritty -e tmux --class quick
+Exec=alacritty --option font.size=14 --class quick -e tmux
 Name=quick
 Type=Application
 Version=1.0

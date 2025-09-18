@@ -64,6 +64,7 @@ sudo apt install\
     fd-find\
     time\
     arandr\
+    docker.io\
     -y
 
 sudo extrepo enable\
