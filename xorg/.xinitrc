@@ -14,7 +14,6 @@ systemctl --user restart xdg-desktop-portal.service
 flameshot &
 lxqt-policykit-agent &
 feh --bg-scale ~/dotfiles/wallpaper/wallpaper3.jpg
-redshift &
 dunst &
 blueman-applet &
 # picom &
