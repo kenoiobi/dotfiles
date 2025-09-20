@@ -592,6 +592,8 @@ i am satisfied with these options
   ;; (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
   ;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . jtsx-tsx-mode))
 
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
+
   ;; (setq js-indent-level 2)
 #+end_src
 
@@ -762,7 +764,7 @@ Love doom themes, generally use this one:
 This font size is really nice for 27 inch monitors
 
 #+begin_src emacs-lisp :tangle yes
-  (add-to-list 'default-frame-alist '(font . "Jetbrains Mono Nerd Font 16"))
+  (add-to-list 'default-frame-alist '(font . "Jetbrains Mono Nerd Font 22"))
 #+end_src
 
 
@@ -978,6 +980,8 @@ Sometimes, you want to edit some write protected files, to do that, you can use 
 #+begin_src emacs-lisp :tangle yes
   (package-install 'auto-sudoedit)
   (auto-sudoedit-mode 1)
+
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
 #+end_src
 
 

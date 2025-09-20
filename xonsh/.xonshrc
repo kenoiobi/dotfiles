@@ -5,8 +5,11 @@ $EDITOR="nvim"
 execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
 
 $PATH.append("$HOME/bin")
+$PATH.append("/home/kayon/Downloads/input-leap-debian-12-latest-libei/input-leap-debian-12-latest-libei/bin")
+aliases["clip"] = "xclip -sel copy"
+aliases["cpdir"] = "pwd | clip"
 aliases["l"] = "ls -lah"
-aliases["token"] = "command nvim ~/drive/passwords/.token"
+aliases["token"] = "nvim ~/drive/passwords/.token"
 aliases["cd"] = "z @($args) && ls"
 aliases["poweroff"] = "sudo poweroff"
 aliases["reboot"] = "sudo reboot"
