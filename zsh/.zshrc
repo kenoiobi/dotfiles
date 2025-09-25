@@ -1,6 +1,7 @@
 autoload -Uz compinit
 compinit
 
+source ~/.profile
 source ~/.zsh.d/settings.zsh
 source ~/.zsh.d/plugins.zsh
 source ~/.zsh.d/keys.zsh

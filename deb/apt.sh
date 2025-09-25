@@ -64,6 +64,7 @@ sudo apt install\
     fd-find\
     time\
     arandr\
+    gdb\
     -y
 
 sudo extrepo enable\

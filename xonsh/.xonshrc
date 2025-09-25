@@ -6,6 +6,8 @@ execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
 
 $PATH.append("$HOME/bin")
 $PATH.append("/home/kayon/Downloads/input-leap-debian-12-latest-libei/input-leap-debian-12-latest-libei/bin")
+$PATH.append("/home/kayon/git/gf")
+
 aliases["clip"] = "xclip -sel copy"
 aliases["cpdir"] = "pwd | clip"
 aliases["l"] = "ls -lah"

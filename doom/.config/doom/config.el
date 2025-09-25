@@ -165,9 +165,9 @@
 (setq show-trailing-whitespace t)
 (setq dired-listing-switches "-goAht --group-directories-first")
 (setq delete-by-moving-to-trash t)
-(setq auto-save-visited-interval 0)
+(setq auto-save-visited-interval 5)
 
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
+;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
 (display-time-mode t)
 ;; (auto-save-visited-mode +1)
-(require 'org-mouse)
+;; (require 'org-mouse)
