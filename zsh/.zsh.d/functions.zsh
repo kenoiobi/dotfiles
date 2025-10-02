@@ -24,3 +24,12 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+function pyinit(){
+    python3 -m venv venv
+    echo "source venv/bin/activate" > .envrc
+    direnv allow
+    cd ..
+    cd -
+    pip list
+}
