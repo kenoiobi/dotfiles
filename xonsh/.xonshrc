@@ -15,6 +15,7 @@ aliases["token"] = "nvim ~/drive/passwords/.token"
 aliases["cd"] = "z @($args) && ls"
 aliases["poweroff"] = "sudo poweroff"
 aliases["reboot"] = "sudo reboot"
+aliases["py"] = "python3"
 
 def _y(args):
     tmp = $(mktemp -t "yazi-cwd.XXXXXX")
@@ -27,3 +28,4 @@ def _y(args):
     rm -f -- @(tmp)
 
 aliases["y"] = _y
+aliases['nvm'] = """bash -c @(f'[ -s "{$HOME}/.nvm/nvm.sh" ] && . "{$HOME}/.nvm/nvm.sh" && nvm {" ".join($args)}')"""
