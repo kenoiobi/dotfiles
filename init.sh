@@ -1,2 +1,4 @@
 #! /bin/sh
-stow picom xorg lazyvim tmux lf rofi yazi zsh alacritty redshift doom xonsh
+stow bash xorg lazyvim tmux lf rofi yazi alacritty redshift doom
+
+cp ./Consolas-Nerd-Font/*.ttf /usr/local/share/fonts/

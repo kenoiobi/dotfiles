@@ -29,3 +29,6 @@ eval "$(direnv hook zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export GOROOT=/home/kayon/.go
+export GOPATH=/home/kayon/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin

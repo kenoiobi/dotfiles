@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 30 :weight 'semi-light)
-     doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 30))
+(setq doom-font (font-spec :family "Consolas Nerd Font" :size 30 :weight 'regular)
+     doom-variable-pitch-font (font-spec :family "Consolas Nerd Font" :size 30))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -167,7 +167,6 @@
 (setq delete-by-moving-to-trash t)
 (setq auto-save-visited-interval 5)
 
-;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
 (display-time-mode t)
 ;; (auto-save-visited-mode +1)
-;; (require 'org-mouse)
