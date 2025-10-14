@@ -94,5 +94,7 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+alias token="nvim ~/drive/passwords/.token"
+
 eval "$(zoxide init bash)"
 eval "$(direnv hook bash)"
