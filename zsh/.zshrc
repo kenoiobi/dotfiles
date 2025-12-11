@@ -39,3 +39,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/home/kayon/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/kayon/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+export GOROOT=/home/kayon/.go
+export GOPATH=/home/kayon/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin

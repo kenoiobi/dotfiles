@@ -64,11 +64,12 @@ sudo apt install\
     fd-find\
     time\
     arandr\
+    docker.io\
     gdb\
     -y
 
 sudo extrepo enable\
-    librewolf\
+  librewolf\
 
 sudo apt install\
     librewolf\

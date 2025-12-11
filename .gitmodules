@@ -13,3 +13,6 @@
 [submodule "tpm"]
 	path = tmux/.config/tmux/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "Consolas-Nerd-Font"]
+	path = Consolas-Nerd-Font
+	url = https://github.com/banDeveloper/Consolas-Nerd-Font
