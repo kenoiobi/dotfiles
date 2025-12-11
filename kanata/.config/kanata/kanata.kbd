@@ -1,19 +1,32 @@
 (defsrc)
 (deflayermap (base-layer)
+    t @thome
+
     caps @move
     lctl caps
     spc @cspc
     rshift @slash
 
-    lmeta lalt
-    lalt (layer-while-held win-layer)
+    lmeta (layer-while-held win-layer)
+
+    slck (layer-switch dvorak)
+    )
+
+
+(deflayermap (dvorak)
+    caps @move
+    lctl caps
+    spc @cspc
+    rshift @slash
+
+    lmeta (layer-while-held win-layer)
 
     ;; top row
     q grv ;; quote
     w ,
     e .
     r p
-    t y
+    t @yhome
 
     y f
     u g
@@ -44,6 +57,8 @@
     , w
     . v
     / z ;; semicolon
+
+    slck (layer-switch base-layer)
     )
 
 (defalias cspc
@@ -52,6 +67,15 @@
 
 (defalias move
 	(tap-hold-press 100 100 esc (layer-while-held move-layer))
+  )
+
+(defalias thome
+	(tap-hold 150 150 t (layer-while-held win-layer))
+  )
+
+
+(defalias yhome
+	(tap-hold 150 150 y (layer-while-held win-layer))
   )
 
 (defalias slash
@@ -104,6 +128,18 @@
     n C-n
     m C-m
     / C-/
+
+    up C-up
+    down C-down
+    left C-left
+    rght C-rght
+
+    home C-home
+    end C-end
+
+    pgup C-pgup
+    pgdn C-pgdn
+
     )
 
 (deflayermap (win-layer)
