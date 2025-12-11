@@ -12,7 +12,6 @@ alias rm="trash-put"
 alias poweroff="sudo poweroff"
 alias py="python3"
 alias drive="~/Downloads/drive"
-
 alias em="emacsclient -t"
 
 alias token="command nvim ~/drive/passwords/.token"
@@ -25,5 +24,6 @@ alias nu="sudo nixos-rebuild switch"
 alias dup="~/dotfiles/deb/apt.sh"
 
 alias ff="find -type f | fzf | xargs nvim"
+alias ft="flattui"
 
 # alias nvim="/home/kayon/Downloads/nvim-linux-x86_64/bin/nvim"

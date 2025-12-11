@@ -609,6 +609,7 @@ Also, prettier, if you're into that
 
 #+begin_src emacs-lisp :tangle yes
   (package-install 'prettier-js)
+  (setq prettier-js-use-modules-bin t)
   (add-to-list 'auto-mode-alist '("\\.js\\'"  . prettier-js-mode))
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . prettier-js-mode))
   (add-to-list 'auto-mode-alist '("\\.ts\\'"  . prettier-js-mode))

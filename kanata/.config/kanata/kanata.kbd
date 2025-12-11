@@ -1,23 +1,63 @@
 (defsrc)
 (deflayermap (base-layer)
-caps @cesc
-lctl caps
-spc @sp
-rshift @slash
-)
+    caps @move
+    lctl caps
+    spc @cspc
+    rshift @slash
 
-(defalias
-	cesc (tap-hold-press 100 100 esc lctl)
-)
+    lmeta lalt
+    lalt (layer-while-held win-layer)
 
-(defalias sp
-	(tap-hold-press 100 100 spc (layer-while-held sp-layer))
-)
+    ;; top row
+    q grv ;; quote
+    w ,
+    e .
+    r p
+    t y
+
+    y f
+    u g
+    i c
+    o r
+    p l
+
+    ;; mid row
+    s o
+    d e
+    f u
+    g i
+
+    h d
+    j h
+    k t
+    l n
+    scln s ;; ç 
+
+    ;; bottom row
+    z / ;; semicolon
+    x q
+    c j
+    v k
+    b x
+
+    n b
+    , w
+    . v
+    / z ;; semicolon
+    )
+
+(defalias cspc
+	(tap-hold-press 100 100 spc (layer-while-held ctrl-layer))
+  )
+
+(defalias move
+	(tap-hold-press 100 100 esc (layer-while-held move-layer))
+  )
 
 (defalias slash
 	(tap-hold-press 100 100 RA-q rshift)
-)
-(deflayermap (sp-layer)
+  )
+(deflayermap (move-layer)
 	w up
 	a lft
 	s down
@@ -34,4 +74,67 @@ rshift @slash
 	y C-pgup
 	h C-pgdn
 	rshift RA-w
-)
+    )
+
+(deflayermap (ctrl-layer)
+    q C-q
+    w C-w
+    e C-e
+    r C-r
+    t C-t
+    y C-y
+    u C-u
+    i C-i
+    o C-o
+    p C-p
+    a C-a
+    s C-s
+    d C-d
+    f C-f
+    g C-g
+    h C-h
+    j C-j
+    k C-k
+    l C-l
+    z C-z
+    x C-x
+    c C-c
+    v C-v
+    b C-b
+    n C-n
+    m C-m
+    / C-/
+    )
+
+(deflayermap (win-layer)
+    q M-q
+    w M-w
+    e M-e
+    r M-r
+    t M-t
+    y M-y
+    u M-u
+    i M-i
+    o M-o
+    p M-p
+    a M-a
+    s M-s
+    d M-d
+    f M-f
+    g M-g
+    h M-h
+    j M-j
+    k M-k
+    l M-l
+    z M-z
+    x M-x
+    c M-c
+    v M-v
+    b M-b
+    n M-n
+    m M-m
+    tab M-tab
+    ret M-ret
+    bspc M-bspc
+    grv M-grv
+    )

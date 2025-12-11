@@ -13,7 +13,7 @@ systemctl --user restart xdg-desktop-portal.service
 # background processes
 flameshot &
 lxqt-policykit-agent &
-feh --bg-scale ~/dotfiles/wallpaper/wallpaper3.jpg
+# feh --bg-scale ~/dotfiles/wallpaper/wallpaper7.jpg
 dunst &
 blueman-applet &
 # picom &

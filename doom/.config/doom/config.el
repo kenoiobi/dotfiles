@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 30 :weight 'semi-light)
-     doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 30))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 24 :weight 'semi-light)
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 24))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -78,34 +78,34 @@
 (setq neo-window-position 'right)
 
 (map! :leader
- "e" #'find-file
- "t" #'term
- "k" #'kill-buffer
- "," #'previous-buffer
- "." #'next-buffer
- "a" #'consult-buffer
- "f" #'consult-ripgrep
+      "e" #'find-file
+      "t" #'term
+      "k" #'kill-buffer
+      "," #'previous-buffer
+      "." #'next-buffer
+      "a" #'consult-buffer
+      "f" #'consult-ripgrep
 
- "TAB s" (lambda () (interactive)
-           (doom/save-session "~/.config/doom/session")
-           )
+      "TAB s" (lambda () (interactive)
+                (doom/save-session "~/.config/doom/session")
+                )
 
- "x" (lambda () (interactive)
-       (doom/open-scratch-buffer)
-       (delete-other-windows)
-       )
+      "x" (lambda () (interactive)
+            (doom/open-scratch-buffer)
+            (delete-other-windows)
+            )
 
- "1" #'+workspace/switch-to-0
- "2" #'+workspace/switch-to-1
- "3" #'+workspace/switch-to-2
- "4" #'+workspace/switch-to-3
- "5" #'+workspace/switch-to-4
- "6" #'+workspace/switch-to-5
- "7" #'+workspace/switch-to-6
- "8" #'+workspace/switch-to-7
- "9" #'+workspace/switch-to-8
- "0" #'+workspace/switch-to-9
- )
+      "1" #'+workspace/switch-to-0
+      "2" #'+workspace/switch-to-1
+      "3" #'+workspace/switch-to-2
+      "4" #'+workspace/switch-to-3
+      "5" #'+workspace/switch-to-4
+      "6" #'+workspace/switch-to-5
+      "7" #'+workspace/switch-to-6
+      "8" #'+workspace/switch-to-7
+      "9" #'+workspace/switch-to-8
+      "0" #'+workspace/switch-to-9
+      )
 
 (map!
  :e
@@ -128,7 +128,7 @@
  "M-a" #'backward-paragraph
  :n
  "M-e" #'forward-paragraph
-)
+ )
 (map!
  "C-<prior>" #'+tabs:previous-or-goto
  "C-<next>" #'+tabs:next-or-goto
@@ -140,16 +140,16 @@
 (add-hook 'find-file-hook 'zoxide-add)
 (add-hook 'dired-mode-hook 'zoxide-add)
 
-(require 'fzf)
+                                        ; (require 'fzf)
 
 (map! :leader
       "z" #'my-zoxide
-)
+      )
 
-(defun my-zoxide () (interactive)
-       (find-file "~/")
-       (fzf-with-command "zoxide query -l" 'find-file)
-       )
+                                        ; (defun my-zoxide () (interactive)
+                                        ;        (find-file "~/")
+                                        ;        (fzf-with-command "zoxide query -l" 'find-file)
+                                        ;        )
 
 
 (global-blamer-mode 1)
