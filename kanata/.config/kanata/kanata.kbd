@@ -2,10 +2,7 @@
 (deflayermap (base-layer)
     t @thome
 
-    caps @move
-    lctl caps
-    spc @cspc
-    rshift @slash
+    caps @move lctl caps spc @cspc
 
     lmeta (layer-while-held win-layer)
 
@@ -98,6 +95,7 @@
 	y C-pgup
 	h C-pgdn
 	rshift RA-w
+    lmeta lmeta
     )
 
 (deflayermap (ctrl-layer)
@@ -140,6 +138,8 @@
     pgup C-pgup
     pgdn C-pgdn
 
+    bspc C-bspc
+    ret C-ret
     )
 
 (deflayermap (win-layer)
@@ -173,4 +173,6 @@
     ret M-ret
     bspc M-bspc
     grv M-grv
+
+    caps lctl
     )
