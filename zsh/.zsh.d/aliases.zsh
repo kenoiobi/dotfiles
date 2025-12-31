@@ -12,7 +12,7 @@ alias rm="trash-put"
 alias poweroff="sudo poweroff"
 alias py="python3"
 alias drive="~/Downloads/drive"
-alias em="emacsclient -t"
+alias e="emacs -nw"
 
 alias token="command nvim ~/drive/passwords/.token"
 
