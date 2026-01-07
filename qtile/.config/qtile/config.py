@@ -108,20 +108,35 @@ keys = [
     Key([mod, "shift"], "y", lazy.layout.move_up(), desc="Toggle fullscreen on the focused window",),
     Key([mod, "shift"], "h", lazy.layout.move_down(), desc="Toggle fullscreen on the focused window",),
 
+    Key([mod], "left", lazy.layout.left(), desc="Toggle fullscreen on the focused window",),
+    Key([mod], "right", lazy.layout.right(), desc="Toggle fullscreen on the focused window",),
+    Key([mod], "down", lazy.layout.down(), desc="Toggle fullscreen on the focused window",),
+    Key([mod], "up", lazy.layout.up(), desc="Toggle fullscreen on the focused window",),
+
+    Key([mod, "shift"], "left", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    Key([mod, "shift"], "right", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod, "shift"], "down", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([mod, "shift"], "up", lazy.layout.shuffle_up(), desc="Move window up"),
+
     # media
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume @DEFAULT_SINK@ .05+")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("wpctl set-volume @DEFAULT_SINK@ .05-")),
+
+    # Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume @DEFAULT_SINK@ .05+")),
+    # Key([], "XF86AudioLowerVolume", lazy.spawn("wpctl set-volume @DEFAULT_SINK@ .05-")),
+
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer set Master 2%+")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer set Master 2%-")),
+
     Key([], "XF86AudioMute", lazy.spawn("amixer sset Master 1+ toggle"), desc="Mute/Unmute Volume"),
     Key([], "Print", lazy.spawn("flameshot full")),
     Key(["shift"], "Print", lazy.spawn("flameshot gui")),
 
     # scratchpads
-    Key(['mod1'], "q", lazy.group['0'].dropdown_toggle('term')),
+    Key(['mod1'], "a", lazy.group['0'].dropdown_toggle('term')),
     Key(['mod1'], "w", lazy.group['0'].dropdown_toggle('whatsapp')),
-    Key(['mod1'], "e", lazy.group['0'].dropdown_toggle('dolphin')),
-    Key(['mod1'], "s", lazy.group['0'].dropdown_toggle('slack')),
-    Key(['mod1'], "d", lazy.group['0'].dropdown_toggle('discord')),
+    # Key(['mod1'], "e", lazy.group['0'].dropdown_toggle('dolphin')),
+    # Key(['mod1'], "s", lazy.group['0'].dropdown_toggle('slack')),
+    # Key(['mod1'], "d", lazy.group['0'].dropdown_toggle('discord')),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -142,18 +157,15 @@ for vt in range(1, 8):
 groups = [
     Group(
         "1",
-        layout="max"
     ),
     Group(
         "2",
         matches=[
             Match(wm_class=["Emacs"]),
         ],
-        layout="treetab",
     ),
     Group(
         "3",
-        layout="max",
     ),
     Group(
         "4",
@@ -161,7 +173,6 @@ groups = [
             Match(wm_class=["DBeaver"]),
             Match(wm_class=["Emacs"]),
         ],
-        layout="max",
     ),
     Group(
         "5",
@@ -170,7 +181,6 @@ groups = [
             Match(wm_class=["KeePassXC"]),
             Match(wm_class=["obs"]),
         ],
-        layout="max",
     ),
     Group("6"),
     Group(
@@ -189,14 +199,15 @@ groups = [
         DropDown(
             "term",
             "alacritty -e tmux",
-            y=0.07, x=0.05, width=0.9, height=0.9,
+            y=0.05, x=0.05, width=0.9, height=0.9,
             opacity=1
         ),
         DropDown(
             "whatsapp",
-            'chromium --user-data-dir=/home/kayon/chrome/whats --app=https://web.whatsapp.com --class="whatsapp"',
-            y=0.07, x=0.05, width=0.9, height=0.9,
-            opacity=1
+            'flatpak run com.rtosta.zapzap',
+            y=0.05, x=0.05, width=0.9, height=0.9,
+            opacity=1,
+            match=Match(wm_class=['zapzap'])
         ),
         DropDown(
             "dolphin",
@@ -251,22 +262,31 @@ keys.extend([
 ])
 
 
-# i only like 3 layouts
+# i like using only two layouts, max and grid
 layouts = [
-    layout.MonadTall(
-        margin=25
-    ),
-    # layout.MonadWide(),
     layout.Max(),
-    layout.Floating(
-        margin=2,
-        border_width=8,
-        border_focus="#000000",
-        border_normal="#000000",
-    ),
-    layout.TreeTab(
-        place_right=True
-    ),
+    layout.Columns(),
+    # layout.Matrix(), # the guy
+    # layout.MonadTall(
+    # margin=25
+    # ),
+    # layout.Stack(num_stacks=2), # maximum of two side by side
+    # layout.Bsp(), # kinda modular
+    # layout.MonadWide(),
+    # layout.RatioTile(), # similar to matrix
+    # layout.Tile(),
+    # layout.TreeTab(),
+    # layout.VerticalTile(), # all vertical
+    # layout.Zoomy(), # one zoom with very small child on right
+    # layout.Floating(
+    #     margin=2,
+    #     border_width=8,
+    #     border_focus="#000000",
+    #     border_normal="#000000",
+    # ),
+    # layout.TreeTab(
+    #     place_right=True
+    # ),
 ]
 
 widget_defaults = dict(
@@ -339,7 +359,7 @@ mouse = [
 # from here on, qtile default config, haven't changed anything
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
-follow_mouse_focus = False
+follow_mouse_focus = True
 bring_front_click = False
 floats_kept_above = True
 cursor_warp = False
