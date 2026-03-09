@@ -100,6 +100,10 @@ keybinds clear-defaults=true {
             LaunchOrFocusPlugin "zellij:about" {
                 floating true
                 move_to_focused_tab true
+                x "10%"
+                y "10%"
+                width "80%"
+                height "80%"
             }
             SwitchToMode "normal"
         }
@@ -107,6 +111,10 @@ keybinds clear-defaults=true {
             LaunchOrFocusPlugin "configuration" {
                 floating true
                 move_to_focused_tab true
+                x "10%"
+                y "10%"
+                width "80%"
+                height "80%"
             }
             SwitchToMode "normal"
         }
@@ -115,6 +123,10 @@ keybinds clear-defaults=true {
             LaunchOrFocusPlugin "plugin-manager" {
                 floating true
                 move_to_focused_tab true
+                x "10%"
+                y "10%"
+                width "80%"
+                height "80%"
             }
             SwitchToMode "normal"
         }
@@ -122,6 +134,10 @@ keybinds clear-defaults=true {
             LaunchOrFocusPlugin "zellij:share" {
                 floating true
                 move_to_focused_tab true
+                x "10%"
+                y "10%"
+                width "80%"
+                height "80%"
             }
             SwitchToMode "normal"
         }
@@ -129,6 +145,10 @@ keybinds clear-defaults=true {
             LaunchOrFocusPlugin "session-manager" {
                 floating true
                 move_to_focused_tab true
+                x "10%"
+                y "10%"
+                width "80%"
+                height "80%"
             }
             SwitchToMode "normal"
         }
@@ -166,18 +186,25 @@ keybinds clear-defaults=true {
         bind "Alt r" { SwitchToMode "renametab"; TabNameInput 0; }
         bind "Alt Shift p" { ToggleGroupMarking; }
         bind "Ctrl q" { Quit; }
-        bind "F1" { ToggleFloatingPanes; }
-        bind "F4" { ToggleFloatingPanes; }
-        bind "F5" {
+        bind "F1" {
             Run "bash" "-c" "./run.sh" {
                 floating true
+                x "10%"
+                y "10%"
+                width "80%"
+                height "80%"
             }
         }
-        bind "F6" {
+        bind "F2" {
             Run "bash" "-c" "./debug.sh" {
                 floating true
+                x "10%"
+                y "10%"
+                width "80%"
+                height "80%"
             }
         }
+        bind "F3" { ToggleFloatingPanes; }
     }
     shared_except "locked" "move" {
         bind "Ctrl h" { SwitchToMode "move"; }
