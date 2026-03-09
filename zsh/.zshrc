@@ -1,3 +1,18 @@
+# fzf history prompt before anything else loads
+_fzf_startup() {
+  local output key selected query
+  output=$(tac ~/.zsh_history | sed 's/^: [0-9]*:[0-9]*;//' | awk '!seen[$0]++' | fzf --print-query --expect=alt-enter --height=40% --reverse --tac +s)
+  query=$(echo "$output" | sed -n '1p')
+  key=$(echo "$output" | sed -n '2p')
+  selected=$(echo "$output" | sed -n '3p')
+  if [[ "$key" == "alt-enter" && -n "$selected" ]]; then
+    _fzf_cmd="$selected"
+  elif [[ -n "$query" ]]; then
+    _fzf_cmd="$query"
+  fi
+}
+# _fzf_startup
+
 autoload -Uz compinit
 compinit
 
@@ -35,11 +50,19 @@ export BUN_INSTALL="$HOME/.local/share/reflex/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; nvm "$@"; }
+node() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; node "$@"; }
+npm() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; npm "$@"; }
+npx() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; npx "$@"; }
 export PATH="/home/kayon/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/kayon/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
 export GOROOT=/home/kayon/.go
 export GOPATH=/home/kayon/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# if [[ -n "$_fzf_cmd" ]]; then
+#   print -s "$_fzf_cmd"
+#   eval "$_fzf_cmd"
+#   unset _fzf_cmd
+# fi

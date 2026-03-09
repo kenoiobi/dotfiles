@@ -124,8 +124,8 @@ keys = [
     # Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume @DEFAULT_SINK@ .05+")),
     # Key([], "XF86AudioLowerVolume", lazy.spawn("wpctl set-volume @DEFAULT_SINK@ .05-")),
 
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer set Master 2%+")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer set Master 2%-")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%")),
 
     Key([], "XF86AudioMute", lazy.spawn("amixer sset Master 1+ toggle"), desc="Mute/Unmute Volume"),
     Key([], "Print", lazy.spawn("flameshot full")),
@@ -157,21 +157,25 @@ for vt in range(1, 8):
 groups = [
     Group(
         "1",
+        Match(wm_instance_class=["steam", "bottles"])
     ),
     Group(
         "2",
         matches=[
-            Match(wm_class=["Emacs"]),
+            Match(wm_instance_class=["emacs"]),
         ],
     ),
     Group(
         "3",
+        matches=[
+            Match(wm_class=["librewolf"])
+        ]
     ),
     Group(
         "4",
         matches=[
             Match(wm_class=["DBeaver"]),
-            Match(wm_class=["Emacs"]),
+            # Match(wm_class=["Emacs"]),
         ],
     ),
     Group(
@@ -182,13 +186,22 @@ groups = [
             Match(wm_class=["obs"]),
         ],
     ),
-    Group("6"),
+    Group(
+        "6",
+        matches=[
+            Match(wm_instance_class=["emacs-dev"]),
+            Match(wm_instance_class=["project-dev"]),
+        ],
+        layout="column"
+    ),
     Group(
         "7",
         matches=[
-            Match(wm_class=[".blueman-manager-wrapped"]),
-            Match(wm_class=["pavucontrol"]),
+            # Match(wm_class=[".blueman-manager-wrapped"]),
+            # Match(wm_class=["pavucontrol"]),
+            Match(wm_instance_class=["chinese"]),
         ],
+        layout="column"
     ),
     Group("8"),
     Group("9"),
@@ -265,7 +278,7 @@ keys.extend([
 # i like using only two layouts, max and grid
 layouts = [
     layout.Max(),
-    layout.Columns(),
+    layout.Columns(name="column"),
     # layout.Matrix(), # the guy
     # layout.MonadTall(
     # margin=25
@@ -391,3 +404,5 @@ wl_xcursor_theme = None
 wl_xcursor_size = 24
 
 wmname = "LG3D"
+
+# subprocess.run("~/dotfiles/qtile/.config/qtile/autostart.sh")

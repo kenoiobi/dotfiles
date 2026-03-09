@@ -1,0 +1,16 @@
+
+flameshot &
+lxqt-policykit-agent &
+
+dunst &
+
+blueman-applet &
+warp-cli disconnect &
+
+rclone mount drive:/ ~/drive --vfs-cache-mode full &
+
+nm-applet &
+cbatticon &
+
+emacs &
+librewolf &

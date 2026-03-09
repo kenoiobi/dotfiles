@@ -1,5 +1,3 @@
-source ~/programming/legitimuz/kycbot/imgs/functions.sh
-
 cd() {
     z $1 && ls
 }
