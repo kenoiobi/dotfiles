@@ -45,4 +45,4 @@ nm-applet &
 # emacs --name chinese ~/drive/orgs/chinese.org &
 
 exec qtile start
-# exec ~/dwm.sh
+# exec dwm
