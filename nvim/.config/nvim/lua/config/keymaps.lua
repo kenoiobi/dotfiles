@@ -35,3 +35,8 @@ map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
 
 map("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight" })
 
+map("n", "<C-;>", "gcc", { remap = true, desc = "Toggle comment" })
+map("v", "<C-;>", "gc", { remap = true, desc = "Toggle comment" })
+map("n", "<leader>;", "gcc", { remap = true, desc = "Toggle comment" })
+map("v", "<leader>;", "gc", { remap = true, desc = "Toggle comment" })
+
