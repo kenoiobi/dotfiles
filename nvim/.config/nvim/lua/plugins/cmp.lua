@@ -77,5 +77,10 @@ return {
                 { name = "buffer" },
             }),
         })
+
+        -- Disable completion in markdown (suggestions not useful; Tab inserts tab)
+        cmp.setup.filetype("markdown", {
+            sources = {},
+        })
     end,
 }

@@ -1,5 +1,5 @@
 alias zup="source ~/.zshrc"
-alias ls='ls --color=auto'
+alias ls='ls -Al --group-directories-first --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'

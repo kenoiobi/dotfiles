@@ -26,6 +26,7 @@ return {
             rust = { "rustfmt" },
             python = { "ruff_format" },
             lua = { "stylua" },
+            sql = { "sqlfmt" },
         },
         format_on_save = function(bufnr)
             local bufname = vim.api.nvim_buf_get_name(bufnr)

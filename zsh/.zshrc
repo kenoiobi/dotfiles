@@ -13,6 +13,7 @@ _fzf_startup() {
 }
 # _fzf_startup
 
+fpath=( ~/.zsh.d $fpath )
 autoload -Uz compinit
 compinit
 
@@ -64,3 +65,4 @@ export GOROOT=/home/kayon/.go
 export PATH=$GOROOT/bin:$PATH
 export GOPATH=/home/kayon/go
 export PATH=$GOPATH/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"

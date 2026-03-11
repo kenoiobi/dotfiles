@@ -1,3 +1,6 @@
+# Use emacs keymap
+bindkey -e
+
 fzf-history-widget() {
   local selected
   selected=$(fc -rln 1 | awk '!seen[$0]++' | fzf --height=40% --reverse +s -q "$LBUFFER")
