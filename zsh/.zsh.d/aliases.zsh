@@ -1,5 +1,5 @@
 alias zup="source ~/.zshrc"
-alias ls='ls -Al --group-directories-first --color=auto'
+alias ls='ls -l --group-directories-first --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
@@ -25,5 +25,6 @@ alias dup="~/dotfiles/deb/apt.sh"
 
 alias ff="find -type f | fzf | xargs nvim"
 alias ft="flattui"
+alias lock="i3lock-fancy"
 
 # alias nvim="/home/kayon/Downloads/nvim-linux-x86_64/bin/nvim"
