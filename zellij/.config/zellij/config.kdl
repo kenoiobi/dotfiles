@@ -18,7 +18,6 @@ keybinds clear-defaults=true {
         bind "l" { MoveFocus "right"; }
         bind "n" { NewPane; SwitchToMode "normal"; }
         bind "p" { SwitchFocus; }
-        bind "Ctrl p" { SwitchToMode "normal"; }
         bind "r" { NewPane "right"; SwitchToMode "normal"; }
         bind "s" { NewPane "stacked"; SwitchToMode "normal"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "normal"; }
@@ -68,7 +67,6 @@ keybinds clear-defaults=true {
         bind "j" { Resize "Increase down"; }
         bind "k" { Resize "Increase up"; }
         bind "l" { Resize "Increase right"; }
-        bind "Ctrl n" { SwitchToMode "normal"; }
     }
     move {
         bind "left" { MovePane "left"; }
@@ -205,6 +203,16 @@ keybinds clear-defaults=true {
             }
         }
         bind "F3" { ToggleFloatingPanes; }
+        bind "Alt s" {
+            Run "bash" "-c" "read -p 'Session name: ' n && zellij action rename-session \"$n\"" {
+                floating true
+                move_to_focused_tab true
+                x "25%"
+                y "40%"
+                width "50%"
+                height "10%"
+            }
+        }
     }
     shared_except "locked" "move" {
         bind "Ctrl h" { SwitchToMode "move"; }
@@ -215,17 +223,8 @@ keybinds clear-defaults=true {
     shared_except "locked" "scroll" "search" "tmux" {
         bind "Ctrl s" { SwitchToMode "tmux"; }
     }
-    shared_except "locked" "scroll" "search" {
-        bind "Ctrl b" { SwitchToMode "scroll"; }
-    }
     shared_except "locked" "tab" {
         bind "Ctrl t" { NewTab; }
-    }
-    shared_except "locked" "pane" {
-        bind "Ctrl p" { SwitchToMode "pane"; }
-    }
-    shared_except "locked" "resize" {
-        bind "Ctrl n" { SwitchToMode "resize"; }
     }
     shared_except "normal" "locked" "entersearch" {
         bind "enter" { SwitchToMode "normal"; }
@@ -233,7 +232,7 @@ keybinds clear-defaults=true {
     shared_except "normal" "locked" "entersearch" "renametab" "renamepane" {
         bind "esc" { SwitchToMode "normal"; }
     }
-    shared_among "pane" "tmux" {
+    pane {
         bind "x" { CloseFocus; SwitchToMode "normal"; }
     }
     shared_among "scroll" "search" {
@@ -246,12 +245,10 @@ keybinds clear-defaults=true {
         bind "Ctrl s" { PageScrollUp; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "normal"; }
         bind "d" { HalfPageScrollDown; }
-        bind "Ctrl f" { PageScrollDown; }
         bind "h" { PageScrollUp; }
         bind "j" { ScrollDown; }
         bind "k" { ScrollUp; }
         bind "l" { PageScrollDown; }
-        bind "Ctrl b" { SwitchToMode "normal"; }
         bind "u" { HalfPageScrollUp; }
     }
     entersearch {
@@ -268,32 +265,37 @@ keybinds clear-defaults=true {
     renamepane {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
     }
-    shared_among "session" "tmux" {
+    session {
         bind "d" { Detach; }
     }
     tmux {
-        bind "left" { MoveFocus "left"; SwitchToMode "normal"; }
-        bind "down" { MoveFocus "down"; SwitchToMode "normal"; }
-        bind "up" { MoveFocus "up"; SwitchToMode "normal"; }
-        bind "right" { MoveFocus "right"; SwitchToMode "normal"; }
-        bind "space" { NextSwapLayout; }
-        bind "1" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+        // Emacs C-x style: Ctrl+S is prefix, every key returns to normal
+        // C-s 2 — split below      (C-x 2)
         bind "2" { NewPane "down"; SwitchToMode "normal"; }
+        // C-s 3 — split right      (C-x 3)
         bind "3" { NewPane "right"; SwitchToMode "normal"; }
-        bind "\"" { NewPane "down"; SwitchToMode "normal"; }
-        bind "%" { NewPane "right"; SwitchToMode "normal"; }
-        bind "," { SwitchToMode "renametab"; }
-        bind "[" { SwitchToMode "scroll"; }
-        bind "Ctrl s" { Write 19; SwitchToMode "normal"; }
-        bind "c" { NewTab; SwitchToMode "normal"; }
-        bind "h" { MoveFocus "left"; SwitchToMode "normal"; }
-        bind "j" { MoveFocus "down"; SwitchToMode "normal"; }
-        bind "k" { MoveFocus "up"; SwitchToMode "normal"; }
-        bind "l" { MoveFocus "right"; SwitchToMode "normal"; }
+        // C-s o — other pane        (C-x o)
+        bind "o" { FocusNextPane; SwitchToMode "normal"; }
+        // C-s 0 — close pane        (C-x 0)
+        bind "0" { CloseFocus; SwitchToMode "normal"; }
+        // C-s 1 — fullscreen        (C-x 1)
+        bind "1" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+        // C-s k — kill pane          (C-x k)
+        bind "k" { CloseFocus; SwitchToMode "normal"; }
+        // C-s b — switch tab         (C-x b)
+        bind "b" { ToggleTab; SwitchToMode "normal"; }
+        // C-s n — next tab
         bind "n" { GoToNextTab; SwitchToMode "normal"; }
-        bind "o" { FocusNextPane; }
+        // C-s p — previous tab
         bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
-        bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+        // C-s c — new tab
+        bind "c" { NewTab; SwitchToMode "normal"; }
+        // C-s d — detach
+        bind "d" { Detach; }
+        // C-s [ — scroll mode
+        bind "[" { SwitchToMode "scroll"; }
+        // C-s Ctrl+s — passthrough Ctrl+S
+        bind "Ctrl s" { Write 19; SwitchToMode "normal"; }
     }
 }
 
@@ -301,7 +303,9 @@ keybinds clear-defaults=true {
 // changing these requires a restart to take effect
 plugins {
     about location="zellij:about"
-    compact-bar location="zellij:compact-bar"
+    compact-bar location="zellij:compact-bar" {
+        tooltip "Ctrl g"
+    }
     configuration location="zellij:configuration"
     filepicker location="zellij:strider" {
         cwd "/"
@@ -385,7 +389,7 @@ simplified_ui false
 // The name of the default layout to load on startup
 // Default: "default"
 // 
-// default_layout "compact"
+default_layout "compact"
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)

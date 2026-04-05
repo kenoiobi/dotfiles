@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Consolas Nerd Font" :size 30 :weight 'regular)
-     doom-variable-pitch-font (font-spec :family "Consolas Nerd Font" :size 30))
+(setq doom-font (font-spec :family "Consolas Nerd Font" :size 40 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "Consolas Nerd Font" :size 40))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -107,28 +107,28 @@
       "0" #'+workspace/switch-to-9
       )
 
-(map!
- :e
- "<escape>" (lambda () (interactive)
-              (evil-normal-state)
-              )
+;; (map!
+;;  :e
+;;  "<escape>" (lambda () (interactive)
+;;               (evil-normal-state)
+;;               )
 
- :i
- "C-p" #'previous-line
- :i
- "C-n" #'next-line
- :i
- "M-a" #'backward-paragraph
- :i
- "M-e" #'forward-paragraph
+;;  :i
+;;  "C-p" #'previous-line
+;;  :i
+;;  "C-n" #'next-line
+;;  :i
+;;  "M-a" #'backward-paragraph
+;;  :i
+;;  "M-e" #'forward-paragraph
 
- :n
- "C-e" #'doom/forward-to-last-non-comment-or-eol
- :n
- "M-a" #'backward-paragraph
- :n
- "M-e" #'forward-paragraph
- )
+;;  :n
+;;  "C-e" #'doom/forward-to-last-non-comment-or-eol
+;;  :n
+;;  "M-a" #'backward-paragraph
+;;  :n
+;;  "M-e" #'forward-paragraph
+;;  )
 (map!
  "C-<prior>" #'+tabs:previous-or-goto
  "C-<next>" #'+tabs:next-or-goto
@@ -165,8 +165,13 @@
 (setq show-trailing-whitespace t)
 (setq dired-listing-switches "-goAht --group-directories-first")
 (setq delete-by-moving-to-trash t)
-(setq auto-save-visited-interval 5)
+(setq auto-save-visited-interval 1)
 
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
 (display-time-mode t)
 ;; (auto-save-visited-mode +1)
+
+(after! evil
+  (setq evil-disable-insert-state-bindings t))
+
+(auto-save-visited-mode +1)

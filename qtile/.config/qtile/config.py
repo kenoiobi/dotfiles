@@ -133,9 +133,9 @@ keys = [
 
     # scratchpads
     Key(['mod1'], "a", lazy.group['0'].dropdown_toggle('term')),
-    Key(['mod1'], "w", lazy.group['0'].dropdown_toggle('whatsapp')),
+    Key(['mod1'], "comma", lazy.group['0'].dropdown_toggle('whatsapp')),
     # Key(['mod1'], "e", lazy.group['0'].dropdown_toggle('dolphin')),
-    # Key(['mod1'], "s", lazy.group['0'].dropdown_toggle('slack')),
+    Key(['mod1'], "o", lazy.group['0'].dropdown_toggle('slack')),
     # Key(['mod1'], "d", lazy.group['0'].dropdown_toggle('discord')),
 ]
 
@@ -217,10 +217,10 @@ groups = [
         ),
         DropDown(
             "whatsapp",
-            'flatpak run com.rtosta.zapzap',
+            'chromium --user-data-dir=/home/kayon/chrome/whats --app=https://web.whatsapp.com --class="whatsapp"',
             y=0.05, x=0.05, width=0.9, height=0.9,
             opacity=1,
-            match=Match(wm_class=['zapzap'])
+            match=Match(wm_class=['whatsapp'])
         ),
         DropDown(
             "dolphin",
@@ -343,6 +343,15 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Spacer(),
+                widget.Sep(padding=10),
+                widget.Battery(
+                    format="{char} {percent:2.0%}",
+                    charge_char="CHR",
+                    discharge_char="BAT",
+                    full_char="FULL",
+                    low_percentage=0.15,
+                    low_foreground="FF0000",
+                ),
                 widget.Sep(padding=10),
                 widget.Clock(format="%H:%M"),
                 widget.Sep(padding=10),

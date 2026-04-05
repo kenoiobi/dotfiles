@@ -3,14 +3,15 @@ local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
-opt.signcolumn = "yes"
+opt.signcolumn = "yes:1"
 
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
 
-opt.wrap = false
+opt.wrap = true
+opt.linebreak = true
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 

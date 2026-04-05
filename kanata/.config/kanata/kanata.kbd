@@ -1,8 +1,9 @@
 (defsrc)
 (deflayermap (base-layer)
-    t @thome
 
-    caps @move lctl caps spc @cspc
+    caps @move
+    lctl caps
+    spc @cspc
 
     lmeta (layer-while-held win-layer)
 
@@ -67,7 +68,7 @@
   )
 
 (defalias thome
-	(tap-hold 150 150 t (layer-while-held win-layer))
+	(tap-hold 150 150 f (layer-while-held win-layer))
   )
 
 
@@ -95,7 +96,9 @@
 	y C-pgup
 	h C-pgdn
 	rshift RA-w
-    lmeta lmeta
+    spc lctl
+    1 (dynamic-macro-play 0)
+    f1 (dynamic-macro-record 0)
     )
 
 (deflayermap (ctrl-layer)
@@ -174,5 +177,13 @@
     bspc M-bspc
     grv M-grv
 
-    caps lctl
+
+    up M-up
+    down M-down
+    left M-left
+    rght M-rght
+    )
+
+(defchordsv2
+    (j k) scln 200 all-released (base-layer)
     )

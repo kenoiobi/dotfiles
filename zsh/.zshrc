@@ -13,6 +13,7 @@ _fzf_startup() {
 }
 # _fzf_startup
 
+fpath=( ~/.zsh.d $fpath )
 autoload -Uz compinit
 compinit
 
@@ -37,6 +38,7 @@ export PATH=$GOPATH/bin:$PATH
 # hooks (zoxide, direnv)
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
+eval $(thefuck --alias -r)
 
 # bun completions
 [ -s "/home/kayon/.bun/_bun" ] && source "/home/kayon/.bun/_bun"
@@ -50,10 +52,8 @@ export BUN_INSTALL="$HOME/.local/share/reflex/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
-nvm() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; nvm "$@"; }
-node() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; node "$@"; }
-npm() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; npm "$@"; }
-npx() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; npx "$@"; }
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/home/kayon/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/kayon/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
@@ -61,8 +61,19 @@ export GOROOT=/home/kayon/.go
 export GOPATH=/home/kayon/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-# if [[ -n "$_fzf_cmd" ]]; then
-#   print -s "$_fzf_cmd"
-#   eval "$_fzf_cmd"
-#   unset _fzf_cmd
-# fi
+# GoLang
+export GOROOT=/home/kayon/.go
+export PATH=$GOROOT/bin:$PATH
+export GOPATH=/home/kayon/go
+export PATH=$GOPATH/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
+export ANDROID_HOME=~/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tool
+
+# pnpm
+export PNPM_HOME="/home/kayon/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

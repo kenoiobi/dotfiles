@@ -17,6 +17,7 @@ return {
                     "tailwindcss",
                     "gopls",
                     "rust_analyzer",
+                    "marksman",
                 },
             })
         end,
@@ -33,6 +34,7 @@ return {
                     "goimports",
                     "gofumpt",
                     "ruff",
+                    "sqlfmt",
                 },
             })
         end,
@@ -137,6 +139,11 @@ return {
                         },
                     },
                 },
+            })
+
+            -- Markdown (diagnostics, link following, toc)
+            lspconfig.marksman.setup({
+                capabilities = capabilities,
             })
 
             vim.api.nvim_create_autocmd("LspAttach", {
