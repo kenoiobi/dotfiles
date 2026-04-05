@@ -14,6 +14,7 @@ return {
             vim.keymap.set("n", "<CR>", api.node.open.tab, opts("Open in new tab"))
             vim.keymap.set("n", "<2-LeftMouse>", api.node.open.tab, opts("Open in new tab"))
             vim.keymap.set("n", "s", api.node.open.edit, opts("Open in current window"))
+            vim.keymap.set("n", "C", api.tree.change_root_to_node, opts("CD: set folder as root"))
             vim.keymap.set("n", "<C-x>", function()
                 local char = vim.fn.getcharstr()
                 if char == "o" then
@@ -57,6 +58,11 @@ return {
 
         vim.api.nvim_create_autocmd("VimEnter", {
             callback = function()
+                -- Terminal cells are ~2x taller than wide, so on a 16:9 screen
+                -- columns/lines ≈ 3.5, on 9:16 ≈ 1.1. Skip tree on portrait / tall.
+                if vim.o.columns / vim.o.lines <= 2.5 then
+                    return
+                end
                 require("nvim-tree.api").tree.open()
                 vim.cmd("wincmd p")
             end,

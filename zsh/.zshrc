@@ -38,6 +38,7 @@ export PATH=$GOPATH/bin:$PATH
 # hooks (zoxide, direnv)
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
+eval $(thefuck --alias -r)
 
 # bun completions
 [ -s "/home/kayon/.bun/_bun" ] && source "/home/kayon/.bun/_bun"
@@ -66,3 +67,13 @@ export PATH=$GOROOT/bin:$PATH
 export GOPATH=/home/kayon/go
 export PATH=$GOPATH/bin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
+export ANDROID_HOME=~/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tool
+
+# pnpm
+export PNPM_HOME="/home/kayon/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

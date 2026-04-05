@@ -232,7 +232,7 @@ keybinds clear-defaults=true {
     shared_except "normal" "locked" "entersearch" "renametab" "renamepane" {
         bind "esc" { SwitchToMode "normal"; }
     }
-    shared_among "pane" "tmux" {
+    pane {
         bind "x" { CloseFocus; SwitchToMode "normal"; }
     }
     shared_among "scroll" "search" {
@@ -265,32 +265,37 @@ keybinds clear-defaults=true {
     renamepane {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
     }
-    shared_among "session" "tmux" {
+    session {
         bind "d" { Detach; }
     }
     tmux {
-        bind "left" { MoveFocus "left"; SwitchToMode "normal"; }
-        bind "down" { MoveFocus "down"; SwitchToMode "normal"; }
-        bind "up" { MoveFocus "up"; SwitchToMode "normal"; }
-        bind "right" { MoveFocus "right"; SwitchToMode "normal"; }
-        bind "space" { NextSwapLayout; }
-        bind "1" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+        // Emacs C-x style: Ctrl+S is prefix, every key returns to normal
+        // C-s 2 — split below      (C-x 2)
         bind "2" { NewPane "down"; SwitchToMode "normal"; }
+        // C-s 3 — split right      (C-x 3)
         bind "3" { NewPane "right"; SwitchToMode "normal"; }
-        bind "\"" { NewPane "down"; SwitchToMode "normal"; }
-        bind "%" { NewPane "right"; SwitchToMode "normal"; }
-        bind "," { SwitchToMode "renametab"; }
-        bind "[" { SwitchToMode "scroll"; }
-        bind "Ctrl s" { Write 19; SwitchToMode "normal"; }
-        bind "c" { NewTab; SwitchToMode "normal"; }
-        bind "h" { MoveFocus "left"; SwitchToMode "normal"; }
-        bind "j" { MoveFocus "down"; SwitchToMode "normal"; }
-        bind "k" { MoveFocus "up"; SwitchToMode "normal"; }
-        bind "l" { MoveFocus "right"; SwitchToMode "normal"; }
+        // C-s o — other pane        (C-x o)
+        bind "o" { FocusNextPane; SwitchToMode "normal"; }
+        // C-s 0 — close pane        (C-x 0)
+        bind "0" { CloseFocus; SwitchToMode "normal"; }
+        // C-s 1 — fullscreen        (C-x 1)
+        bind "1" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+        // C-s k — kill pane          (C-x k)
+        bind "k" { CloseFocus; SwitchToMode "normal"; }
+        // C-s b — switch tab         (C-x b)
+        bind "b" { ToggleTab; SwitchToMode "normal"; }
+        // C-s n — next tab
         bind "n" { GoToNextTab; SwitchToMode "normal"; }
-        bind "o" { FocusNextPane; }
+        // C-s p — previous tab
         bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
-        bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+        // C-s c — new tab
+        bind "c" { NewTab; SwitchToMode "normal"; }
+        // C-s d — detach
+        bind "d" { Detach; }
+        // C-s [ — scroll mode
+        bind "[" { SwitchToMode "scroll"; }
+        // C-s Ctrl+s — passthrough Ctrl+S
+        bind "Ctrl s" { Write 19; SwitchToMode "normal"; }
     }
 }
 
