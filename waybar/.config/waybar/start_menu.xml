@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="GtkMenu" id="menu">
+    <child>
+      <object class="GtkMenuItem" id="apps_rofi">
+        <property name="label">Applications…</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="sep1" />
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="lock_screen">
+        <property name="label">Lock screen</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="log_out">
+        <property name="label">Log out</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="sep2" />
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="reboot">
+        <property name="label">Reboot</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="shutdown">
+        <property name="label">Shut down</property>
+      </object>
+    </child>
+  </object>
+</interface>
