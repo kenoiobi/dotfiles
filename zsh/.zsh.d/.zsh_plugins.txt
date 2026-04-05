@@ -1,1 +1,2 @@
+Aloxaf/fzf-tab
 zsh-users/zsh-autosuggestions

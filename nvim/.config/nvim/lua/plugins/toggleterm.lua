@@ -38,8 +38,5 @@ return {
                 a:spawn()
             end,
         })
-        vim.keymap.set("n", "<leader>a", function()
-            get_agent():toggle()
-        end, { desc = "Cursor Agent" })
     end,
 }
