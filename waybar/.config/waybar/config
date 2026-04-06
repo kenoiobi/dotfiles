@@ -38,7 +38,7 @@
         "on-scroll-down": "hyprctl dispatch workspace r-1"
     },
     "custom/os_button": {
-        "format": "",
+        "format": "\uf17a",
         "tooltip": false,
         "menu": "on-click",
         "menu-file": "/home/kayon/.config/waybar/start_menu.xml",

@@ -28,3 +28,4 @@ alias ft="flattui"
 alias lock="i3lock-fancy"
 
 # alias nvim="/home/kayon/Downloads/nvim-linux-x86_64/bin/nvim"
+alias suspend='systemd-inhibit --what=sleep --who="manual" --why="keep active" sleep infinity'
