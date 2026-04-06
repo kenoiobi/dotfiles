@@ -9,28 +9,23 @@
     "height": 48,
     "modules-left": [
         "custom/os_button",
-        "hyprland/workspaces#nav"
+        "hyprland/workspaces#nav",
+        "cpu",
+        "temperature",
+        "memory",
+        "disk"
     ],
     "modules-center": [
         "hyprland/workspaces#taskbar"
     ],
     "modules-right": [
-        "cpu",
-        "temperature",
-        "memory",
-        "disk",
-        "tray",
-        "pulseaudio",
         "network",
+        "bluetooth",
         "battery",
-        "hyprland/language",
+        "pulseaudio",
+        "tray",
         "clock"
     ],
-    "hyprland/language": {
-        "format": "{}",
-        "format-en": "ENG",
-        "format-ru": "РУС"
-    },
     "hyprland/workspaces#nav": {
         "icon-size": 36,
         "spacing": 16,
@@ -95,7 +90,7 @@
         "spacing": 3
     },
     "clock": {
-        "format": "      {:%R\n %d.%m.%Y}",
+        "format": "      {:%R\n %d/%m/%Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "year",
@@ -120,16 +115,36 @@
         }
     },
     "network": {
-        "format-wifi": " {icon}",
-        "format-ethernet": "  ",
+        "interval": 5,
+        "format-wifi": "{essid:.14} {icon}",
+        "format-ethernet": " {ifname}",
         "format-disconnected": "󰌙",
+        "tooltip-format": "{ifname}",
+        "tooltip-format-wifi": "{essid}\n{ipaddr}\n{signalStrength}% · {bandwidthDownBytes}↓ {bandwidthUpBytes}↑",
+        "tooltip-format-ethernet": "{ifname}\n{ipaddr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 22,
+        "on-click": "nm-connection-editor",
         "format-icons": [
-            "󰤯 ",
-            "󰤟 ",
-            "󰤢 ",
-            "󰤢 ",
-            "󰤨 "
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤢",
+            "󰤨"
         ]
+    },
+    "bluetooth": {
+        "format": "",
+        "format-off": "",
+        "format-on": "",
+        "format-disabled": "",
+        "format-connected": "",
+        "format-connected-battery": "",
+        "format-no-controller": "",
+        "tooltip-format": "Bluetooth — open Blueman",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "on-click": "blueman-manager"
     },
     "battery": {
         "states": {

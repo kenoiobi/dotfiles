@@ -158,10 +158,6 @@ tooltip label {
   margin-right: 20px;
 }
 
-#tray {
-  margin-left: 5px;
-  margin-right: 5px;
-}
 #tray > .passive {
   border-bottom: none;
 }
@@ -191,11 +187,28 @@ tooltip label {
 #network {
   padding-left: 3px;
   padding-right: 3px;
+  font-family: "JetBrainsMono Nerd Font";
+  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+#network:hover {
+  background: @bg_hover;
 }
 
-#language {
-  padding-left: 5px;
-  padding-right: 5px;
+#bluetooth {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 20px;
+  padding-left: 3px;
+  padding-right: 3px;
+  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+#bluetooth:hover {
+  background: @bg_hover;
+}
+#bluetooth.connected {
+  color: #66bb6a;
+}
+#bluetooth.connected:hover {
+  color: #81c784;
 }
 
 #clock {
@@ -205,6 +218,26 @@ tooltip label {
 }
 #clock:hover {
   background: @bg_hover;
+}
+
+/* horizontal gap between right-side modules */
+#cpu,
+#temperature,
+#memory,
+#disk,
+#tray,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#clock {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+/* space between workspace nav and performance (left strip) */
+#cpu {
+  margin-left: 14px;
 }
 
 /* Waybar Custom → GtkMenu (start button) */
