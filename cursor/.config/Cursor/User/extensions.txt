@@ -1,0 +1,4 @@
+barnim.markdown-code-copy-button
+esbenp.prettier-vscode
+vscodevim.vim
+yzhang.markdown-all-in-one

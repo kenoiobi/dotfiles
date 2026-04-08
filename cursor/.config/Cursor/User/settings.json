@@ -1,0 +1,38 @@
+{
+  "window.commandCenter": true,
+  "cursor.composer.usageSummaryDisplay": "always",
+  "workbench.sideBar.location": "right",
+  "vim.handleKeys": {
+    "<C-j>": false,
+  },
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<CR>"],
+      "commands": ["markdown.extension.checkTaskList"],
+    },
+    {
+      "before": ["<C-x>", "h"],
+      "commands": ["editor.action.selectAll"],
+    },
+    {
+      "before": ["<leader>", "<leader>"],
+      "commands": ["workbench.action.quickOpen"],
+    },
+  ],
+  "vim.useSystemClipboard": true,
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+  },
+}
