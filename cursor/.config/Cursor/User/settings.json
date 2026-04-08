@@ -1,7 +1,9 @@
 {
   "window.commandCenter": true,
-  "cursor.composer.usageSummaryDisplay": "always",
   "workbench.sideBar.location": "right",
+  "workbench.colorTheme": "Solarized Light",
+  "cursor.composer.usageSummaryDisplay": "always",
+  "cursor.composer.shouldChimeAfterChatFinishes": true,
   "vim.handleKeys": {
     "<C-j>": false,
   },
@@ -31,6 +33,16 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 4,
+    "editor.indentSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "prettier.tabWidth": 4,
+    "vim.tabstop": 4,
+    "vim.shiftwidth": 4,
   },
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit",
